@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manka Realty | Premium Real Estate Consultancy Mumbai</title>
+    <meta name="description" content="Manka Realty is a professional real estate consultancy firm in Mumbai built on trust and driven by service. Specializing in high-end residential and commercial properties.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="index.css?v=1.1.0">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="main-header" id="header">
+        <div class="header-container">
+            <div class="logo-wrapper">
+                <a href="#hero" class="logo" id="logo-link">
+                    <img src="assets/images/logo.png?v=2" alt="Manka Realty Logo" class="logo-image">
+                    <div class="logo-text">
+                        <span class="brand-name">MANKA REALTY</span>
+                        <span class="brand-tagline">"way to your New Home"</span>
+                    </div>
+                </a>
+            </div>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="#hero" class="nav-link active">HOME</a></li>
+                    <li><a href="#about" class="nav-link">ABOUT</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="nav-link dropdown-toggle">
+                            PROPERTIES <i class="fa-solid fa-chevron-down" style="font-size: 0.65rem; margin-left: 4px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="residential.html" class="dropdown-link">Residential</a></li>
+                            <li><a href="commercial.html" class="dropdown-link">Commercial</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#choose-us" class="nav-link">WHY CHOOSE US</a></li>
+                    <li><a href="#expertise" class="nav-link">SERVICES</a></li>
+                    <li><a href="#contact" class="nav-link">CONTACT</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-right">
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (High Quality Video Background on 1st Page) -->
+    <section class="hero-section" id="hero">
+        <div class="video-background">
+            <video autoplay muted loop playsinline id="hero-video" poster="assets/images/hero1.jpg">
+                <source src="assets/videos/hero.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+        
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge animate-fade-in">PREMIUM REAL-ESTATE CONSULTANCY</div>
+                <h1 class="hero-title animate-slide-up">The Right Property Starts With the Right Guidance.</h1>
+                <p class="hero-subtitle animate-slide-up-delay">Over 12 years of trusted consultancy matching discerning clients with high-end residential, commercial, and project across Mumbai.</p>
+                <div class="hero-actions animate-slide-up-double">
+                    <a href="#showcase" class="btn btn-primary" id="explore-cta">EXPLORE LISTINGS</a>
+                    <a href="https://wa.me/918928770059" target="_blank" class="btn btn-secondary whatsapp-btn" id="whatsapp-hero-cta">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>+91 89287 70059</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Showcase Section (99acres card layout, 10 property cards carousel) -->
+    <section class="showcase-section" id="showcase">
+        <div class="section-container">
+            <div class="text-center-wrapper">
+                <span class="section-tag">HANDPICKED SHOWCASE</span>
+                <h2 class="section-title text-center font-premium-h2">Featured Properties</h2>
+                <p class="section-subtitle text-center">Swipe or view our selective commercial and residential portfolio.</p>
+            </div>
+
+            <!-- Showcase Tabs (Only Residential & Commercial - Beautifully Styled Buttons) -->
+            <div class="showcase-tabs-container">
+                <div class="showcase-tabs">
+                    <button class="tab-btn active" data-filter="residential">
+                        <i class="fa-solid fa-house-user"></i>
+                        <span>Residential Portfolio</span>
+                    </button>
+                    <button class="tab-btn" data-filter="commercial">
+                        <i class="fa-solid fa-building-shield"></i>
+                        <span>Commercial Portfolio</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loop Property Carousel (Holds 10 Properties) -->
+            <div class="properties-carousel-container">
+                <button class="carousel-nav prev-btn" id="slide-prev" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
+                
+                <div class="properties-carousel-track-wrapper">
+                    <div class="properties-carousel-track" id="properties-slider-track">
+                        <!-- RESIDENTIAL 1 (bg-cream) -->
+                        <div class="property-card bg-cream" data-category="residential">
+                            <div class="property-card-header">
+                                <h3>Builder Floor</h3>
+                                <p class="property-count">800+ Properties Sold</p>
+                            </div>
+                            <div class="property-image-wrapper">
+                                <span class="property-price-badge">₹2.45 Cr</span>
+                                <img src="assets/images/hero3.jpg" alt="3 BHK Premium Suite Bandra West">
+                            </div>
+                            <div class="property-card-body">
+                                <p class="property-desc">Spacious high-rise apartment with premium wooden flooring, smart automation, and private deck overlooking the Bandra coastline.</p>
+                                <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty%2C%20I%20am%20interested%20in%20the%20Builder%20Floor%20Residential%20property." target="_blank" class="card-action-btn">
+                                    INQUIRE VIA WHATSAPP &rarr;
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- RESIDENTIAL 2 (bg-peach) -->
+                        <div class="property-card bg-peach" data-category="residential">
+                            <div class="property-card-header">
+                                <h3>Residential Land</h3>
+                                <p class="property-count">450+ Plots Handled</p>
+                            </div>
+                            <div class="property-image-wrapper">
+                                <span class="property-price-badge">₹1.35 Cr</span>
+                                <img src="assets/images/about_small.jpg" alt="2 BHK Elite Apartment Khar West">
+                            </div>
+                            <div class="property-card-body">
+                                <p class="property-desc">Vastu-compliant luxury apartment and clear title plots in a gated community. Includes gym, pool, and 24/7 security.</p>
+                                <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty%2C%20I%20am%20interested%20in%20the%20Residential%20Land%20property." target="_blank" class="card-action-btn">
+                                    INQUIRE VIA WHATSAPP &rarr;
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- RESIDENTIAL 3 (bg-green) -->
+                        <div class="property-card bg-green" data-category="residential">
+                            <div class="property-card-header">
+                                <h3>Luxury Penthouse</h3>
+                                <p class="property-count">120+ Estates Managed</p>
+                            </div>
+                            <div class="property-image-wrapper">
+                                <span class="property-price-badge">₹14.50 Cr</span>
+                                <img src="assets/images/hero2.jpg" alt="Duplex Sea-View Penthouse Worli">
+                            </div>
+                            <div class="property-card-body">
+                                <p class="property-desc">Stunning Worli Sea Face duplex with a private sky terrace, infinity dip pool, concierge services, and bespoke Italian kitchen fittings.</p>
+                                <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty%2C%20I%20am%20interested%20in%20the%20Luxury%20Penthouse%20property." target="_blank" class="card-action-btn">
+                                    INQUIRE VIA WHATSAPP &rarr;
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- RESIDENTIAL 4 (bg-blue) -->
+                        <div class="property-card bg-blue" data-category="residential">
+                            <div class="property-card-header">
+                                <h3>Premium Villa</h3>
+                                <p class="property-count">210+ Villas Traded</p>
+                            </div>
+                            <div class="property-image-wrapper">
+                                <span class="property-price-badge">₹9.80 Cr</span>
+                                <img src="assets/images/about_large.jpg" alt="5 BHK Independent Villa Juhu">
+                            </div>
+                            <div class="property-card-body">
+                                <p class="property-desc">Sophisticated independent villa in Juhu with a private landscaped lawn, high perimeter security, and personal elevator options.</p>
+                                <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty%2C%20I%20am%20interested%20in%20the%20Premium%20Villa%20property." target="_blank" class="card-action-btn">
+                                    INQUIRE VIA WHATSAPP &rarr;
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- RESIDENTIAL 5 (bg-cream) -->
+                        <div class="property-card bg-cream" data-category="residential">
+                            <div class="property-card-header">
+                                <h3>Gated Row House</h3>
+                                <p class="property-count">330+ Homes Leased</p>
+                            </div>
+                            <div class="property-image-wrapper">
+                                <span class="property-price-badge">₹3.20 Cr</span>
+                                <img src="assets/images/hero1.jpg" alt="3 BHK Powai Row House">
+                            </div>
+                            <div class="property-card-body">
+                                <p class="property-desc">Multi-level row house in a premium Powai residential enclave, featuring a private backyard, open study room, and modular layout.</p>
+                                <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty%2C%20I%20am%20interested%20in%20the%20Gated%20Row%20House%20property." target="_blank" class="card-action-btn">
+                                    INQUIRE VIA WHATSAPP &rarr;
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- COMMERCIAL 6 (bg-peach) -->
+                        <div class="property-card bg-peach" data-category="commercial">
+                            <div class="property-card-header">
+                                <h3>Corporate Office</h3>
+                                <p class="property-count">1000+ Spaces Leased</p>
+                            </div>
+                            <div class="property-image-wrapper">
+                                <span class="property-price-badge">₹1.8 L/mo</span>
+                                <img src="assets/images/hero2.jpg" alt="Modern Corporate Workspace BKC">
+                            </div>
+                            <div class="property-card-body">
+                                <p class="property-desc">Fully furnished, plug-and-play corporate floor inside a Grade-A business tower. High-speed elevators and dedicated car parks.</p>
+                                <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty%2C%20I%20am%20interested%20in%20the%20Corporate%20Office%20Commercial%20property." target="_blank" class="card-action-btn">
+                                    INQUIRE VIA WHATSAPP &rarr;
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- COMMERCIAL 7 (bg-green) -->
+                        <div class="property-card bg-green" data-category="commercial">
+                            <div class="property-card-header">
+                                <h3>Retail Showroom</h3>
+                                <p class="property-count">500+ Showrooms Traded</p>
+                            </div>
+                            <div class="property-image-wrapper">
+                                <span class="property-price-badge">₹4.10 Cr</span>
+                                <img src="assets/images/hero1.jpg" alt="Manka Heights Santacruz">
+                            </div>
+                            <div class="property-card-body">
+                                <p class="property-desc">Ultra-high footfall retail space located on a premium corner lot in Bandra. Double height ceiling and full glass frontage.</p>
+                                <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty%2C%20I%20am%20interested%20in%20the%20Retail%20Showroom%20Commercial%20property." target="_blank" class="card-action-btn">
+                                    INQUIRE VIA WHATSAPP &rarr;
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- COMMERCIAL 8 (bg-blue) -->
+                        <div class="property-card bg-blue" data-category="commercial">
+                            <div class="property-card-header">
+                                <h3>Boutique Office</h3>
+                                <p class="property-count">780+ Offices Handled</p>
+                            </div>
+                            <div class="property-image-wrapper">
+                                <span class="property-price-badge">₹85 K/mo</span>
+                                <img src="assets/images/hero3.jpg" alt="Boutique Office Andheri East">
+                            </div>
+                            <div class="property-card-body">
+                                <p class="property-desc">Sleek, premium furnished boutique desk floor in Andheri East, close to Metro. Perfect for agencies or advisory chambers.</p>
+                                <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty%2C%20I%20am%20interested%20in%20the%20Boutique%20Office%20property." target="_blank" class="card-action-btn">
+                                    INQUIRE VIA WHATSAPP &rarr;
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- COMMERCIAL 9 (bg-cream) -->
+                        <div class="property-card bg-cream" data-category="commercial">
+                            <div class="property-card-header">
+                                <h3>Commercial Land</h3>
+                                <p class="property-count">160+ Tracts Acquired</p>
+                            </div>
+                            <div class="property-image-wrapper">
+                                <span class="property-price-badge">₹12.50 Cr</span>
+                                <img src="assets/images/about_large.jpg" alt="Commercial Land Navi Mumbai">
+                            </div>
+                            <div class="property-card-body">
+                                <p class="property-desc">Highway-touch commercial plot in Navi Mumbai with heavy vehicle access, boundary fencing, and approved layout clearances.</p>
+                                <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty%2C%20I%20am%20interested%20in%20the%20Commercial%20Land%20property." target="_blank" class="card-action-btn">
+                                    INQUIRE VIA WHATSAPP &rarr;
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- COMMERCIAL 10 (bg-peach) -->
+                        <div class="property-card bg-peach" data-category="commercial">
+                            <div class="property-card-header">
+                                <h3>Warehousing space</h3>
+                                <p class="property-count">240+ Yards Managed</p>
+                            </div>
+                            <div class="property-image-wrapper">
+                                <span class="property-price-badge">₹3.5 L/mo</span>
+                                <img src="assets/images/about_small.jpg" alt="Warehousing Space Bhiwandi">
+                            </div>
+                            <div class="property-card-body">
+                                <p class="property-desc">Grade-A logistics warehouse in Bhiwandi with excellent roof clearances, multiple loading bays, and 30-ton weight capacities.</p>
+                                <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty%2C%20I%20am%20interested%20in%20the%20Warehousing%20space%20property." target="_blank" class="card-action-btn">
+                                    INQUIRE VIA WHATSAPP &rarr;
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-nav next-btn" id="slide-next" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section (Commitment & Team Permanently Visible) -->
+    <section class="about-section" id="about">
+        <div class="section-container">
+            <div class="about-grid">
+                <!-- Left: Overlapping images -->
+                <div class="about-visuals">
+                    <div class="image-wrapper-large">
+                        <img src="assets/images/about_large.jpg" alt="Premium luxury residential tower facade in Mumbai" class="img-about img-large">
+                    </div>
+                    <div class="image-wrapper-small">
+                        <img src="assets/images/about_small.jpg" alt="Modern luxury residential lounge interior" class="img-about img-small">
+                    </div>
+                </div>
+
+                <!-- Right: About description and bullets -->
+                <div class="about-info">
+                    <span class="section-tag">ABOUT MANKA REALTY</span>
+                    <h2 class="section-title">Built on Trust.<br><span class="accent-text">Driven by Service.</span></h2>
+                    
+                    <div class="about-desc">
+                        <p class="highlight-p">Manka Realty is a professional real-estate consultancy firm dedicated to providing personalised, reliable and result-oriented property solutions tailored to every client’s specific requirements.</p>
+                        <p>With over 12 years of experience in the real-estate industry, we have built our reputation through a positive approach, strong market knowledge, professional expertise and an unwavering commitment to client satisfaction.</p>
+                        <p>Our extensive real-estate network across multiple cities enables us to connect clients with the right opportunities across residential and commercial property markets. Whether you are looking to buy, sell, rent, lease or invest, our experienced team provides comprehensive guidance and support throughout the entire process.</p>
+                        <p class="about-philosophy">At Manka Realty, our core philosophy is simple:<br><strong>“Good Service & Happy Customers”</strong></p>
+                        <p>We believe that successful real estate is built on trust, transparency and long-term relationships. Our team combines industry experience, market insights and a client-focused approach to deliver solutions that are efficient, transparent and aligned with our clients’ goals.</p>
+                    </div>
+
+                    <a href="javascript:void(0)" onclick="openPortal('history')" class="btn btn-primary spacing-top" id="know-more-btn">
+                        VIEW HISTORY TIMELINE &nbsp;&rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Permanently Visible Sections: Commitment and Our Team -->
+            <div class="about-permanent-blocks">
+                <!-- Our Commitment -->
+                <div class="commitment-block">
+                    <h4>Our Commitment</h4>
+                    <p>At Manka Realty, we understand that a property decision is more than just a transaction—it is an important financial and personal decision. That is why we focus on understanding our clients, providing the right information and delivering professional assistance at every step.</p>
+                    <p>Our goal is to make the real-estate experience simpler, smoother and more rewarding for our clients. With experience, expertise and an extensive network, we strive to deliver unmatched results and build relationships that last beyond a single transaction.</p>
+                    <p class="commitment-signature">Manka Realty</p>
+                </div>
+
+                <!-- Our Team Section (Mockup Matcher) -->
+                <div class="team-block">
+                    <span class="team-section-tag">OUR TEAM</span>
+                    <h2 class="team-section-title">Meet the Experts Behind Manka Realty</h2>
+                    <div class="team-heading-accent"></div>
+                    <p class="team-section-subtitle">A dedicated team of real estate professionals committed to helping you find the perfect property.</p>
+                    
+                    <div class="team-grid">
+                        <!-- Row 1: 5 Members -->
+                        <div class="team-member-card">
+                            <div class="team-member-image-wrapper">
+                                <img src="assets/images/avatar_male.png" alt="Muhammad Mankad" class="team-member-card-img">
+                            </div>
+                            <div class="team-member-info-banner">
+                                <span>Muhammad Mankad</span>
+                            </div>
+                        </div>
+                        <div class="team-member-card">
+                            <div class="team-member-image-wrapper">
+                                <img src="assets/images/avatar_female.png" alt="Rizwana Mankad" class="team-member-card-img">
+                            </div>
+                            <div class="team-member-info-banner">
+                                <span>Rizwana Mankad</span>
+                            </div>
+                        </div>
+                        <div class="team-member-card">
+                            <div class="team-member-image-wrapper">
+                                <img src="assets/images/avatar_male.png" alt="Rayan Mankad" class="team-member-card-img">
+                            </div>
+                            <div class="team-member-info-banner">
+                                <span>Rayan Mankad</span>
+                            </div>
+                        </div>
+                        <div class="team-member-card">
+                            <div class="team-member-image-wrapper">
+                                <img src="assets/images/avatar_female.png" alt="Falak Naaz" class="team-member-card-img">
+                            </div>
+                            <div class="team-member-info-banner">
+                                <span>Falak Naaz</span>
+                            </div>
+                        </div>
+                        <div class="team-member-card">
+                            <div class="team-member-image-wrapper">
+                                <img src="assets/images/avatar_male.png" alt="Mohsin Shaikh" class="team-member-card-img">
+                            </div>
+                            <div class="team-member-info-banner">
+                                <span>Mohsin Shaikh</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Row 2: 4 Members (centered via flex wrap spacing) -->
+                        <div class="team-member-card">
+                            <div class="team-member-image-wrapper">
+                                <img src="assets/images/avatar_female.png" alt="Uzma Khan" class="team-member-card-img">
+                            </div>
+                            <div class="team-member-info-banner">
+                                <span>Uzma Khan</span>
+                            </div>
+                        </div>
+                        <div class="team-member-card">
+                            <div class="team-member-image-wrapper">
+                                <img src="assets/images/avatar_male.png" alt="Sohel Shaikh" class="team-member-card-img">
+                            </div>
+                            <div class="team-member-info-banner">
+                                <span>Sohel Shaikh</span>
+                            </div>
+                        </div>
+                        <div class="team-member-card">
+                            <div class="team-member-image-wrapper">
+                                <img src="assets/images/avatar_female.png" alt="Salma Shaikh" class="team-member-card-img">
+                            </div>
+                            <div class="team-member-info-banner">
+                                <span>Salma Shaikh</span>
+                            </div>
+                        </div>
+                        <div class="team-member-card">
+                            <div class="team-member-image-wrapper">
+                                <img src="assets/images/avatar_male.png" alt="Mustafa Mankad" class="team-member-card-img">
+                            </div>
+                            <div class="team-member-info-banner">
+                                <span>Mustafa Mankad</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Circular Diagram Section -->
+    <section class="choose-us-section" id="choose-us">
+        <div class="section-container">
+            <div class="text-center-wrapper">
+                <span class="section-tag">WHY WORK WITH US</span>
+                <h2 class="section-title text-center">Why Choose Us</h2>
+                <p class="section-subtitle text-center">Your requirements, interests and satisfaction are at the heart of everything we do.</p>
+            </div>
+            
+            <div class="choose-us-intro-card">
+                <p>At Manka Realty, we make property transactions seamless. Our dedication to clear communication, local expertise, and customized strategies ensures a secure and rewarding real estate experience.</p>
+            </div>
+            
+            <div class="choose-us-grid">
+                <!-- Feature 1 -->
+                <div class="choose-card">
+                    <div class="choose-icon-wrapper">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h4>Client First</h4>
+                    <p>Your requirements, interests and satisfaction are at the heart of everything we do.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="choose-card">
+                    <div class="choose-icon-wrapper">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h4>12+ Years of Experience</h4>
+                    <p>Strong knowledge of market trends, property values and real-estate transactions.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="choose-card">
+                    <div class="choose-icon-wrapper">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h4>Extensive Network</h4>
+                    <p>A strong network across multiple cities, giving clients access to more properties and opportunities.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="choose-card">
+                    <div class="choose-icon-wrapper">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h4>Transparency & Trust</h4>
+                    <p>Clear communication, honest advice and transparent transactions from start to finish.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="choose-card">
+                    <div class="choose-icon-wrapper">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <h4>Personalised Service</h4>
+                    <p>We understand every client’s unique requirements and provide solutions accordingly.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="choose-card">
+                    <div class="choose-icon-wrapper">
+                        <i class="fa-solid fa-handshake-angle"></i>
+                    </div>
+                    <h4>End-to-End Support</h4>
+                    <p>Support at every stage, from finding the right property and negotiation to documentation and closing.</p>
+                </div>
+
+                <!-- Feature 7 -->
+                <div class="choose-card">
+                    <div class="choose-icon-wrapper">
+                        <i class="fa-solid fa-people-group"></i>
+                    </div>
+                    <h4>Passionate Team</h4>
+                    <p>A dedicated and passionate team committed to understanding your needs and delivering the right solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="expertise-section" id="expertise">
+        <div class="section-container">
+            <div class="text-center-wrapper">
+                <span class="section-tag">OUR SERVICES</span>
+                <h2 class="section-title text-center font-premium-h2">Tailored Real-Estate Solutions</h2>
+                <p class="section-subtitle text-center">Providing professional property consultancy and management across residential & commercial sectors.</p>
+            </div>
+
+            <div class="services-grid-layout">
+                <!-- Service 1 -->
+                <div class="services-item-card">
+                    <div class="services-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <h3>Buying & Selling</h3>
+                    <p>Helping clients identify the right properties and achieve the best possible outcomes.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="services-item-card">
+                    <div class="services-icon"><i class="fa-solid fa-house-chimney-window"></i></div>
+                    <h3>Residential & Commercial Outright Sale</h3>
+                    <p>Assisting clients with the purchase and sale of residential and commercial properties through professional guidance and market expertise.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="services-item-card">
+                    <div class="services-icon"><i class="fa-solid fa-file-signature"></i></div>
+                    <h3>Residential & Commercial Leasing</h3>
+                    <p>Professional assistance for landlords, tenants and businesses.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="services-item-card">
+                    <div class="services-icon"><i class="fa-solid fa-comments"></i></div>
+                    <h3>Property Consultancy</h3>
+                    <p>Providing practical market insights and professional guidance for property decisions.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="services-item-card">
+                    <div class="services-icon"><i class="fa-solid fa-key"></i></div>
+                    <h3>Property Management</h3>
+                    <p>Supporting property owners with reliable and efficient management solutions.</p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="services-item-card">
+                    <div class="services-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>Investment Advisory</h3>
+                    <p>Helping clients identify potential real-estate opportunities based on their objectives.</p>
+                </div>
+
+                <!-- Service 7 -->
+                <div class="services-item-card">
+                    <div class="services-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                    <h3>Home Maintenance</h3>
+                    <p>Providing reliable home maintenance and support services to help property owners keep their homes well-maintained.</p>
+                </div>
+
+                <!-- Service 8 -->
+                <div class="services-item-card">
+                    <div class="services-icon"><i class="fa-solid fa-passport"></i></div>
+                    <h3>NRI Services</h3>
+                    <p>Offering dedicated real-estate assistance to NRI clients for buying, selling, leasing and managing properties in India.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Google Reviews & Ratings Section (Separated into Residential & Commercial Tabs) -->
+    <section class="reviews-section" id="reviews">
+        <div class="section-container">
+            <div class="text-center-wrapper">
+                <span class="section-tag">CLIENT FEEDBACK</span>
+                <h2 class="section-title text-center font-premium-h2">Google Reviews & Ratings</h2>
+                <p class="section-subtitle text-center">Read verified reviews from our residential and commercial clients.</p>
+            </div>
+            
+            <div class="reviews-tabs-wrapper">
+                <!-- Review Tabs Switcher -->
+                <div class="reviews-tabs">
+                    <button class="review-tab-btn active" data-type="residential">RESIDENTIAL REVIEWS</button>
+                    <button class="review-tab-btn" data-type="commercial">COMMERCIAL REVIEWS</button>
+                </div>
+            </div>
+            
+            <div class="reviews-layout">
+                <!-- Left: Google Rating Summary -->
+                <div class="reviews-summary-card">
+                    <div class="google-badge">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 6px;">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l3.66-2.85z" fill="#FBBC05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.85c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                        </svg>
+                        <span>Google Business</span>
+                    </div>
+                    <div class="rating-number">4.9</div>
+                    <div class="rating-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="rating-text">Based on client feedback on Google Maps</p>
+                    <a href="https://share.google/RPd2bkIzGZ5NKgaZP" target="_blank" class="btn btn-secondary btn-sm rating-link">
+                        WRITE A REVIEW
+                    </a>
+                </div>
+
+                <!-- Right: Categorized Reviews Cards Grid -->
+                <div class="reviews-grid" id="reviews-grid-track">
+                    <!-- Residential Reviews -->
+                    <div class="review-card" data-category="residential">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">AS</div>
+                                <div>
+                                    <h4>Amit Sharma</h4>
+                                    <span class="review-date">A month ago</span>
+                                </div>
+                            </div>
+                            <div class="review-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="review-text">"Manka Realty made our house hunt in Bandra completely stress-free. They have an excellent network and are extremely honest and transparent throughout the negotiations."</p>
+                    </div>
+
+                    <div class="review-card" data-category="residential">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">PS</div>
+                                <div>
+                                    <h4>Priya Sen</h4>
+                                    <span class="review-date">3 weeks ago</span>
+                                </div>
+                            </div>
+                            <div class="review-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="review-text">"Highly recommend Manka Realty for residential leasing. They found us a beautiful 3 BHK apartment in Khar in record time and managed all rent agreement registrations perfectly."</p>
+                    </div>
+
+                    <!-- Commercial Reviews -->
+                    <div class="review-card" data-category="commercial">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">PM</div>
+                                <div>
+                                    <h4>Priya Mehta</h4>
+                                    <span class="review-date">2 weeks ago</span>
+                                </div>
+                            </div>
+                            <div class="review-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="review-text">"Excellent commercial real estate team. They understood our corporate office requirements and helped us secure a premium space in BKC in record time."</p>
+                    </div>
+
+                    <div class="review-card" data-category="commercial">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">RK</div>
+                                <div>
+                                    <h4>Rajesh Khanna</h4>
+                                    <span class="review-date">3 months ago</span>
+                                </div>
+                            </div>
+                            <div class="review-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="review-text">"Unlike typical brokers, Manka Realty provides honest advisory and handles all commercial title verifications and lease agreement drafts with high professionalism."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section (mockup references) -->
+    <section class="social-section" id="social">
+        <div class="section-container">
+            <div class="text-center-wrapper">
+                <div class="social-header-logo">
+                    <img src="assets/images/logo.png?v=2" alt="Manka Realty Logo" class="social-logo-img">
+                </div>
+                <span class="section-tag tag-highlighted">STAY CONNECTED</span>
+                <h2 class="section-title text-center font-premium-h2">Join Us On Social Media</h2>
+                <p class="section-subtitle text-center">Follow our channels for walkthroughs, market updates, and exclusive property insights.</p>
+            </div>
+            
+            <div class="social-grid">
+                <!-- Instagram Card -->
+                <div class="social-card instagram-card">
+                    <div class="social-card-header">
+                        <div class="social-icon-wrapper instagram-bg">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <span class="social-badge badge-official">OFFICIAL</span>
+                    </div>
+                    <div class="social-card-body">
+                        <h3>Instagram</h3>
+                        <p class="social-handle">@manka_realty</p>
+                        <p class="social-desc">Daily reels detailing carpet areas, building completions, and client walkthroughs.</p>
+                    </div>
+                    <div class="social-card-footer">
+                        <span class="followers-count"><i class="fa-solid fa-users"></i> 1,521 Followers</span>
+                        <a href="https://instagram.com/manka_realty" target="_blank" class="social-link instagram-text">FOLLOW REELS &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Facebook Card -->
+                <div class="social-card facebook-card">
+                    <div class="social-card-header">
+                        <div class="social-icon-wrapper facebook-bg">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </div>
+                        <span class="social-badge badge-likes">6 LIKES</span>
+                    </div>
+                    <div class="social-card-body">
+                        <h3>Facebook</h3>
+                        <p class="social-handle">Manka Realty</p>
+                        <p class="social-desc">Stay updated with localized market listings and new flat availability reviews.</p>
+                    </div>
+                    <div class="social-card-footer">
+                        <span class="followers-count"><i class="fa-solid fa-thumbs-up"></i> Community Page</span>
+                        <a href="https://facebook.com/MankaRealty" target="_blank" class="social-link facebook-text">CONNECT NOW &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- WhatsApp Card -->
+                <div class="social-card whatsapp-card">
+                    <div class="social-card-header">
+                        <div class="social-icon-wrapper whatsapp-bg">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <span class="social-badge badge-business">BUSINESS</span>
+                    </div>
+                    <div class="social-card-body">
+                        <h3>WhatsApp</h3>
+                        <p class="social-handle">+91 89287 70059</p>
+                        <p class="social-desc">Chat directly with our property consultants for instant updates, site visits, and layout brochures.</p>
+                    </div>
+                    <div class="social-card-footer">
+                        <span class="followers-count"><i class="fa-solid fa-clock"></i> 24/7 Fast Support</span>
+                        <a href="https://wa.me/918928770059" target="_blank" class="social-link whatsapp-text">CHAT NOW &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- High-Impact Serif Numbers Stats Section (Matches 2nd reference image) -->
+    <section class="stats-section" id="stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <span class="stat-number" data-target="12">12</span><span class="stat-plus">+</span>
+                <span class="stat-label">YEARS OF SERVICE</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" data-target="500">500</span><span class="stat-plus">+</span>
+                <span class="stat-label">PROPERTIES TRADED</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" data-target="100">100</span><span class="stat-plus">%</span>
+                <span class="stat-label">TRANSPARENT ADVISORY</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" data-target="2">2</span><span class="stat-plus">+</span>
+                <span class="stat-label">CORE SECTORS</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer Section -->
+    <section class="contact-section" id="contact">
+        <div class="section-container">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <span class="section-tag text-gold">GET IN TOUCH</span>
+                    <h2 class="section-title">Let's Discuss Your Next Property</h2>
+                    <p class="contact-lead">Have questions or want to schedule a site visit? Get in touch with our team today for dedicated assistance.</p>
+                    
+                    <div class="contact-details">
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="detail-text">
+                                <h3>Office Address</h3>
+                                <p>1st Floor, Elco Arcade, D-Wing, Hill Road, Bandra West, Mumbai, Maharashtra</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="detail-text">
+                                <h3>Direct Call</h3>
+                                <p><a href="tel:+918928770059" class="hover-underline">+91 89287 70059</a></p>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                            <div class="detail-text">
+                                <h3>WhatsApp Chat</h3>
+                                <p><a href="https://wa.me/918928770059" target="_blank" class="hover-underline">+91 89287 70059</a></p>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="detail-text">
+                                <h3>Email Address</h3>
+                                <p><a href="mailto:mankarealty@gmail.com" class="hover-underline">mankarealty@gmail.com</a></p>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="detail-text">
+                                <h3>Business Hours</h3>
+                                <p>All Days: 10:30 AM – 7:30 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Embedded Google Map -->
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.411626295552!2d72.83151831479803!3d19.058145187098675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c917ea2d46e1%3A0x8e8334469dd1c15f!2sElco%20Arcade!5e0!3m2!1sen!2sin!4v1713000000000!5m2!1sen!2sin" width="100%" height="280" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <form action="#" class="contact-form" id="property-form">
+                        <h3 class="form-title">Send An Inquiry</h3>
+                        <p class="form-subtitle">Fill in the form below and we will contact you shortly.</p>
+                        
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="interest">Property Interest</label>
+                            <select id="interest" name="interest">
+                                <option value="buying-selling">Buying & Selling</option>
+                                <option value="outright-sale">Residential & Commercial Outright Sale</option>
+                                <option value="leasing">Residential & Commercial Leasing</option>
+                                <option value="consultancy">Property Consultancy</option>
+                                <option value="management">Property Management</option>
+                                <option value="investment">Investment Advisory</option>
+                                <option value="maintenance">Home Maintenance</option>
+                                <option value="nri-services">NRI Services</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Describe your property requirements..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">SUBMIT INQUIRY</button>
+                    </form>
+                    
+                    <div class="form-success-message" id="form-success">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <h3>Thank You!</h3>
+                        <p>Your inquiry has been submitted. Our property consultants will contact you shortly.</p>
+                    </div>
+            </div>
+        </div> <!-- Close previous contact section-container -->
+        
+        <!-- Premium Partners & Brands CTA Banner Section -->
+        <section class="partners-banner-section">
+            <div class="section-container">
+                <span class="section-tag">OUR ALLIANCES</span>
+                <h2 class="partners-banner-title">Authorized Partners & Brands</h2>
+                <p class="partners-banner-subtitle">Manka Realty is proud to work alongside Mumbai's premium luxury developers and leading national corporate brands.</p>
+                <a href="javascript:void(0)" onclick="openPortal('partners')" class="btn btn-primary">VIEW PARTNERS & BRANDS &nbsp;&rarr;</a>
+            </div>
+        </section>
+        
+        <div class="section-container">
+            <div class="footer-bottom">
+                <div class="footer-logo">
+                    <img src="assets/images/logo.png?v=2" alt="Manka Realty Logo" style="height: 60px; margin-bottom: 12px; border-radius: 4px;">
+                </div>
+                <p>&copy; 2026 Manka Realty. All rights reserved. | Built on Trust, Driven by Service.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky WhatsApp Button -->
+    <a href="https://wa.me/918928770059" target="_blank" class="sticky-whatsapp" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Main JavaScript & Database -->
+    <script src="assets/js/data.js?v=1.1.0"></script>
+    <script src="index.js?v=1.1.0"></script>
+    <!-- Fullscreen SPA View Overlay -->
+    <div id="portal-overlay" class="portal-overlay">
+        <div class="overlay-header">
+            <div class="logo-wrapper">
+                <div class="logo">
+                    <div class="logo-badge" style="height: 60px; padding: 0 30px 0 15px; margin-left: 0;">
+                        <img src="assets/images/logo.png?v=2" alt="Manka Realty Logo" class="logo-image" style="height: 40px; width: auto;">
+                    </div>
+                    <div class="logo-text">
+                        <span class="brand-name" style="font-size: 1.1rem; color: #ffffff;">MANKA REALTY</span>
+                        <span class="brand-tagline" style="font-size: 0.65rem; color: rgba(255,255,255,0.6);">"way to your New Home"</span>
+                    </div>
+                </div>
+            </div>
+            <button class="overlay-close-btn" onclick="closePortal()" aria-label="Close Overlay">
+                <i class="fa-solid fa-xmark"></i> CLOSE &nbsp;&larr;
+            </button>
+        </div>
+        <div class="overlay-scroll-container">
+            <div class="overlay-content-body" id="overlay-content-body">
+                <!-- Dynamic content injected here -->
+            </div>
+            <!-- Overlay Footer -->
+            <footer class="overlay-footer">
+                <img src="assets/images/logo.png?v=2" alt="Manka Realty Logo" style="height: 50px; margin-bottom: 12px; border-radius: 4px;">
+                <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem;">&copy; 2026 Manka Realty. All rights reserved. | Built on Trust, Driven by Service.</p>
+            </footer>
+        </div>
+    </div>
+
+</body>
+</html>

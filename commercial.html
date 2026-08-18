@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commercial Properties | Manka Realty Mumbai</title>
+    <meta name="description" content="Explore premium commercial properties properties and residential estates across Mumbai. Built on trust and driven by service.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="index.css?v=1.1.0">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="main-header" id="header">
+        <div class="header-container">
+            <div class="logo-wrapper">
+                <a href="index.html" class="logo" id="logo-link">
+                    <img src="assets/images/logo.png?v=2" alt="Manka Realty Logo" class="logo-image">
+                    <div class="logo-text">
+                        <span class="brand-name">MANKA REALTY</span>
+                        <span class="brand-tagline">"way to your New Home"</span>
+                    </div>
+                </a>
+            </div>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="index.html#hero" class="nav-link">HOME</a></li>
+                    <li><a href="index.html#about" class="nav-link">ABOUT</a></li>
+                    <li class="dropdown active">
+                        <a href="javascript:void(0)" class="nav-link dropdown-toggle">
+                            PROPERTIES <i class="fa-solid fa-chevron-down" style="font-size: 0.65rem; margin-left: 4px;"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="residential.html" class="dropdown-link">Residential</a></li>
+                            <li><a href="commercial.html" class="dropdown-link">Commercial</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#choose-us" class="nav-link">WHY CHOOSE US</a></li>
+                    <li><a href="index.html#expertise" class="nav-link">SERVICES</a></li>
+                    <li><a href="index.html#contact" class="nav-link">CONTACT</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-right">
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Hero Banner -->
+    <section class="portfolio-hero-section">
+        <div class="section-container">
+            <h1 class="portfolio-hero-title">Commercial Properties Portfolio</h1>
+            <p class="portfolio-hero-subtitle">Premium retail, industrial and corporate advisory. Our strong developer network matching your organization with offices, shops and zoned commercial land.</p>
+        </div>
+    </section>
+
+    <!-- Properties Grid -->
+    <section style="background-color: #000817; min-height: 800px; padding: 20px 0;">
+        <div class="section-container">
+            <div class="properties-grid-container">
+
+                <!-- RETAIL SHOWROOM -->
+                <div class="property-card bg-cream">
+                    <!-- Nested Image Slider (Airbnb style with 8 images) -->
+                    <div class="property-image-wrapper card-slider-wrapper">
+                        <span class="property-price-badge">₹4.50 Lakh/mo onwards</span>
+                        
+                        <!-- Slide Navigation Arrows -->
+                        <button class="card-slider-btn prev-btn" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="card-slider-btn next-btn" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
+                        
+                        <!-- Images Track -->
+                        <div class="card-slider-track">
+                            <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80" alt="Retail Showroom view 1" class="active">
+                            <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80" alt="Retail Showroom view 2" class="">
+                            <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=800&q=80" alt="Retail Showroom view 3" class="">
+                            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80" alt="Retail Showroom view 4" class="">
+                            <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" alt="Retail Showroom view 5" class="">
+                            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Retail Showroom view 6" class="">
+                            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Retail Showroom view 7" class="">
+                            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Retail Showroom view 8" class="">
+                        </div>
+                        
+                        <!-- Indicator Dots -->
+                        <div class="card-slider-dots">
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot " data-index="1"></span>
+                            <span class="dot " data-index="2"></span>
+                            <span class="dot " data-index="3"></span>
+                            <span class="dot " data-index="4"></span>
+                            <span class="dot " data-index="5"></span>
+                            <span class="dot " data-index="6"></span>
+                            <span class="dot " data-index="7"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="property-card-body">
+                        <div class="property-meta-header">
+                            <span class="property-type-tag">Retail Showroom</span>
+                            <h3 class="property-card-title">High-Street Flagship Showroom</h3>
+                        </div>
+                        
+                        <!-- Specifications Grid -->
+                        <div class="property-specs-grid">
+                            <div class="spec-item"><i class="fa-solid fa-location-dot"></i> Linking Road, Bandra West</div>
+                            <div class="spec-item"><i class="fa-solid fa-maximize"></i> 3,500 - 8,000 sq.ft.</div>
+                            <div class="spec-item"><i class="fa-solid fa-building"></i> Frontage Window</div>
+                        </div>
+                        
+                        <p class="property-desc">Prime high-visibility double-height showroom layouts in elite shopping sectors, ideal for premium automotive, fashion, or lifestyle flagship brands.</p>
+                        
+                        <!-- Action Button (Stretching to 100% width) -->
+                        <div class="property-card-actions" style="grid-template-columns: 1fr !important;">
+                            <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty,%20I%20would%20like%20to%20enquire%20about%20current%20pricing,%20availability,%20and%20scheduling%20a%20site%20visit%20for%20High-Street%20Flagship%20Showroom%20(Retail%20Showroom)%20in%20Linking%20Road,%20Bandra%20West." target="_blank" class="btn-card btn-enquire-now">ENQUIRE NOW VIA WHATSAPP &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CORPORATE OFFICE -->
+                <div class="property-card bg-peach">
+                    <!-- Nested Image Slider (Airbnb style with 8 images) -->
+                    <div class="property-image-wrapper card-slider-wrapper">
+                        <span class="property-price-badge">₹2.20 Lakh/mo onwards</span>
+                        
+                        <!-- Slide Navigation Arrows -->
+                        <button class="card-slider-btn prev-btn" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="card-slider-btn next-btn" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
+                        
+                        <!-- Images Track -->
+                        <div class="card-slider-track">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Corporate Office view 1" class="active">
+                            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=800&q=80" alt="Corporate Office view 2" class="">
+                            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80" alt="Corporate Office view 3" class="">
+                            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80" alt="Corporate Office view 4" class="">
+                            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Corporate Office view 5" class="">
+                            <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=800&q=80" alt="Corporate Office view 6" class="">
+                            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" alt="Corporate Office view 7" class="">
+                            <img src="https://images.unsplash.com/photo-1517502884422-41eaaced0168?auto=format&fit=crop&w=800&q=80" alt="Corporate Office view 8" class="">
+                        </div>
+                        
+                        <!-- Indicator Dots -->
+                        <div class="card-slider-dots">
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot " data-index="1"></span>
+                            <span class="dot " data-index="2"></span>
+                            <span class="dot " data-index="3"></span>
+                            <span class="dot " data-index="4"></span>
+                            <span class="dot " data-index="5"></span>
+                            <span class="dot " data-index="6"></span>
+                            <span class="dot " data-index="7"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="property-card-body">
+                        <div class="property-meta-header">
+                            <span class="property-type-tag">Corporate Office</span>
+                            <h3 class="property-card-title">Grade-A Corporate Suite</h3>
+                        </div>
+                        
+                        <!-- Specifications Grid -->
+                        <div class="property-specs-grid">
+                            <div class="spec-item"><i class="fa-solid fa-location-dot"></i> BKC, Mumbai</div>
+                            <div class="spec-item"><i class="fa-solid fa-maximize"></i> 5,000 - 25,000 sq.ft.</div>
+                            <div class="spec-item"><i class="fa-solid fa-building"></i> Grade-A Certified</div>
+                        </div>
+                        
+                        <p class="property-desc">Grade-A premium furnished corporate headquarters spaces equipped with advanced server rooms, meeting cabins, and central HVAC systems.</p>
+                        
+                        <!-- Action Button (Stretching to 100% width) -->
+                        <div class="property-card-actions" style="grid-template-columns: 1fr !important;">
+                            <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty,%20I%20would%20like%20to%20enquire%20about%20current%20pricing,%20availability,%20and%20scheduling%20a%20site%20visit%20for%20Grade-A%20Corporate%20Suite%20(Corporate%20Office)%20in%20BKC,%20Mumbai." target="_blank" class="btn-card btn-enquire-now">ENQUIRE NOW VIA WHATSAPP &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOUTIQUE OFFICE -->
+                <div class="property-card bg-green">
+                    <!-- Nested Image Slider (Airbnb style with 8 images) -->
+                    <div class="property-image-wrapper card-slider-wrapper">
+                        <span class="property-price-badge">₹95,000/mo onwards</span>
+                        
+                        <!-- Slide Navigation Arrows -->
+                        <button class="card-slider-btn prev-btn" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="card-slider-btn next-btn" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
+                        
+                        <!-- Images Track -->
+                        <div class="card-slider-track">
+                            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=800&q=80" alt="Boutique Office view 1" class="active">
+                            <img src="https://images.unsplash.com/photo-1517502884422-41eaaced0168?auto=format&fit=crop&w=800&q=80" alt="Boutique Office view 2" class="">
+                            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80" alt="Boutique Office view 3" class="">
+                            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" alt="Boutique Office view 4" class="">
+                            <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=800&q=80" alt="Boutique Office view 5" class="">
+                            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80" alt="Boutique Office view 6" class="">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Boutique Office view 7" class="">
+                            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Boutique Office view 8" class="">
+                        </div>
+                        
+                        <!-- Indicator Dots -->
+                        <div class="card-slider-dots">
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot " data-index="1"></span>
+                            <span class="dot " data-index="2"></span>
+                            <span class="dot " data-index="3"></span>
+                            <span class="dot " data-index="4"></span>
+                            <span class="dot " data-index="5"></span>
+                            <span class="dot " data-index="6"></span>
+                            <span class="dot " data-index="7"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="property-card-body">
+                        <div class="property-meta-header">
+                            <span class="property-type-tag">Boutique Office</span>
+                            <h3 class="property-card-title">Creative Loft Workspace</h3>
+                        </div>
+                        
+                        <!-- Specifications Grid -->
+                        <div class="property-specs-grid">
+                            <div class="spec-item"><i class="fa-solid fa-location-dot"></i> Lower Parel, Mumbai</div>
+                            <div class="spec-item"><i class="fa-solid fa-maximize"></i> 1,200 - 3,500 sq.ft.</div>
+                            <div class="spec-item"><i class="fa-solid fa-building"></i> High Ceilings</div>
+                        </div>
+                        
+                        <p class="property-desc">Fully customizable high-ceiling boutique offices in prime corporate mill districts. Excellent proximity to transit hubs.</p>
+                        
+                        <!-- Action Button (Stretching to 100% width) -->
+                        <div class="property-card-actions" style="grid-template-columns: 1fr !important;">
+                            <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty,%20I%20would%20like%20to%20enquire%20about%20current%20pricing,%20availability,%20and%20scheduling%20a%20site%20visit%20for%20Creative%20Loft%20Workspace%20(Boutique%20Office)%20in%20Lower%20Parel,%20Mumbai." target="_blank" class="btn-card btn-enquire-now">ENQUIRE NOW VIA WHATSAPP &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COMMERCIAL LAND -->
+                <div class="property-card bg-blue">
+                    <!-- Nested Image Slider (Airbnb style with 8 images) -->
+                    <div class="property-image-wrapper card-slider-wrapper">
+                        <span class="property-price-badge">₹5.00 Cr onwards</span>
+                        
+                        <!-- Slide Navigation Arrows -->
+                        <button class="card-slider-btn prev-btn" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="card-slider-btn next-btn" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
+                        
+                        <!-- Images Track -->
+                        <div class="card-slider-track">
+                            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" alt="Commercial Land view 1" class="active">
+                            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Commercial Land view 2" class="">
+                            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Commercial Land view 3" class="">
+                            <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=800&q=80" alt="Commercial Land view 4" class="">
+                            <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80" alt="Commercial Land view 5" class="">
+                            <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=800&q=80" alt="Commercial Land view 6" class="">
+                            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80" alt="Commercial Land view 7" class="">
+                            <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?auto=format&fit=crop&w=800&q=80" alt="Commercial Land view 8" class="">
+                        </div>
+                        
+                        <!-- Indicator Dots -->
+                        <div class="card-slider-dots">
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot " data-index="1"></span>
+                            <span class="dot " data-index="2"></span>
+                            <span class="dot " data-index="3"></span>
+                            <span class="dot " data-index="4"></span>
+                            <span class="dot " data-index="5"></span>
+                            <span class="dot " data-index="6"></span>
+                            <span class="dot " data-index="7"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="property-card-body">
+                        <div class="property-meta-header">
+                            <span class="property-type-tag">Commercial Land</span>
+                            <h3 class="property-card-title">MIDC Industrial Zoned Plot</h3>
+                        </div>
+                        
+                        <!-- Specifications Grid -->
+                        <div class="property-specs-grid">
+                            <div class="spec-item"><i class="fa-solid fa-location-dot"></i> Taloja MIDC, Navi Mumbai</div>
+                            <div class="spec-item"><i class="fa-solid fa-maximize"></i> 1.5 - 8.5 Acres</div>
+                            <div class="spec-item"><i class="fa-solid fa-building"></i> Highway Touch</div>
+                        </div>
+                        
+                        <p class="property-desc">Zoned industrial-commercial plots with high development indices, ready water connections, and arterial highway access.</p>
+                        
+                        <!-- Action Button (Stretching to 100% width) -->
+                        <div class="property-card-actions" style="grid-template-columns: 1fr !important;">
+                            <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty,%20I%20would%20like%20to%20enquire%20about%20current%20pricing,%20availability,%20and%20scheduling%20a%20site%20visit%20for%20MIDC%20Industrial%20Zoned%20Plot%20(Commercial%20Land)%20in%20Taloja%20MIDC,%20Navi%20Mumbai." target="_blank" class="btn-card btn-enquire-now">ENQUIRE NOW VIA WHATSAPP &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WAREHOUSING SPACE -->
+                <div class="property-card bg-cream">
+                    <!-- Nested Image Slider (Airbnb style with 8 images) -->
+                    <div class="property-image-wrapper card-slider-wrapper">
+                        <span class="property-price-badge">₹4.80 Lakh/mo onwards</span>
+                        
+                        <!-- Slide Navigation Arrows -->
+                        <button class="card-slider-btn prev-btn" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="card-slider-btn next-btn" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
+                        
+                        <!-- Images Track -->
+                        <div class="card-slider-track">
+                            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Warehousing space view 1" class="active">
+                            <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80" alt="Warehousing space view 2" class="">
+                            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80" alt="Warehousing space view 3" class="">
+                            <img src="https://images.unsplash.com/photo-1590674899484-d374cbc153cf?auto=format&fit=crop&w=800&q=80" alt="Warehousing space view 4" class="">
+                            <img src="https://images.unsplash.com/photo-1542435503-956c469947f6?auto=format&fit=crop&w=800&q=80" alt="Warehousing space view 5" class="">
+                            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" alt="Warehousing space view 6" class="">
+                            <img src="https://images.unsplash.com/photo-1553413719-875871274712?auto=format&fit=crop&w=800&q=80" alt="Warehousing space view 7" class="">
+                            <img src="https://images.unsplash.com/photo-1494961104209-3c2230679b1c?auto=format&fit=crop&w=800&q=80" alt="Warehousing space view 8" class="">
+                        </div>
+                        
+                        <!-- Indicator Dots -->
+                        <div class="card-slider-dots">
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot " data-index="1"></span>
+                            <span class="dot " data-index="2"></span>
+                            <span class="dot " data-index="3"></span>
+                            <span class="dot " data-index="4"></span>
+                            <span class="dot " data-index="5"></span>
+                            <span class="dot " data-index="6"></span>
+                            <span class="dot " data-index="7"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="property-card-body">
+                        <div class="property-meta-header">
+                            <span class="property-type-tag">Warehousing space</span>
+                            <h3 class="property-card-title">High-Ceiling Logistics Facility</h3>
+                        </div>
+                        
+                        <!-- Specifications Grid -->
+                        <div class="property-specs-grid">
+                            <div class="spec-item"><i class="fa-solid fa-location-dot"></i> Kalamboli, Navi Mumbai</div>
+                            <div class="spec-item"><i class="fa-solid fa-maximize"></i> 15,000 - 45,000 sq.ft.</div>
+                            <div class="spec-item"><i class="fa-solid fa-building"></i> 12m Clearance</div>
+                        </div>
+                        
+                        <p class="property-desc">High-ceiling logistics warehouse spaces featuring multi-bay loading docks, heavy flooring capacity, and automated fire hydrants.</p>
+                        
+                        <!-- Action Button (Stretching to 100% width) -->
+                        <div class="property-card-actions" style="grid-template-columns: 1fr !important;">
+                            <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty,%20I%20would%20like%20to%20enquire%20about%20current%20pricing,%20availability,%20and%20scheduling%20a%20site%20visit%20for%20High-Ceiling%20Logistics%20Facility%20(Warehousing%20space)%20in%20Kalamboli,%20Navi%20Mumbai." target="_blank" class="btn-card btn-enquire-now">ENQUIRE NOW VIA WHATSAPP &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="footer-section" style="background-color: #000e25; padding: 60px 0 40px 0; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+        <div class="section-container">
+            <div class="footer-bottom" style="text-align: center;">
+                <div class="footer-logo">
+                    <img src="assets/images/logo.png?v=2" alt="Manka Realty Logo" style="height: 60px; margin-bottom: 12px; border-radius: 4px;">
+                </div>
+                <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.88rem;">&copy; 2026 Manka Realty. All rights reserved. | Built on Trust, Driven by Service.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky WhatsApp Button -->
+    <a href="https://wa.me/918928770059" target="_blank" class="sticky-whatsapp" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Main JavaScript & Multi-Slider Controller Script -->
+    <script src="index.js?v=1.1.0"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sliders = document.querySelectorAll('.card-slider-wrapper');
+            
+            sliders.forEach(slider => {
+                const track = slider.querySelector('.card-slider-track');
+                const images = track.querySelectorAll('img');
+                const dots = slider.querySelectorAll('.card-slider-dots .dot');
+                const prevBtn = slider.querySelector('.prev-btn');
+                const nextBtn = slider.querySelector('.next-btn');
+                
+                let currentIndex = 0;
+                const totalImages = images.length;
+                
+                function showSlide(index) {
+                    if (index < 0) index = totalImages - 1;
+                    if (index >= totalImages) index = 0;
+                    
+                    currentIndex = index;
+                    
+                    // Toggle images
+                    images.forEach((img, i) => {
+                        if (i === currentIndex) {
+                            img.classList.add('active');
+                        } else {
+                            img.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle dots
+                    dots.forEach((dot, i) => {
+                        if (i === currentIndex) {
+                            dot.classList.add('active');
+                        } else {
+                            dot.classList.remove('active');
+                        }
+                    });
+                }
+                
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        showSlide(currentIndex - 1);
+                    });
+                }
+                
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        showSlide(currentIndex + 1);
+                    });
+                }
+                
+                dots.forEach((dot, i) => {
+                    dot.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        showSlide(i);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
