@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Size Preview</title>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/carousel.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { background: #f8fafc; padding: 40px 20px; font-family: 'Outfit', sans-serif; }
+        
+        .preview-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1040px;
+            margin: 0 auto;
+        }
+
+        /* Large Card (Has Photo) */
+        .card-photo {
+            width: 160px;
+            background: #ffffff;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+        .card-photo .img-wrap {
+            width: 100%;
+            height: 160px;
+        }
+        .card-photo .img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+        .card-photo .info {
+            background-color: #000f26;
+            padding: 12px 8px;
+            border-bottom: 3px solid #e30613;
+            text-align: center;
+        }
+        .card-photo .name {
+            display: block;
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            line-height: 1.2;
+        }
+        .card-photo .role {
+            display: block;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Small Card (No Photo) */
+        .card-nophoto {
+            width: 115px; /* Noticeably smaller */
+            background: #ffffff;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+        }
+        .card-nophoto .img-wrap {
+            width: 100%;
+            height: 115px;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .initials-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #0f172a;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .card-nophoto .info {
+            background-color: #f8fafc;
+            padding: 10px 4px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+        .card-nophoto .name {
+            display: block;
+            color: #1e293b;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+            line-height: 1.2;
+        }
+        .card-nophoto .role {
+            display: block;
+            color: #64748b;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+        
+        .tier {
+            margin-bottom: 40px;
+        }
+        .tier-heading {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align: center;">Team Size Preview</h2>
+    <p style="text-align: center; margin-bottom: 40px;">Photo cards are larger (160px width, dark navy banner). No-photo cards are compact (115px width, light banner, initials).<br>Because they are both vertical cards, they flow together perfectly without breaking the grid.</p>
+
+    <!-- Leadership Tier -->
+    <div class="tier">
+        <h3 class="tier-heading">Leadership</h3>
+        <div class="preview-grid">
+            <div class="card-photo">
+                <div class="img-wrap"><img src="assets/images/team/manish.jpg" alt="Manish"></div>
+                <div class="info">
+                    <span class="name">Manish Maurya</span>
+                    <span class="role">Founder</span>
+                </div>
+            </div>
+            <div class="card-photo">
+                <div class="img-wrap"><img src="assets/images/team/arjun.jpg" alt="Arjun"></div>
+                <div class="info">
+                    <span class="name">Arjun Maurya</span>
+                    <span class="role">Commercial Head</span>
+                </div>
+            </div>
+            <div class="card-photo">
+                <div class="img-wrap"><img src="assets/images/team/jai.jpg" alt="Jai"></div>
+                <div class="info">
+                    <span class="name">Jai Rajdev</span>
+                    <span class="role">Residential Head</span>
+                </div>
+            </div>
+            <div class="card-nophoto">
+                <div class="img-wrap"><div class="initials-circle" style="background:#0369a1;">MP</div></div>
+                <div class="info">
+                    <span class="name">Manaswi Pawar</span>
+                    <span class="role">Digital Manager</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sales Managers Tier -->
+    <div class="tier">
+        <h3 class="tier-heading">Sales Managers</h3>
+        <div class="preview-grid">
+            <div class="card-photo">
+                <div class="img-wrap"><img src="assets/images/team/hardik.jpg" alt="Hardik"></div>
+                <div class="info">
+                    <span class="name">Hardik Jadhav</span>
+                    <span class="role">Sales Manager</span>
+                </div>
+            </div>
+            <div class="card-photo">
+                <div class="img-wrap"><img src="assets/images/team/avnish.jpg" alt="Avnish"></div>
+                <div class="info">
+                    <span class="name">Avnish Maurya</span>
+                    <span class="role">Sales Manager</span>
+                </div>
+            </div>
+            <div class="card-nophoto">
+                <div class="img-wrap"><div class="initials-circle" style="background:#e30613;">SD</div></div>
+                <div class="info">
+                    <span class="name">Samir Das</span>
+                    <span class="role">Sales Manager</span>
+                </div>
+            </div>
+            <div class="card-nophoto">
+                <div class="img-wrap"><div class="initials-circle" style="background:#0f172a;">PS</div></div>
+                <div class="info">
+                    <span class="name">Pradeep Singh</span>
+                    <span class="role">Sales Manager</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coordinators Tier -->
+    <div class="tier">
+        <h3 class="tier-heading">Office Co-ordinators</h3>
+        <div class="preview-grid">
+            <div class="card-nophoto">
+                <div class="img-wrap"><div class="initials-circle" style="background:#334155;">AS</div></div>
+                <div class="info">
+                    <span class="name">Anjali Sharma</span>
+                    <span class="role">Office Co-ordinator</span>
+                </div>
+            </div>
+            <div class="card-nophoto">
+                <div class="img-wrap"><div class="initials-circle" style="background:#0ea5e9;">CP</div></div>
+                <div class="info">
+                    <span class="name">Chandrika Parmar</span>
+                    <span class="role">Office Co-ordinator</span>
+                </div>
+            </div>
+            <div class="card-nophoto">
+                <div class="img-wrap"><div class="initials-circle" style="background:#991b1b;">UK</div></div>
+                <div class="info">
+                    <span class="name">Uzma Khan</span>
+                    <span class="role">Office Co-ordinator</span>
+                </div>
+            </div>
+            <div class="card-nophoto">
+                <div class="img-wrap"><div class="initials-circle" style="background:#475569;">SG</div></div>
+                <div class="info">
+                    <span class="name">Swati Gupta</span>
+                    <span class="role">Office Co-ordinator</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
