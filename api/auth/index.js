@@ -1,4 +1,4 @@
-export default function handler(req, res) {
+module.exports = function handler(req, res) {
   const clientId = process.env.GITHUB_OAUTH_CLIENT_ID;
   const scope = "repo,user";
   
