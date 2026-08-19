@@ -1,3 +1,4 @@
+logo_url: "/assets/images/invictus_logo.png"
 backend:
   name: github
   repo: jarvis-invictus/manka-realty-official

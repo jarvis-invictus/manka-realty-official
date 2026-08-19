@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Manka Realty - Content Manager</title>
+    <title>Invictus CMS</title>
     <link rel="cms-config-url" type="text/yaml" href="/admin/config.yml" />
     
     <!-- Custom Admin Interface CSS (Task 2) -->
@@ -75,7 +75,11 @@
       [class*="ToolbarDropdown"] [role="menuitem"]:nth-child(n+3) {
          /* Just keeping this safe, not aggressively hiding essential menu items */
       }
-    </style>
+          /* Hide Decap CMS branding links */
+      a[href*="decapcms.org"], a[href*="netlifycms.org"] {
+        display: none !important;
+      }
+</style>
   </head>
   <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
