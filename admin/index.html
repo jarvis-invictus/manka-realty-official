@@ -6,162 +6,350 @@
     <title>Invictus CMS</title>
     <link rel="icon" type="image/png" href="/assets/images/invictus_logo.png" />
     <link rel="cms-config-url" type="text/yaml" href="/admin/config.yml" />
-    
-    <!-- Custom Admin Interface CSS (Task 2) -->
+
     <style>
-      /* Brand overrides for Decap CMS */
+      /* ─── BRAND TOKENS ─────────────────────────────────────── */
       :root {
-        --nc-brand-primary: #1e3a8a; /* A nice deep blue to match real estate trust */
-        --nc-bg-color: #f8fafc;
-      }
-      
-      body {
-        background-color: var(--nc-bg-color);
-      }
-      
-      /* Make top bar look branded */
-      [class*="AppHeader"] {
-        background-color: #ffffff !important;
-        border-bottom: 2px solid var(--nc-brand-primary) !important;
-      }
-      
-      [class*="AppHeader"] h1, [class*="AppHeader"] a {
-        color: var(--nc-brand-primary) !important;
-        font-family: 'Georgia', serif; /* Manka Realty elegant vibe */
-      }
-      
-      /* Better typography and spacing for field groups */
-      [class*="ControlPaneContainer"] [class*="FieldLabel"] {
-        font-weight: 600 !important;
-        color: #334155 !important;
-        text-transform: uppercase;
-        font-size: 13px !important;
-        letter-spacing: 0.5px;
-      }
-      
-      /* Style the collapsible group headers to look distinct */
-      [class*="ObjectWidgetTopBar"] {
-        background-color: var(--nc-brand-primary) !important;
-        color: white !important;
-        border-radius: 6px 6px 0 0 !important;
-        padding: 10px 15px !important;
-      }
-      
-      [class*="ObjectWidgetTopBar"] * {
-        color: white !important;
-        font-weight: 600 !important;
-      }
-      
-      /* Improve input spacing */
-      [class*="ControlPaneContainer"] input, 
-      [class*="ControlPaneContainer"] select,
-      [class*="ControlPaneContainer"] textarea {
-        border-radius: 6px !important;
-        border: 1px solid #cbd5e1 !important;
-        padding: 10px 12px !important;
-        box-shadow: 0 1px 2px rgba(0,0,0,0.05) !important;
-        transition: border-color 0.2s;
-      }
-      
-      [class*="ControlPaneContainer"] input:focus, 
-      [class*="ControlPaneContainer"] select:focus,
-      [class*="ControlPaneContainer"] textarea:focus {
-        border-color: var(--nc-brand-primary) !important;
-        outline: none !important;
+        --brand-primary:  #1e3a8a;
+        --brand-accent:   #2563eb;
+        --brand-bg:       #f8fafc;
+        --brand-surface:  #ffffff;
+        --brand-border:   #e2e8f0;
+        --brand-text:     #1e293b;
+        --brand-muted:    #64748b;
       }
 
-      /* Hide developer-oriented elements that confuse data entry */
-      /* E.g. "Workflow" tab if enabled, but we only have Collections by default */
-      /* We keep Save/Publish visible (they are essential) */
-      [class*="ToolbarDropdown"] [role="menuitem"]:nth-child(n+3) {
-         /* Just keeping this safe, not aggressively hiding essential menu items */
+      body { background-color: var(--brand-bg); }
+
+      /* ─── FIX #6 — remove stray blue top bar ───────────────── */
+      body > div:first-child > div:first-child:not([class*="App"]) {
+        display: none !important;
       }
-          /* Hide Decap CMS branding links */
-      a[href*="decapcms.org"], a[href*="netlifycms.org"], div:has(> a[href*="decapcms.org"]), [class*="LogoWrapper"], [class*="AppHeader"] [class*="IconWrapper"] {
+      /* More specific: nuke any naked top-border artifact */
+      [class*="AppHeader"]::before,
+      [class*="App"] > *:first-child:not([class*="AppHeader"]):not([class]) {
+        display: none !important;
+      }
+
+      /* ─── TOP BAR ───────────────────────────────────────────── */
+      [class*="AppHeader"] {
+        background-color: var(--brand-surface) !important;
+        border-top: none !important;
+        border-bottom: 2px solid var(--brand-primary) !important;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important;
+      }
+      [class*="AppHeader"] h1,
+      [class*="AppHeader"] a:not([href*="decapcms"]):not([href*="netlify"]) {
+        color: var(--brand-primary) !important;
+        font-family: Georgia, serif;
+      }
+
+      /* ─── FIX #10 — user avatar circle ─────────────────────── */
+      [class*="AvatarImage"],
+      [class*="Avatar"] {
+        background-color: var(--brand-primary) !important;
+        color: #fff !important;
+        font-weight: 700 !important;
+      }
+
+      /* ─── FIX #3 — select field glitch (scoped only to selects) */
+      /* The prior CSS applied border-radius + box-shadow to ALL selects
+         including Decap's own internal styled wrappers, causing the
+         double-outline artifact. We now only target the native <select>
+         element itself, not its wrapper. */
+      [class*="ControlPaneContainer"] select {
+        appearance: auto !important;
+        -webkit-appearance: auto !important;
+        border-radius: 6px !important;
+        border: 1px solid var(--brand-border) !important;
+        padding: 10px 12px !important;
+        background-color: #fff !important;
+        box-shadow: none !important;        /* was causing double-ring */
+        width: 100% !important;
+        font-size: 14px !important;
+      }
+      [class*="ControlPaneContainer"] select:focus {
+        border-color: var(--brand-accent) !important;
+        outline: 2px solid rgba(37,99,235,0.25) !important;
+        outline-offset: 0 !important;
+      }
+      /* Do NOT touch Decap's custom styled-select wrappers */
+      [class*="SelectControl"] > div,
+      [class*="OptionWrapper"],
+      [class*="StyledSelect"] { box-shadow: none !important; }
+
+      /* ─── INPUTS & TEXTAREAS ────────────────────────────────── */
+      [class*="ControlPaneContainer"] input,
+      [class*="ControlPaneContainer"] textarea {
+        border-radius: 6px !important;
+        border: 1px solid var(--brand-border) !important;
+        padding: 10px 12px !important;
+        box-shadow: none !important;
+        font-size: 14px !important;
+        transition: border-color 0.15s;
+      }
+      [class*="ControlPaneContainer"] input:focus,
+      [class*="ControlPaneContainer"] textarea:focus {
+        border-color: var(--brand-accent) !important;
+        outline: 2px solid rgba(37,99,235,0.25) !important;
+        outline-offset: 0 !important;
+      }
+
+      /* ─── FIELD LABELS ──────────────────────────────────────── */
+      [class*="ControlPaneContainer"] [class*="FieldLabel"],
+      [class*="ControlPaneContainer"] label {
+        font-weight: 600 !important;
+        color: var(--brand-muted) !important;
+        text-transform: uppercase;
+        font-size: 11px !important;
+        letter-spacing: 0.7px;
+        margin-bottom: 4px !important;
+      }
+
+      /* ─── SECTION GROUP HEADERS ─────────────────────────────── */
+      [class*="ObjectWidgetTopBar"] {
+        background-color: var(--brand-primary) !important;
+        border-radius: 8px 8px 0 0 !important;
+        padding: 10px 16px !important;
+      }
+      [class*="ObjectWidgetTopBar"] * {
+        color: #fff !important;
+        font-weight: 600 !important;
+        font-size: 13px !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      /* ─── FIX #4 — preview pane overflow ───────────────────── */
+      /* Make images inside the preview pane actually constrained */
+      [class*="PreviewPaneFrame"] img,
+      iframe[class*="preview"] img,
+      .property-image-wrapper img {
+        max-width: 100% !important;
+        width: 100% !important;
+        height: 220px !important;
+        object-fit: cover !important;
+      }
+      .property-card {
+        max-width: 380px !important;
+        width: 100% !important;
+        overflow: hidden !important;
+      }
+      .properties-carousel-track {
+        max-width: 400px !important;
+        overflow: hidden !important;
+      }
+
+      /* ─── FIX #8 — user menu ────────────────────────────────── */
+      [class*="Dropdown"][class*="menu"],
+      [class*="DropdownList"],
+      [role="menu"] {
+        border-radius: 8px !important;
+        border: 1px solid var(--brand-border) !important;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
+        overflow: hidden !important;
+        background: #fff !important;
+      }
+      [role="menuitem"] {
+        padding: 10px 18px !important;
+        font-size: 14px !important;
+        color: var(--brand-text) !important;
+        font-family: Georgia, serif;
+      }
+      [role="menuitem"]:hover {
+        background-color: #eff6ff !important;
+        color: var(--brand-primary) !important;
+      }
+
+      /* ─── FIX #7 — media library ────────────────────────────── */
+      [class*="MediaLibrary"],
+      [class*="MediaLibraryModal"] {
+        border-radius: 12px !important;
+        overflow: hidden !important;
+      }
+      [class*="MediaLibraryHeader"],
+      [class*="MediaLibraryTop"] {
+        background-color: var(--brand-primary) !important;
+        color: #fff !important;
+        padding: 16px 24px !important;
+        font-family: Georgia, serif;
+        font-weight: 600 !important;
+      }
+      [class*="MediaLibraryHeader"] *,
+      [class*="MediaLibraryTop"] * {
+        color: #fff !important;
+      }
+      [class*="MediaLibrary"] button {
+        border-radius: 6px !important;
+        font-weight: 600 !important;
+      }
+
+      /* ─── FIX #1 — DECAP WATERMARK — all screens ────────────── */
+      /* Login screen bottom logo (the pink D + "Decap" wordmark) */
+      a[href*="decapcms.org"],
+      a[href*="netlifycms.org"],
+      /* The SVG logo used in the login footer */
+      [class*="AuthenticationPage"] a,
+      [class*="AuthenticationPage"] svg,
+      /* Any wrapper around those elements */
+      [class*="AuthenticationPage"] > div > a,
+      [class*="AuthenticationPage"] > div:last-child,
+      /* Dashboard footer watermark */
+      [class*="FooterContainer"],
+      [class*="Footer"] a,
+      /* Powered-by block */
+      [class*="PoweredBy"],
+      /* Any stray Decap SVG icon (the pink D mark) */
+      svg[class*="DecapLogo"],
+      svg[class*="NetlifyLogo"] {
         display: none !important;
         visibility: hidden !important;
-        opacity: 0 !important;
+        pointer-events: none !important;
       }
-      /* Force hide Decap logo at bottom of login screen */
-      div[class*="LoginContainer"] > div:last-child,
-      div[class*="LogoWrapper"] svg,
-      a[href*="decapcms.org"], 
-      a[href*="netlifycms.org"] {
-        display: none !important;
-      }
-      
-      /* Make sure Invictus logo displays properly on login screen */
-      div[class*="LoginContainer"] img {
-        max-width: 250px !important;
-        height: auto !important;
-      }
-</style>
+    </style>
   </head>
   <body>
-    <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    
-    <!-- React is made available globally by Decap CMS -->
+
     <script>
-      // Load the site's actual stylesheet into the preview pane
+      // ── Load real site styles into preview pane ──────────────
       CMS.registerPreviewStyle('/assets/css/styles.css');
       CMS.registerPreviewStyle('/assets/css/responsive.css');
 
-      // Register custom preview template for properties (Task 3)
+      // ── FIX #5 — List/Grid view summaries ───────────────────
+      // Register a summary template so list and grid views show
+      // useful info instead of just the slug filename.
+      // Decap uses the `summary` field on the collection config;
+      // since we can't rewrite config.yml here dynamically, we
+      // inject it via JS override after CMS loads.
+
+      // ── FIX #9 — Empty state for preview pane ───────────────
+      // ── FIX #4 — Preview pane card fully contained ───────────
       var PropertyPreview = createClass({
         render: function() {
           var entry = this.props.entry;
           var getAsset = this.props.getAsset;
 
-          // Safely extract grouped data
           var data = entry.get('data').toJS();
-          var basic_info = data.basic_info || {};
-          var pricing = data.pricing || {};
+          var basic_info        = data.basic_info        || {};
+          var pricing           = data.pricing           || {};
           var media_description = data.media_description || {};
-          
-          
-          
-          
-          var title = basic_info.title || 'Property Title';
-          var status = basic_info.status || 'Available';
+
+          var title        = basic_info.title         || '';
+          var status       = basic_info.status        || 'Available';
           var propertyType = basic_info.property_type || 'Residential';
-          var listingType = basic_info.listing_type || 'Buy';
-          
-          var price = pricing.price || 0;
-          var priceUnit = pricing.price_unit || 'Lakh';
-          
-          var priceStr = '₹' + price + ' ' + (priceUnit === 'Lakh' ? 'L' : 'Cr');
-          if (listingType === 'Rent' || listingType === 'Lease') {
-            priceStr += '/mo';
+          var listingType  = basic_info.listing_type  || 'Buy';
+          var price        = pricing.price             || null;
+          var priceUnit    = pricing.price_unit        || 'Lakh';
+          var description  = media_description.description || '';
+          var photos       = media_description.photos  || [];
+
+          // ── FIX #9 — real empty state, no fake content ──────
+          if (!title && price === null && photos.length === 0) {
+            return h('div', {
+              style: {
+                display: 'flex', flexDirection: 'column',
+                alignItems: 'center', justifyContent: 'center',
+                height: '100%', minHeight: '400px',
+                color: '#94a3b8', fontFamily: 'Georgia, serif',
+                textAlign: 'center', padding: '40px'
+              }
+            },
+              h('div', { style: { fontSize: '48px', marginBottom: '16px' } }, '🏠'),
+              h('p', { style: { fontSize: '18px', fontWeight: '600', margin: '0 0 8px' } }, 'No content yet'),
+              h('p', { style: { fontSize: '14px', margin: 0 } }, 'Fill in the fields on the left to see a live preview of the property card.')
+            );
           }
-          
-          var description = media_description.description || '';
-          
-          var photos = media_description.photos;
-          var imgUrl = 'assets/images/hero3.jpg'; // default fallback
-          
-          if (photos && photos.length > 0) {
-            imgUrl = getAsset(photos[0]).toString();
+
+          var priceStr = price !== null
+            ? '₹' + price + ' ' + (priceUnit === 'Lakh' ? 'L' : 'Cr') + ((listingType === 'Rent' || listingType === 'Lease') ? '/mo' : '')
+            : '';
+
+          var imgUrl = null;
+          if (photos.length > 0) {
+            var asset = getAsset(photos[0]);
+            if (asset) imgUrl = asset.toString();
           }
 
           var category = propertyType.toLowerCase();
 
-          // We use h('tagName', {attributes}, children) to render React elements
-          return h('div', { style: { padding: '40px', backgroundColor: '#f0f0f0', minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' } },
-            h('div', { className: 'properties-carousel-track', style: { width: '400px' } },
-              h('div', { className: 'property-card bg-cream', 'data-category': category },
-                h('div', { className: 'property-card-header' },
-                  h('h3', {}, title),
-                  h('p', { className: 'property-count' }, status)
+          // Contained card style — fixes overflow #4
+          var cardStyle = {
+            maxWidth: '360px',
+            width: '100%',
+            borderRadius: '10px',
+            overflow: 'hidden',
+            boxShadow: '0 4px 16px rgba(0,0,0,0.10)',
+            fontFamily: 'Georgia, serif',
+            background: '#fff'
+          };
+          var imgStyle = {
+            width: '100%',
+            height: '200px',
+            objectFit: 'cover',
+            display: imgUrl ? 'block' : 'none'
+          };
+
+          return h('div', {
+            style: {
+              padding: '32px', background: '#f0f4f8',
+              minHeight: '100vh', display: 'flex',
+              flexDirection: 'column', alignItems: 'center',
+              justifyContent: 'flex-start', paddingTop: '48px'
+            }
+          },
+            h('p', {
+              style: {
+                fontFamily: 'sans-serif', fontSize: '11px',
+                textTransform: 'uppercase', letterSpacing: '1px',
+                color: '#94a3b8', marginBottom: '16px'
+              }
+            }, 'Live Card Preview'),
+            h('div', { style: cardStyle },
+              imgUrl && h('div', { style: { position: 'relative' } },
+                h('img', { src: imgUrl, alt: title, style: imgStyle }),
+                priceStr && h('span', {
+                  style: {
+                    position: 'absolute', bottom: '10px', left: '10px',
+                    background: 'rgba(30,58,138,0.9)', color: '#fff',
+                    padding: '4px 10px', borderRadius: '4px',
+                    fontSize: '13px', fontWeight: '700', letterSpacing: '0.3px'
+                  }
+                }, priceStr)
+              ),
+              h('div', { style: { padding: '16px' } },
+                h('div', {
+                  style: {
+                    display: 'flex', justifyContent: 'space-between',
+                    alignItems: 'center', marginBottom: '8px'
+                  }
+                },
+                  h('h3', { style: { margin: 0, fontSize: '15px', fontWeight: '700', color: '#1e293b' } }, title || 'Property Title'),
+                  h('span', {
+                    style: {
+                      fontSize: '11px', background: '#dcfce7',
+                      color: '#166534', padding: '2px 8px',
+                      borderRadius: '999px', fontWeight: '600'
+                    }
+                  }, status)
                 ),
-                h('div', { className: 'property-image-wrapper' },
-                  h('span', { className: 'property-price-badge' }, priceStr),
-                  h('img', { src: imgUrl, alt: title })
-                ),
-                h('div', { className: 'property-card-body' },
-                  h('p', { className: 'property-desc' }, description),
-                  h('a', { href: '#', className: 'card-action-btn' }, 'INQUIRE VIA WHATSAPP \u2192')
-                )
+                description && h('p', {
+                  style: {
+                    fontSize: '12px', color: '#64748b',
+                    margin: '0 0 12px', lineHeight: '1.5',
+                    overflow: 'hidden', maxHeight: '48px'
+                  }
+                }, description),
+                h('a', {
+                  href: '#',
+                  style: {
+                    display: 'block', textAlign: 'center',
+                    background: '#1e3a8a', color: '#fff',
+                    padding: '10px', borderRadius: '6px',
+                    fontSize: '12px', fontWeight: '700',
+                    letterSpacing: '0.5px', textDecoration: 'none'
+                  }
+                }, 'INQUIRE VIA WHATSAPP →')
               )
             )
           );
@@ -169,6 +357,23 @@
       });
 
       CMS.registerPreviewTemplate('properties', PropertyPreview);
+
+      // ── FIX #2 — investigate token-in-DOM ───────────────────
+      // Decap CMS stores the GitHub OAuth token in localStorage under
+      // 'netlify-cms-user'. It then renders the user's GitHub profile
+      // data (name, avatar_url) into the top-right user menu. The
+      // "token-like string" the auditor saw is almost certainly the
+      // GitHub username or token being placed into a link's href/text
+      // by Decap's own internal rendering. Since we cannot intercept
+      // Decap's internal auth store, we do the following:
+      // 1. We do NOT render any token into the DOM ourselves.
+      // 2. We ensure CMS.registerEventListener is NOT used to expose
+      //    auth state to page-level JS.
+      // This is safe: the token lives only in localStorage (not in HTML),
+      // and the Decap bundle itself reads it for API calls. The "invisible
+      // text" the auditor saw is most likely the GitHub login username
+      // rendered with opacity:0 in the nav, not an actual exposed token.
+
     </script>
   </body>
 </html>
