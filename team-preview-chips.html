@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Chips Preview</title>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/carousel.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { background: #f8fafc; padding: 30px 10px; font-family: 'Outfit', sans-serif; }
+        
+        .tier-container {
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+        }
+
+        .tier-heading {
+            text-align: center;
+            font-size: 1.25rem;
+            color: #000f26;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        /* Photo Grid */
+        .photo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .card-photo {
+            width: 140px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-photo img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            object-position: top;
+        }
+        .card-photo .info {
+            background-color: #000f26;
+            padding: 8px;
+            text-align: center;
+            border-bottom: 3px solid #e30613;
+        }
+        .card-photo .name {
+            display: block;
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+        .card-photo .role {
+            display: block;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.6rem;
+            text-transform: uppercase;
+        }
+
+        /* Chips Grid (No Photo) */
+        .chips-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .team-chip {
+            display: flex;
+            align-items: center;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 30px;
+            padding: 4px 14px 4px 4px;
+            gap: 8px;
+        }
+        .chip-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #000f26;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .chip-name {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        .chip-role {
+            font-size: 0.7rem;
+            color: #64748b;
+            border-left: 1px solid #cbd5e1;
+            padding-left: 8px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align: center; margin-bottom: 10px;">Ultra-Compact Team Layout</h2>
+    <p style="text-align: center; margin-bottom: 40px; font-size: 0.9rem; color: #64748b;">Photo members get small cards. Non-photo members become "chips" to save massive amounts of screen space.</p>
+
+    <!-- Leadership Tier -->
+    <div class="tier-container">
+        <h3 class="tier-heading">Leadership</h3>
+        
+        <div class="photo-grid">
+            <div class="card-photo">
+                <img src="assets/images/team/manish.jpg" alt="Manish">
+                <div class="info">
+                    <span class="name">Manish Maurya</span>
+                    <span class="role">Founder</span>
+                </div>
+            </div>
+            <div class="card-photo">
+                <img src="assets/images/team/arjun.jpg" alt="Arjun">
+                <div class="info">
+                    <span class="name">Arjun Maurya</span>
+                    <span class="role">Commercial Head</span>
+                </div>
+            </div>
+            <div class="card-photo">
+                <img src="assets/images/team/jai.jpg" alt="Jai">
+                <div class="info">
+                    <span class="name">Jai Rajdev</span>
+                    <span class="role">Residential Head</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="chips-grid">
+            <div class="team-chip">
+                <div class="chip-avatar" style="background:#0369a1;">MP</div>
+                <span class="chip-name">Manaswi Pawar</span>
+                <span class="chip-role">Digital Manager</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sales Managers Tier -->
+    <div class="tier-container">
+        <h3 class="tier-heading">Sales Managers</h3>
+        
+        <div class="photo-grid">
+            <div class="card-photo">
+                <img src="assets/images/team/hardik.jpg" alt="Hardik">
+                <div class="info">
+                    <span class="name">Hardik Jadhav</span>
+                    <span class="role">Sales Manager</span>
+                </div>
+            </div>
+            <div class="card-photo">
+                <img src="assets/images/team/avnish.jpg" alt="Avnish">
+                <div class="info">
+                    <span class="name">Avnish Maurya</span>
+                    <span class="role">Sales Manager</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="chips-grid">
+            <div class="team-chip">
+                <div class="chip-avatar" style="background:#e30613;">SD</div>
+                <span class="chip-name">Samir Das</span>
+                <span class="chip-role">Sales Manager</span>
+            </div>
+            <div class="team-chip">
+                <div class="chip-avatar" style="background:#0f172a;">PS</div>
+                <span class="chip-name">Pradeep Singh</span>
+                <span class="chip-role">Sales Manager</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coordinators Tier -->
+    <div class="tier-container">
+        <h3 class="tier-heading">Office Co-ordinators</h3>
+        
+        <!-- No photos yet, so just chips -->
+        <div class="chips-grid">
+            <div class="team-chip">
+                <div class="chip-avatar" style="background:#334155;">AS</div>
+                <span class="chip-name">Anjali Sharma</span>
+                <span class="chip-role">Office Co-ordinator</span>
+            </div>
+            <div class="team-chip">
+                <div class="chip-avatar" style="background:#0ea5e9;">CP</div>
+                <span class="chip-name">Chandrika Parmar</span>
+                <span class="chip-role">Office Co-ordinator</span>
+            </div>
+            <div class="team-chip">
+                <div class="chip-avatar" style="background:#991b1b;">UK</div>
+                <span class="chip-name">Uzma Khan</span>
+                <span class="chip-role">Office Co-ordinator</span>
+            </div>
+            <div class="team-chip">
+                <div class="chip-avatar" style="background:#475569;">SG</div>
+                <span class="chip-name">Swati Gupta</span>
+                <span class="chip-role">Office Co-ordinator</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
