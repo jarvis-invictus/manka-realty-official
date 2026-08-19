@@ -1684,8 +1684,8 @@
 }
 
 .team-member-card {
-    width: 180px !important;
-    flex: 0 0 180px !important;
+    width: 155px !important;
+    flex: 0 0 155px !important;
     background-color: #ffffff !important;
     border: 1px solid rgba(0, 0, 0, 0.06) !important;
     border-radius: 8px !important; /* Slightly rounded corners (6-8px) */
@@ -3126,6 +3126,7 @@
 
 
 .team-member-info-banner span.team-name {
+    display: block !important;
     color: #ffffff !important;
     font-size: 0.8rem !important;
     font-weight: 700 !important;
@@ -3137,6 +3138,7 @@
 }
 
 .team-member-info-banner span.team-role {
+    display: block !important;
     color: rgba(255, 255, 255, 0.7) !important;
     font-size: 0.65rem !important;
     font-weight: 500 !important;
