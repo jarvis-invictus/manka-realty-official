@@ -604,7 +604,7 @@
 
 .social-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     max-width: 1240px;
     margin: 0 auto;
@@ -652,6 +652,13 @@
 .facebook-bg {
     background: linear-gradient(45deg, #1877f2, #0e54b2);
 }
+
+
+.linkedin-bg { background: linear-gradient(45deg, #0A66C2, #084c91); }
+.youtube-bg { background: linear-gradient(45deg, #FF0000, #b30000); }
+.twitter-bg { background: linear-gradient(45deg, #333333, #000000); }
+.threads-bg { background: linear-gradient(45deg, #555555, #111111); }
+.pinterest-bg { background: linear-gradient(45deg, #E60023, #ad001a); }
 
 .whatsapp-bg {
     background: linear-gradient(45deg, #25d366, #128c7e);
@@ -1819,7 +1826,7 @@
 
 .choose-us-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
 }
 
@@ -3097,3 +3104,21 @@
     background-color: #b0050d;
     color: white;
 }
+
+.linkedin-text:hover { color: #0A66C2; font-weight: 700; }
+.youtube-text:hover { color: #FF0000; font-weight: 700; }
+.twitter-text:hover { color: #333333; font-weight: 700; }
+.threads-text:hover { color: #111111; font-weight: 700; }
+.pinterest-text:hover { color: #E60023; font-weight: 700; }
+
+@media (max-width: 1024px) {
+    .social-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+@media (max-width: 576px) {
+    .social-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
