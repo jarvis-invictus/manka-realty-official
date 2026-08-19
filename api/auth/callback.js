@@ -43,7 +43,7 @@ module.exports = async function handler(req, res) {
       <html>
       <head><title>Authentication Success</title></head>
       <body>
-        <p>Authorization successful. You can close this window.</p>
+        <p>Authorization successful. Redirecting...</p>
         <script>
           (function() {
             function receiveMessage(e) {
@@ -52,9 +52,17 @@ module.exports = async function handler(req, res) {
                 'authorization:github:success:${message}',
                 e.origin
               );
+              // Give it a moment to send the message, then close the popup
+              setTimeout(() => window.close(), 100);
             }
             window.addEventListener("message", receiveMessage, false);
             window.opener.postMessage("authorizing:github", "*");
+            
+            // Fallback in case opener doesn't respond
+            setTimeout(() => {
+              window.opener.postMessage('authorization:github:success:${message}', "*");
+              window.close();
+            }, 1000);
           })();
         </script>
       </body>
@@ -75,6 +83,7 @@ module.exports = async function handler(req, res) {
               'authorization:github:error:' + JSON.stringify({ message: "${error.message}" }),
               "*"
             );
+            setTimeout(() => window.close(), 1000);
         </script>
       </body>
       </html>
