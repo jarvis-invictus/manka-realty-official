@@ -1726,14 +1726,16 @@
 }
 
 .team-member-info-banner {
-    height: 45px !important;
     background-color: #000f26 !important; /* Match header dark navy exactly */
     display: flex !important;
+    flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
     border-bottom: 3px solid #e30613 !important; /* Solid red bottom accent line */
     width: 100% !important;
     box-sizing: border-box !important;
+    padding: 8px 5px !important;
+    min-height: 55px !important;
 }
 
 .team-member-info-banner span {
@@ -3122,3 +3124,51 @@
     }
 }
 
+
+.team-member-info-banner span.team-name {
+    color: #ffffff !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em !important;
+    text-transform: capitalize !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+    margin-bottom: 2px !important;
+}
+
+.team-member-info-banner span.team-role {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 0.65rem !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    letter-spacing: 0.05em !important;
+    line-height: 1.2 !important;
+}
+
+.team-tier {
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.tier-heading {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.tier-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: var(--brand-red);
+}
