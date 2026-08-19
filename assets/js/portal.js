@@ -469,7 +469,7 @@ function renderHistoryTimeline(container) {
         scrollContainer.classList.add('white-theme');
     }
     // Static HTML is fine here since it doesn't process external untrusted data
-    container.innerHTML = \`
+    container.innerHTML = `
         <div class="portal-hero white-hero">
             <div class="section-container">
                 <h1 class="portal-page-title dark-text">Our History & Journey</h1>
@@ -520,7 +520,7 @@ function renderHistoryTimeline(container) {
                 </div>
             </div>
         </div>
-    \`;
+    `;
 }
 
 function renderPartnersGrid(container) {
@@ -536,27 +536,27 @@ function renderPartnersGrid(container) {
     let developersHtml = '';
     developers.forEach(p => {
         // Safe to interpolate if assuming partnersDb.html is static safe SVG/HTML strings from local data
-        developersHtml += \`
+        developersHtml += `
             <div class="partner-logo-card">
                 <div class="partner-logo-inner">
                     \${p.html}
                 </div>
                 <div class="partner-logo-title">\${p.title}</div>
-            </div>\`;
+            </div>`;
     });
 
     let brandsHtml = '';
     brands.forEach(p => {
-        brandsHtml += \`
+        brandsHtml += `
             <div class="partner-logo-card">
                 <div class="partner-logo-inner">
                     \${p.html}
                 </div>
                 <div class="partner-logo-title">\${p.title}</div>
-            </div>\`;
+            </div>`;
     });
 
-    container.innerHTML = \`
+    container.innerHTML = `
         <div class="portal-hero white-hero">
             <div class="section-container">
                 <h1 class="portal-page-title dark-text">Authorized Partners & Brands</h1>
@@ -577,5 +577,5 @@ function renderPartnersGrid(container) {
                 </div>
             </div>
         </div>
-    \`;
+    `;
 }

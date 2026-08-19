@@ -1295,7 +1295,7 @@
         height: 100vh;
         background-color: #000e25;
         padding: 100px 40px;
-        transition: var(--transition-premium);
+        transition: right 0.25s ease-in-out;
         box-shadow: var(--shadow-premium);
         z-index: 990;
     }
