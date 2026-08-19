@@ -1568,7 +1568,7 @@
 }
 
 .logo-image {
-    height: 52px;
+    height: 40px;
     width: auto;
     object-fit: contain;
 }
@@ -2573,52 +2573,40 @@
 }
 
 .logo {
-    position: relative;
     display: flex;
     align-items: center;
+    gap: 12px;
     height: 100%;
-    padding-left: 100px !important;
 }
 
 .logo-image {
-    position: absolute !important;
-    top: -38px !important;
-    left: 0 !important;
-    height: 85px !important;
-    width: auto !important;
-    object-fit: contain !important;
-    z-index: 2;
+    height: 42px;
+    width: auto;
+    object-fit: contain;
 }
 
 .logo-wrapper {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
+    margin-left: 0;
+    padding-left: 0;
 }
 
 /* Ensure overlay header matches theme color */
 .overlay-header {
-    background-color: #000f26 !important;
-    border-top: 30px solid #ffffff !important;
-    height: 75px !important;
-    padding: 0 24px !important;
+    background-color: #000f26;
+    height: 75px;
+    padding: 0 24px;
 }
 
 .overlay-header .logo {
-    position: relative;
     display: flex;
     align-items: center;
     height: 100%;
-    padding-left: 100px !important;
 }
 
 .overlay-header .logo-image {
-    position: absolute !important;
-    top: -38px !important;
-    left: 0 !important;
-    height: 85px !important;
-    width: auto !important;
-    object-fit: contain !important;
-    z-index: 2;
+    height: 42px;
+    width: auto;
+    object-fit: contain;
 }
 
 /* Neutralize the old logo-badge polygon clipping styles */
