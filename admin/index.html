@@ -77,8 +77,23 @@
          /* Just keeping this safe, not aggressively hiding essential menu items */
       }
           /* Hide Decap CMS branding links */
-      a[href*="decapcms.org"], a[href*="netlifycms.org"] {
+      a[href*="decapcms.org"], a[href*="netlifycms.org"], div:has(> a[href*="decapcms.org"]), [class*="LogoWrapper"], [class*="AppHeader"] [class*="IconWrapper"] {
         display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+      }
+      /* Force hide Decap logo at bottom of login screen */
+      div[class*="LoginContainer"] > div:last-child,
+      div[class*="LogoWrapper"] svg,
+      a[href*="decapcms.org"], 
+      a[href*="netlifycms.org"] {
+        display: none !important;
+      }
+      
+      /* Make sure Invictus logo displays properly on login screen */
+      div[class*="LoginContainer"] img {
+        max-width: 250px !important;
+        height: auto !important;
       }
 </style>
   </head>
