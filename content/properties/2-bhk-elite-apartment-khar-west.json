@@ -1,0 +1,17 @@
+{
+  "title": "2 BHK Elite Apartment Khar West",
+  "property_type": "Residential",
+  "listing_type": "Buy",
+  "status": "Available",
+  "price": 1.35,
+  "price_unit": "Crore",
+  "locality": "Elite Apartment Khar West",
+  "bhk": "2 BHK",
+  "carpet_area": 1000,
+  "furnishing_status": "Unfurnished",
+  "photos": [
+    "assets/images/about_small.jpg"
+  ],
+  "featured": true,
+  "description": "Vastu-compliant luxury apartment and clear title plots in a gated community. Includes gym, pool, and 24/7 security."
+}

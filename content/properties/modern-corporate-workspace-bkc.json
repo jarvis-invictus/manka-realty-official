@@ -1,0 +1,17 @@
+{
+  "title": "Modern Corporate Workspace BKC",
+  "property_type": "Commercial",
+  "listing_type": "Rent",
+  "status": "Available",
+  "price": 1.8,
+  "price_unit": "Lakh",
+  "locality": "Modern Corporate Workspace BKC",
+  "bhk": "N/A",
+  "carpet_area": 1000,
+  "furnishing_status": "Unfurnished",
+  "photos": [
+    "assets/images/hero2.jpg"
+  ],
+  "featured": true,
+  "description": "Fully furnished, plug-and-play corporate floor inside a Grade-A business tower. High-speed elevators and dedicated car parks."
+}

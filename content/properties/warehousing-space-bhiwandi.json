@@ -1,0 +1,17 @@
+{
+  "title": "Warehousing Space Bhiwandi",
+  "property_type": "Commercial",
+  "listing_type": "Rent",
+  "status": "Available",
+  "price": 3.5,
+  "price_unit": "Lakh",
+  "locality": "Warehousing Space Bhiwandi",
+  "bhk": "N/A",
+  "carpet_area": 1000,
+  "furnishing_status": "Unfurnished",
+  "photos": [
+    "assets/images/about_small.jpg"
+  ],
+  "featured": true,
+  "description": "Grade-A logistics warehouse in Bhiwandi with excellent roof clearances, multiple loading bays, and 30-ton weight capacities."
+}

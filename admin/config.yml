@@ -1,0 +1,32 @@
+backend:
+  name: github
+  repo: jarvis-invictus/manka-realty-official
+  branch: master
+  base_url: https://manka-realty-three.vercel.app
+  auth_endpoint: api/auth
+
+media_folder: "assets/images"
+public_folder: "assets/images"
+
+collections:
+  - name: "properties"
+    label: "Properties"
+    folder: "content/properties"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Property Type", name: "property_type", widget: "select", options: ["Residential", "Commercial"]}
+      - {label: "Listing Type", name: "listing_type", widget: "select", options: ["Buy", "Rent", "Lease"]}
+      - {label: "Status", name: "status", widget: "select", options: ["Available", "Under Negotiation", "Sold", "Leased"]}
+      - {label: "Price", name: "price", widget: "number", value_type: "float"}
+      - {label: "Price Unit", name: "price_unit", widget: "select", options: ["Lakh", "Crore"]}
+      - {label: "Locality", name: "locality", widget: "string"}
+      - {label: "BHK", name: "bhk", widget: "string", required: false}
+      - {label: "Carpet Area (sq ft)", name: "carpet_area", widget: "number", value_type: "int"}
+      - {label: "Furnishing Status", name: "furnishing_status", widget: "select", options: ["Furnished", "Semi-Furnished", "Unfurnished"]}
+      - {label: "Photos", name: "photos", widget: "list", field: {label: "Photo", name: "photo", widget: "image"}}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+      - {label: "Description", name: "description", widget: "text"}

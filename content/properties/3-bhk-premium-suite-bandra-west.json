@@ -1,0 +1,17 @@
+{
+  "title": "3 BHK Premium Suite Bandra West",
+  "property_type": "Residential",
+  "listing_type": "Buy",
+  "status": "Available",
+  "price": 2.45,
+  "price_unit": "Crore",
+  "locality": "Premium Suite Bandra West",
+  "bhk": "3 BHK",
+  "carpet_area": 1000,
+  "furnishing_status": "Unfurnished",
+  "photos": [
+    "assets/images/hero3.jpg"
+  ],
+  "featured": true,
+  "description": "Spacious high-rise apartment with premium wooden flooring, smart automation, and private deck overlooking the Bandra coastline."
+}

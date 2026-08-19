@@ -1,0 +1,17 @@
+{
+  "title": "Manka Heights Santacruz",
+  "property_type": "Commercial",
+  "listing_type": "Buy",
+  "status": "Available",
+  "price": 4.1,
+  "price_unit": "Crore",
+  "locality": "Manka Heights Santacruz",
+  "bhk": "N/A",
+  "carpet_area": 1000,
+  "furnishing_status": "Unfurnished",
+  "photos": [
+    "assets/images/hero1.jpg"
+  ],
+  "featured": true,
+  "description": "Ultra-high footfall retail space located on a premium corner lot in Bandra. Double height ceiling and full glass frontage."
+}

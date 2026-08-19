@@ -1,0 +1,17 @@
+{
+  "title": "Boutique Office Andheri East",
+  "property_type": "Commercial",
+  "listing_type": "Rent",
+  "status": "Available",
+  "price": 85.0,
+  "price_unit": "Lakh",
+  "locality": "Boutique Office Andheri East",
+  "bhk": "N/A",
+  "carpet_area": 1000,
+  "furnishing_status": "Unfurnished",
+  "photos": [
+    "assets/images/hero3.jpg"
+  ],
+  "featured": true,
+  "description": "Sleek, premium furnished boutique desk floor in Andheri East, close to Metro. Perfect for agencies or advisory chambers."
+}

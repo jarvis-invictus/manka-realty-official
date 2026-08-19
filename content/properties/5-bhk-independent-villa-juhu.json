@@ -1,0 +1,17 @@
+{
+  "title": "5 BHK Independent Villa Juhu",
+  "property_type": "Residential",
+  "listing_type": "Buy",
+  "status": "Available",
+  "price": 9.8,
+  "price_unit": "Crore",
+  "locality": "Independent Villa Juhu",
+  "bhk": "5 BHK",
+  "carpet_area": 1000,
+  "furnishing_status": "Unfurnished",
+  "photos": [
+    "assets/images/about_large.jpg"
+  ],
+  "featured": true,
+  "description": "Sophisticated independent villa in Juhu with a private landscaped lawn, high perimeter security, and personal elevator options."
+}

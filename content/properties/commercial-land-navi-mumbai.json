@@ -1,0 +1,17 @@
+{
+  "title": "Commercial Land Navi Mumbai",
+  "property_type": "Commercial",
+  "listing_type": "Buy",
+  "status": "Available",
+  "price": 12.5,
+  "price_unit": "Crore",
+  "locality": "Commercial Land Navi Mumbai",
+  "bhk": "N/A",
+  "carpet_area": 1000,
+  "furnishing_status": "Unfurnished",
+  "photos": [
+    "assets/images/about_large.jpg"
+  ],
+  "featured": true,
+  "description": "Highway-touch commercial plot in Navi Mumbai with heavy vehicle access, boundary fencing, and approved layout clearances."
+}

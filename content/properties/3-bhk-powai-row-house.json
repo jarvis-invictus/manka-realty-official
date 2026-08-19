@@ -1,0 +1,17 @@
+{
+  "title": "3 BHK Powai Row House",
+  "property_type": "Residential",
+  "listing_type": "Buy",
+  "status": "Available",
+  "price": 3.2,
+  "price_unit": "Crore",
+  "locality": "Powai Row House",
+  "bhk": "3 BHK",
+  "carpet_area": 1000,
+  "furnishing_status": "Unfurnished",
+  "photos": [
+    "assets/images/hero1.jpg"
+  ],
+  "featured": true,
+  "description": "Multi-level row house in a premium Powai residential enclave, featuring a private backyard, open study room, and modular layout."
+}
