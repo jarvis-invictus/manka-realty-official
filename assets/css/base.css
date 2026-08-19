@@ -1,0 +1,215 @@
+/* ==========================================================================
+   MANKA REALTY CUSTOM STYLESHEET
+   Design System: Premium Red, Blue & White LIGHT Theme
+   Header: Mockup dark navy background with red active block & diagonal cut
+   ========================================================================== */
+
+/* --- Custom Variables & Tokens --- */
+:root {
+    /* Brand Color Palette - Mockup Red, Blue, and White */
+    --brand-red: oklch(0.58 0.22 25); /* #e30613 (Premium Red) */
+    --brand-red-hover: oklch(0.52 0.22 25);
+    --brand-red-semi: rgba(227, 6, 19, 0.08);
+    
+    --brand-blue: oklch(0.42 0.18 255); /* #0f52ba (Premium Sapphire Blue) */
+    --brand-blue-hover: oklch(0.36 0.18 255);
+    --brand-blue-semi: rgba(15, 82, 186, 0.08);
+    
+    /* Neutrals - BRIGHT / LIGHT THEME */
+    --bg-light: oklch(0.97 0.01 240);
+    --bg-card: #ffffff;
+    --bg-dark: #f8fafc;
+    --bg-dark-accent: #ffffff;
+    
+    /* Text */
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --text-light: #ffffff;
+    --text-light-mute: #94a3b8;
+    
+    /* System & Shadows */
+    --border-color: rgba(15, 23, 42, 0.08);
+    --border-color-light: rgba(15, 23, 42, 0.08);
+    --line-stroke: rgba(15, 23, 42, 0.1);
+    
+    --shadow-soft: 0 10px 30px -10px rgba(15, 23, 42, 0.05);
+    --shadow-medium: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
+    --shadow-premium: 0 30px 60px -20px rgba(15, 23, 42, 0.12);
+    
+    /* Easing */
+    --transition-premium: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-fast: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- Base & Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Offset for sticky header */
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--text-primary);
+}
+
+.font-premium-h2, h2.section-title {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: -0.01em;
+}
+
+p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+}
+
+strong {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+/* --- Reusable Components & Layout --- */
+.section-container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 80px 24px;
+}
+
+.section-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--brand-red);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 24px;
+    line-height: 1.15;
+}
+
+.accent-text {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--brand-red);
+}
+
+.text-gold {
+    color: var(--brand-red) !important;
+}
+
+.text-white {
+    color: var(--text-primary) !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-center-wrapper {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    border: none;
+    outline: none;
+}
+
+.btn-primary {
+    background-color: var(--brand-red);
+    color: #ffffff;
+    border: 1px solid var(--brand-red);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--brand-red);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--brand-red);
+    color: #ffffff;
+    border-color: var(--brand-red);
+    transform: translateY(-2px);
+}
+
+.btn-sm {
+    padding: 10px 20px;
+    font-size: 0.75rem;
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.whatsapp-btn i {
+    font-size: 1.1rem;
+}
+
+.btn-block {
+    display: flex;
+    width: 100%;
+}
+
+.spacing-top {
+    margin-top: 24px;
+}
+

@@ -1,0 +1,101 @@
+/* assets/css/marquee.css */
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    /* gradient mask to fade out edges */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    padding: 2rem 0;
+    background-color: transparent;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    align-items: center;
+    gap: 1.5rem; /* ~24px */
+    animation: marquee-scroll 60s linear infinite;
+}
+
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.marquee-card {
+    position: relative;
+    height: 8rem; /* 128px */
+    width: 12rem; /* 192px */
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.marquee-card-gradient {
+    position: absolute;
+    inset: 0;
+    transform: scale(1.5);
+    opacity: 0;
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    /* Will be set inline by variables */
+    background: linear-gradient(to bottom right, var(--from, transparent), var(--via, transparent), var(--to, transparent));
+}
+
+.marquee-card:hover .marquee-card-gradient {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.marquee-logo {
+    position: relative;
+    height: 3rem; /* 48px */
+    width: auto;
+    object-fit: contain;
+    z-index: 10;
+    margin-bottom: 0.75rem;
+}
+
+.marquee-name {
+    position: relative;
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500;
+    z-index: 10;
+    color: #333;
+    transition: color 0.3s ease;
+    text-align: center;
+    padding: 0 0.5rem;
+    font-family: 'Outfit', sans-serif;
+}
+
+.marquee-card:hover .marquee-name {
+    color: #fff; /* Ensure contrast on hover */
+}
+
+.marquee-track-reverse {
+    animation: marquee-scroll-reverse 60s linear infinite;
+}
+
+@keyframes marquee-scroll-reverse {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}

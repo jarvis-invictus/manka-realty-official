@@ -1,0 +1,154 @@
+/* --- Header / Navigation (Mockup dark navy background with red active block) --- */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #000e25; /* Dark Navy Background */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    height: 80px;
+    transition: var(--transition-premium);
+}
+
+.header-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* Logo Block - Transparent directly on Navy background */
+.logo-wrapper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin-left: 0;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.brand-name {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: #ffffff !important; /* White brand name on navy */
+}
+
+.brand-tagline {
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.8); /* Muted white tagline */
+    font-style: italic;
+    margin-top: 2px;
+}
+
+/* Menu Links */
+.nav-menu {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu > ul {
+    display: flex;
+    list-style: none;
+    gap: 0;
+    height: 100%;
+    align-items: stretch;
+}
+
+.nav-menu > ul > li {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+}
+
+.nav-link {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.85); /* White links */
+    padding: 0 20px;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    transition: var(--transition-fast);
+    border-radius: 0;
+}
+
+/* SOLID RED ACTIVE NAV BLOCK */
+.nav-link.active {
+    background-color: var(--brand-red) !important;
+    color: #ffffff !important;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+}
+
+/* Yellow Post Property Free button as shown in 3rd image */
+.post-property-btn {
+    background-color: #fbbc05;
+    color: #000e25;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 8px rgba(251, 188, 5, 0.2);
+    transition: var(--transition-fast);
+}
+
+.post-property-btn:hover {
+    background-color: #f2a900;
+    transform: translateY(-1px);
+}
+
+.free-badge {
+    background-color: #ffffff;
+    color: #000e25;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    border: 1px solid rgba(0,0,0,0.06);
+}
+
+.mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-toggle .bar {
+    width: 25px;
+    height: 2px;
+    background-color: #ffffff;
+    transition: var(--transition-fast);
+}
+
