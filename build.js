@@ -32,41 +32,46 @@ files.forEach((file, idx) => {
     process.exit(1);
   }
 
-  // Basic validation
-  if (!data.title || !data.property_type || data.price === undefined) {
+  // Basic validation for grouped schema
+  if (!data.basic_info || !data.basic_info.title || !data.basic_info.property_type || !data.pricing || data.pricing.price === undefined) {
     console.error(`Malformed property data in ${file}`);
     process.exit(1);
   }
 
-  if (!data.featured) return;
+  const basic_info = data.basic_info || {};
+  const pricing = data.pricing || {};
+  const location_specs = data.location_specs || {};
+  const media_description = data.media_description || {};
 
-  const category = data.property_type.toLowerCase();
+  if (!media_description.featured) return;
+
+  const category = basic_info.property_type.toLowerCase();
   const bgClass = bgClasses[idx % bgClasses.length];
 
-  let priceStr = `₹${data.price} ${data.price_unit === 'Lakh' ? 'L' : 'Cr'}`;
-  if (data.listing_type === 'Rent' || data.listing_type === 'Lease') {
+  let priceStr = `₹${pricing.price} ${pricing.price_unit === 'Lakh' ? 'L' : 'Cr'}`;
+  if (basic_info.listing_type === 'Rent' || basic_info.listing_type === 'Lease') {
     priceStr += '/mo';
   }
 
-  let imgAlt = data.title;
-  let imgUrl = data.photos && data.photos.length > 0 ? data.photos[0] : 'assets/images/hero3.jpg';
+  let imgAlt = basic_info.title;
+  let imgUrl = media_description.photos && media_description.photos.length > 0 ? media_description.photos[0] : 'assets/images/hero3.jpg';
   
   if (imgUrl.startsWith('/')) imgUrl = imgUrl.substring(1);
 
-  let wpText = encodeURIComponent(`Hi Manka Realty, I am interested in the ${data.title} property.`);
+  let wpText = encodeURIComponent(`Hi Manka Realty, I am interested in the ${basic_info.title} property.`);
 
   generatedHTML += `
                         <div class="property-card ${bgClass}" data-category="${category}">
                             <div class="property-card-header">
-                                <h3>${data.title}</h3>
-                                <p class="property-count">${data.status}</p>
+                                <h3>${basic_info.title}</h3>
+                                <p class="property-count">${basic_info.status}</p>
                             </div>
                             <div class="property-image-wrapper">
                                 <span class="property-price-badge">${priceStr}</span>
                                 <img src="${imgUrl}" alt="${imgAlt}">
                             </div>
                             <div class="property-card-body">
-                                <p class="property-desc">${data.description || ''}</p>
+                                <p class="property-desc">${media_description.description || ''}</p>
                                 <a href="https://wa.me/918928770059?text=${wpText}" target="_blank" class="card-action-btn">
                                     INQUIRE VIA WHATSAPP &rarr;
                                 </a>

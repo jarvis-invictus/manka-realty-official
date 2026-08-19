@@ -1,17 +1,25 @@
 {
-  "title": "Duplex Sea-View Penthouse Worli",
-  "property_type": "Residential",
-  "listing_type": "Buy",
-  "status": "Available",
-  "price": 14.5,
-  "price_unit": "Crore",
-  "locality": "Duplex Sea-View Penthouse Worli",
-  "bhk": "N/A",
-  "carpet_area": 1000,
-  "furnishing_status": "Unfurnished",
-  "photos": [
-    "assets/images/hero2.jpg"
-  ],
-  "featured": true,
-  "description": "Stunning Worli Sea Face duplex with a private sky terrace, infinity dip pool, concierge services, and bespoke Italian kitchen fittings."
+  "basic_info": {
+    "title": "Duplex Sea-View Penthouse Worli",
+    "property_type": "Residential",
+    "listing_type": "Buy",
+    "status": "Available"
+  },
+  "pricing": {
+    "price": 14.5,
+    "price_unit": "Crore"
+  },
+  "location_specs": {
+    "locality": "Duplex Sea-View Penthouse Worli",
+    "bhk": "N/A",
+    "carpet_area": 1000,
+    "furnishing_status": "Unfurnished"
+  },
+  "media_description": {
+    "photos": [
+      "assets/images/hero2.jpg"
+    ],
+    "featured": true,
+    "description": "Stunning Worli Sea Face duplex with a private sky terrace, infinity dip pool, concierge services, and bespoke Italian kitchen fittings."
+  }
 }

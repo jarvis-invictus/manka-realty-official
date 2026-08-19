@@ -3,10 +3,151 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Content Manager</title>
+    <title>Manka Realty - Content Manager</title>
+    
+    <!-- Custom Admin Interface CSS (Task 2) -->
+    <style>
+      /* Brand overrides for Decap CMS */
+      :root {
+        --nc-brand-primary: #1e3a8a; /* A nice deep blue to match real estate trust */
+        --nc-bg-color: #f8fafc;
+      }
+      
+      body {
+        background-color: var(--nc-bg-color);
+      }
+      
+      /* Make top bar look branded */
+      [class*="AppHeader"] {
+        background-color: #ffffff !important;
+        border-bottom: 2px solid var(--nc-brand-primary) !important;
+      }
+      
+      [class*="AppHeader"] h1, [class*="AppHeader"] a {
+        color: var(--nc-brand-primary) !important;
+        font-family: 'Georgia', serif; /* Manka Realty elegant vibe */
+      }
+      
+      /* Better typography and spacing for field groups */
+      [class*="ControlPaneContainer"] [class*="FieldLabel"] {
+        font-weight: 600 !important;
+        color: #334155 !important;
+        text-transform: uppercase;
+        font-size: 13px !important;
+        letter-spacing: 0.5px;
+      }
+      
+      /* Style the collapsible group headers to look distinct */
+      [class*="ObjectWidgetTopBar"] {
+        background-color: var(--nc-brand-primary) !important;
+        color: white !important;
+        border-radius: 6px 6px 0 0 !important;
+        padding: 10px 15px !important;
+      }
+      
+      [class*="ObjectWidgetTopBar"] * {
+        color: white !important;
+        font-weight: 600 !important;
+      }
+      
+      /* Improve input spacing */
+      [class*="ControlPaneContainer"] input, 
+      [class*="ControlPaneContainer"] select,
+      [class*="ControlPaneContainer"] textarea {
+        border-radius: 6px !important;
+        border: 1px solid #cbd5e1 !important;
+        padding: 10px 12px !important;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05) !important;
+        transition: border-color 0.2s;
+      }
+      
+      [class*="ControlPaneContainer"] input:focus, 
+      [class*="ControlPaneContainer"] select:focus,
+      [class*="ControlPaneContainer"] textarea:focus {
+        border-color: var(--nc-brand-primary) !important;
+        outline: none !important;
+      }
+
+      /* Hide developer-oriented elements that confuse data entry */
+      /* E.g. "Workflow" tab if enabled, but we only have Collections by default */
+      /* We keep Save/Publish visible (they are essential) */
+      [class*="ToolbarDropdown"] [role="menuitem"]:nth-child(n+3) {
+         /* Just keeping this safe, not aggressively hiding essential menu items */
+      }
+    </style>
   </head>
   <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    
+    <!-- React is made available globally by Decap CMS -->
+    <script>
+      // Load the site's actual stylesheet into the preview pane
+      CMS.registerPreviewStyle('/assets/css/styles.css');
+      CMS.registerPreviewStyle('/assets/css/responsive.css');
+
+      // Register custom preview template for properties (Task 3)
+      var PropertyPreview = createClass({
+        render: function() {
+          var entry = this.props.entry;
+          var getAsset = this.props.getAsset;
+
+          // Safely extract grouped data
+          var data = entry.get('data').toJS();
+          var basic_info = data.basic_info || {};
+          var pricing = data.pricing || {};
+          var media_description = data.media_description || {};
+          
+          
+          
+          
+          var title = basic_info.title || 'Property Title';
+          var status = basic_info.status || 'Available';
+          var propertyType = basic_info.property_type || 'Residential';
+          var listingType = basic_info.listing_type || 'Buy';
+          
+          var price = pricing.price || 0;
+          var priceUnit = pricing.price_unit || 'Lakh';
+          
+          var priceStr = '₹' + price + ' ' + (priceUnit === 'Lakh' ? 'L' : 'Cr');
+          if (listingType === 'Rent' || listingType === 'Lease') {
+            priceStr += '/mo';
+          }
+          
+          var description = media_description.description || '';
+          
+          var photos = media_description.photos;
+          var imgUrl = 'assets/images/hero3.jpg'; // default fallback
+          
+          if (photos && photos.length > 0) {
+            imgUrl = getAsset(photos[0]).toString();
+          }
+
+          var category = propertyType.toLowerCase();
+
+          // We use h('tagName', {attributes}, children) to render React elements
+          return h('div', { style: { padding: '40px', backgroundColor: '#f0f0f0', minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' } },
+            h('div', { className: 'properties-carousel-track', style: { width: '400px' } },
+              h('div', { className: 'property-card bg-cream', 'data-category': category },
+                h('div', { className: 'property-card-header' },
+                  h('h3', {}, title),
+                  h('p', { className: 'property-count' }, status)
+                ),
+                h('div', { className: 'property-image-wrapper' },
+                  h('span', { className: 'property-price-badge' }, priceStr),
+                  h('img', { src: imgUrl, alt: title })
+                ),
+                h('div', { className: 'property-card-body' },
+                  h('p', { className: 'property-desc' }, description),
+                  h('a', { href: '#', className: 'card-action-btn' }, 'INQUIRE VIA WHATSAPP \u2192')
+                )
+              )
+            )
+          );
+        }
+      });
+
+      CMS.registerPreviewTemplate('properties', PropertyPreview);
+    </script>
   </body>
 </html>
