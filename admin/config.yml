@@ -2,7 +2,7 @@ backend:
   name: github
   repo: jarvis-invictus/manka-realty-official
   branch: master
-  base_url: https://manka-realty-three.vercel.app
+  base_url: https://manka-realty-official.vercel.app
   auth_endpoint: api/auth
 
 media_folder: "assets/images"
