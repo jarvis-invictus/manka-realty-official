@@ -69,6 +69,11 @@
     object-fit: contain;
     z-index: 10;
     margin-bottom: 0.75rem;
+    transition: transform var(--duration-base) var(--ease-out);
+}
+
+.marquee-card:hover .marquee-logo {
+    transform: scale(1.1);
 }
 
 .marquee-name {

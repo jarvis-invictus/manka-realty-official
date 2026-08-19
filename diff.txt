@@ -1,0 +1,854 @@
+diff --git a/index.html b/index.html
+index b7de8e2..102e590 100644
+--- a/index.html
++++ b/index.html
+@@ -24,6 +24,42 @@
+     <!-- Main Stylesheet -->
+     <link rel="stylesheet" href="index.css?v=1.1.0">
+     <link rel="stylesheet" href="assets/css/marquee.css">
++<script type="application/ld+json">
++{
++  "@context": "https://schema.org",
++  "@type": "RealEstateAgent",
++  "name": "Manka Realty",
++  "image": "https://manka-realty-official.vercel.app/assets/images/manka_logo_full.png",
++  "@id": "",
++  "url": "https://manka-realty-official.vercel.app/",
++  "telephone": "+918928770059",
++  "address": {
++    "@type": "PostalAddress",
++    "streetAddress": "Bandra West",
++    "addressLocality": "Mumbai",
++    "postalCode": "400050",
++    "addressCountry": "IN"
++  },
++  "geo": {
++    "@type": "GeoCoordinates",
++    "latitude": 19.0596,
++    "longitude": 72.8295
++  },
++  "openingHoursSpecification": {
++    "@type": "OpeningHoursSpecification",
++    "dayOfWeek": [
++      "Monday",
++      "Tuesday",
++      "Wednesday",
++      "Thursday",
++      "Friday",
++      "Saturday"
++    ],
++    "opens": "10:00",
++    "closes": "19:00"
++  }
++}
++</script>
+ </head>
+ <body>
+ 
+@@ -93,220 +129,59 @@
+                 </div>
+             </div>
+         </div>
++    
++        <div class="scroll-indicator" style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 20;">
++            <a href="#showcase" style="color: white; font-size: 24px; animation: bounce 2s infinite;"><i class="fa-solid fa-chevron-down"></i></a>
++        </div>
+     </section>
+ 
+     <!-- Properties Showcase Section (99acres card layout, 10 property cards carousel) -->
+     <section class="showcase-section" id="showcase">
+         <div class="section-container">
+             <div class="text-center-wrapper">
+-                <span class="section-tag">HANDPICKED SHOWCASE</span>
+-                <h2 class="section-title text-center font-premium-h2">Featured Properties</h2>
+-                <p class="section-subtitle text-center">Swipe or view our selective commercial and residential portfolio.</p>
++                <span class="section-tag reveal">HANDPICKED SHOWCASE</span>
++                <h2 class="section-title text-center font-premium-h2 reveal">Featured Properties</h2>
++                <p class="section-subtitle text-center reveal">Swipe or view our selective commercial and residential portfolio.</p>
+             </div>
+ 
+-            <!-- Showcase Tabs (Only Residential & Commercial - Beautifully Styled Buttons) -->
+-            <div class="showcase-tabs-container">
+-                <div class="showcase-tabs">
+-                    <button class="tab-btn active" data-filter="residential">
+-                        <i class="fa-solid fa-house-user"></i>
+-                        <span>Residential Portfolio</span>
+-                    </button>
+-                    <button class="tab-btn" data-filter="commercial">
+-                        <i class="fa-solid fa-building-shield"></i>
+-                        <span>Commercial Portfolio</span>
+-                    </button>
+-                </div>
++            <!-- Property Filters -->
++            <div class="property-filters reveal" style="background: #f8f9fa; padding: 20px; border-radius: 12px; margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 15px; border: 1px solid #e8eaed;">
++                <select id="filter-category" class="filter-select" style="padding: 10px; border-radius: 6px; border: 1px solid #ccc; flex: 1; min-width: 150px; outline: none; cursor: pointer;">
++                    <option value="all">All Properties</option>
++                    <option value="residential">Residential</option>
++                    <option value="commercial">Commercial</option>
++                </select>
++                <select id="filter-bhk" class="filter-select" style="padding: 10px; border-radius: 6px; border: 1px solid #ccc; flex: 1; min-width: 150px; outline: none; cursor: pointer;">
++                    <option value="all">Any Configuration</option>
++                    <option value="3 BHK">3 BHK</option>
++                    <option value="4+ BHK">4+ BHK</option>
++                    <option value="Plot">Plot / Land</option>
++                    <option value="Commercial">Commercial Space</option>
++                </select>
++                <select id="filter-locality" class="filter-select" style="padding: 10px; border-radius: 6px; border: 1px solid #ccc; flex: 1; min-width: 150px; outline: none; cursor: pointer;">
++                    <option value="all">Any Locality</option>
++                    <option value="Bandra West">Bandra West</option>
++                    <option value="Khar West">Khar West</option>
++                    <option value="Worli">Worli</option>
++                    <option value="BKC">BKC</option>
++                </select>
++                <select id="filter-budget" class="filter-select" style="padding: 10px; border-radius: 6px; border: 1px solid #ccc; flex: 1; min-width: 150px; outline: none; cursor: pointer;">
++                    <option value="all">Any Budget</option>
++                    <option value="1-2cr">₹1 - ₹2 Cr</option>
++                    <option value="2-5cr">₹2 - ₹5 Cr</option>
++                    <option value="5-10cr">₹5 - ₹10 Cr</option>
++                    <option value="10cr+">₹10 Cr +</option>
++                </select>
+             </div>
+ 
+-            <!-- Loop Property Carousel (Holds 10 Properties) -->
+-            <div class="properties-carousel-container">
+-                <button class="carousel-nav prev-btn" id="slide-prev" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
+-                
+-                <div class="properties-carousel-track-wrapper">
+-                    <div class="properties-carousel-track" id="properties-slider-track">
+-                        <!-- RESIDENTIAL 1 (bg-cream) -->
+-                        <div class="property-card bg-cream" data-category="residential">
+-                            <div class="property-card-header">
+-                                <h3>Builder Floor</h3>
+-                                <p class="property-count">800+ Properties Sold</p>
+-                            </div>
+-                            <div class="property-image-wrapper">
+-                                <span class="property-price-badge">₹2.45 Cr</span>
+-                                <img src="assets/images/hero3.jpg" alt="3 BHK Premium Suite Bandra West">
+-                            </div>
+-                            <div class="property-card-body">
+-                                <p class="property-desc">Spacious high-rise apartment with premium wooden flooring, smart automation, and private deck overlooking the Bandra coastline.</p>
+-                                <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty%2C%20I%20am%20interested%20in%20the%20Builder%20Floor%20Residential%20property." target="_blank" class="card-action-btn">
+-                                    INQUIRE VIA WHATSAPP &rarr;
+-                                </a>
+-                            </div>
+-                        </div>
+-
+-                        <!-- RESIDENTIAL 2 (bg-peach) -->
+-                        <div class="property-card bg-peach" data-category="residential">
+-                            <div class="property-card-header">
+-                                <h3>Residential Land</h3>
+-                                <p class="property-count">450+ Plots Handled</p>
+-                            </div>
+-                            <div class="property-image-wrapper">
+-                                <span class="property-price-badge">₹1.35 Cr</span>
+-                                <img src="assets/images/about_small.jpg" alt="2 BHK Elite Apartment Khar West">
+-                            </div>
+-                            <div class="property-card-body">
+-                                <p class="property-desc">Vastu-compliant luxury apartment and clear title plots in a gated community. Includes gym, pool, and 24/7 security.</p>
+-                                <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty%2C%20I%20am%20interested%20in%20the%20Residential%20Land%20property." target="_blank" class="card-action-btn">
+-                                    INQUIRE VIA WHATSAPP &rarr;
+-                                </a>
+-                            </div>
+-                        </div>
+-
+-                        <!-- RESIDENTIAL 3 (bg-green) -->
+-                        <div class="property-card bg-green" data-category="residential">
+-                            <div class="property-card-header">
+-                                <h3>Luxury Penthouse</h3>
+-                                <p class="property-count">120+ Estates Managed</p>
+-                            </div>
+-                            <div class="property-image-wrapper">
+-                                <span class="property-price-badge">₹14.50 Cr</span>
+-                                <img src="assets/images/hero2.jpg" alt="Duplex Sea-View Penthouse Worli">
+-                            </div>
+-                            <div class="property-card-body">
+-                                <p class="property-desc">Stunning Worli Sea Face duplex with a private sky terrace, infinity dip pool, concierge services, and bespoke Italian kitchen fittings.</p>
+-                                <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty%2C%20I%20am%20interested%20in%20the%20Luxury%20Penthouse%20property." target="_blank" class="card-action-btn">
+-                                    INQUIRE VIA WHATSAPP &rarr;
+-                                </a>
+-                            </div>
+-                        </div>
+-
+-                        <!-- RESIDENTIAL 4 (bg-blue) -->
+-                        <div class="property-card bg-blue" data-category="residential">
+-                            <div class="property-card-header">
+-                                <h3>Premium Villa</h3>
+-                                <p class="property-count">210+ Villas Traded</p>
+-                            </div>
+-                            <div class="property-image-wrapper">
+-                                <span class="property-price-badge">₹9.80 Cr</span>
+-                                <img src="assets/images/about_large.jpg" alt="5 BHK Independent Villa Juhu">
+-                            </div>
+-                            <div class="property-card-body">
+-                                <p class="property-desc">Sophisticated independent villa in Juhu with a private landscaped lawn, high perimeter security, and personal elevator options.</p>
+-                                <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty%2C%20I%20am%20interested%20in%20the%20Premium%20Villa%20property." target="_blank" class="card-action-btn">
+-                                    INQUIRE VIA WHATSAPP &rarr;
+-                                </a>
+-                            </div>
+-                        </div>
+-
+-                        <!-- RESIDENTIAL 5 (bg-cream) -->
+-                        <div class="property-card bg-cream" data-category="residential">
+-                            <div class="property-card-header">
+-                                <h3>Gated Row House</h3>
+-                                <p class="property-count">330+ Homes Leased</p>
+-                            </div>
+-                            <div class="property-image-wrapper">
+-                                <span class="property-price-badge">₹3.20 Cr</span>
+-                                <img src="assets/images/hero1.jpg" alt="3 BHK Powai Row House">
+-                            </div>
+-                            <div class="property-card-body">
+-                                <p class="property-desc">Multi-level row house in a premium Powai residential enclave, featuring a private backyard, open study room, and modular layout.</p>
+-                                <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty%2C%20I%20am%20interested%20in%20the%20Gated%20Row%20House%20property." target="_blank" class="card-action-btn">
+-                                    INQUIRE VIA WHATSAPP &rarr;
+-                                </a>
+-                            </div>
+-                        </div>
+-
+-                        <!-- COMMERCIAL 6 (bg-peach) -->
+-                        <div class="property-card bg-peach" data-category="commercial">
+-                            <div class="property-card-header">
+-                                <h3>Corporate Office</h3>
+-                                <p class="property-count">1000+ Spaces Leased</p>
+-                            </div>
+-                            <div class="property-image-wrapper">
+-                                <span class="property-price-badge">₹1.8 L/mo</span>
+-                                <img src="assets/images/hero2.jpg" alt="Modern Corporate Workspace BKC">
+-                            </div>
+-                            <div class="property-card-body">
+-                                <p class="property-desc">Fully furnished, plug-and-play corporate floor inside a Grade-A business tower. High-speed elevators and dedicated car parks.</p>
+-                                <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty%2C%20I%20am%20interested%20in%20the%20Corporate%20Office%20Commercial%20property." target="_blank" class="card-action-btn">
+-                                    INQUIRE VIA WHATSAPP &rarr;
+-                                </a>
+-                            </div>
+-                        </div>
+-
+-                        <!-- COMMERCIAL 7 (bg-green) -->
+-                        <div class="property-card bg-green" data-category="commercial">
+-                            <div class="property-card-header">
+-                                <h3>Retail Showroom</h3>
+-                                <p class="property-count">500+ Showrooms Traded</p>
+-                            </div>
+-                            <div class="property-image-wrapper">
+-                                <span class="property-price-badge">₹4.10 Cr</span>
+-                                <img src="assets/images/hero1.jpg" alt="Manka Heights Santacruz">
+-                            </div>
+-                            <div class="property-card-body">
+-                                <p class="property-desc">Ultra-high footfall retail space located on a premium corner lot in Bandra. Double height ceiling and full glass frontage.</p>
+-                                <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty%2C%20I%20am%20interested%20in%20the%20Retail%20Showroom%20Commercial%20property." target="_blank" class="card-action-btn">
+-                                    INQUIRE VIA WHATSAPP &rarr;
+-                                </a>
+-                            </div>
+-                        </div>
+-
+-                        <!-- COMMERCIAL 8 (bg-blue) -->
+-                        <div class="property-card bg-blue" data-category="commercial">
+-                            <div class="property-card-header">
+-                                <h3>Boutique Office</h3>
+-                                <p class="property-count">780+ Offices Handled</p>
+-                            </div>
+-                            <div class="property-image-wrapper">
+-                                <span class="property-price-badge">₹85 K/mo</span>
+-                                <img src="assets/images/hero3.jpg" alt="Boutique Office Andheri East">
+-                            </div>
+-                            <div class="property-card-body">
+-                                <p class="property-desc">Sleek, premium furnished boutique desk floor in Andheri East, close to Metro. Perfect for agencies or advisory chambers.</p>
+-                                <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty%2C%20I%20am%20interested%20in%20the%20Boutique%20Office%20property." target="_blank" class="card-action-btn">
+-                                    INQUIRE VIA WHATSAPP &rarr;
+-                                </a>
+-                            </div>
+-                        </div>
+-
+-                        <!-- COMMERCIAL 9 (bg-cream) -->
+-                        <div class="property-card bg-cream" data-category="commercial">
+-                            <div class="property-card-header">
+-                                <h3>Commercial Land</h3>
+-                                <p class="property-count">160+ Tracts Acquired</p>
+-                            </div>
+-                            <div class="property-image-wrapper">
+-                                <span class="property-price-badge">₹12.50 Cr</span>
+-                                <img src="assets/images/about_large.jpg" alt="Commercial Land Navi Mumbai">
+-                            </div>
+-                            <div class="property-card-body">
+-                                <p class="property-desc">Highway-touch commercial plot in Navi Mumbai with heavy vehicle access, boundary fencing, and approved layout clearances.</p>
+-                                <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty%2C%20I%20am%20interested%20in%20the%20Commercial%20Land%20property." target="_blank" class="card-action-btn">
+-                                    INQUIRE VIA WHATSAPP &rarr;
+-                                </a>
+-                            </div>
+-                        </div>
+-
+-                        <!-- COMMERCIAL 10 (bg-peach) -->
+-                        <div class="property-card bg-peach" data-category="commercial">
+-                            <div class="property-card-header">
+-                                <h3>Warehousing space</h3>
+-                                <p class="property-count">240+ Yards Managed</p>
+-                            </div>
+-                            <div class="property-image-wrapper">
+-                                <span class="property-price-badge">₹3.5 L/mo</span>
+-                                <img src="assets/images/about_small.jpg" alt="Warehousing Space Bhiwandi">
+-                            </div>
+-                            <div class="property-card-body">
+-                                <p class="property-desc">Grade-A logistics warehouse in Bhiwandi with excellent roof clearances, multiple loading bays, and 30-ton weight capacities.</p>
+-                                <a href="https://wa.me/918928770059?text=Hi%20Manka%20Realty%2C%20I%20am%20interested%20in%20the%20Warehousing%20space%20property." target="_blank" class="card-action-btn">
+-                                    INQUIRE VIA WHATSAPP &rarr;
+-                                </a>
+-                            </div>
+-                        </div>
+-                    </div>
+-                </div>
+-
+-                <button class="carousel-nav next-btn" id="slide-next" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
++            <!-- Property Grid Container -->
++            <div id="property-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px;">
++                <!-- Filled via JS from properties.json -->
++                <p style="grid-column: 1/-1; text-align: center; color: #6b7280; font-size: 1.1rem; padding: 40px 0;">Loading property inventory...</p>
++            </div>
++            
++            <div style="text-align: center; margin-top: 40px;">
++                <p style="font-size: 0.85rem; color: #9ca3af; font-style: italic;">Note: Displaying placeholder sample data pending real inventory.</p>
+             </div>
+         </div>
+     </section>
+@@ -316,7 +191,7 @@
+         <div class="section-container">
+             <div class="about-grid">
+                 <!-- Left: Overlapping images -->
+-                <div class="about-visuals">
++                <div class="about-visuals reveal">
+                     <div class="image-wrapper-large">
+                         <img src="assets/images/about_large.jpg" alt="Premium luxury residential tower facade in Mumbai" class="img-about img-large">
+                     </div>
+@@ -327,10 +202,10 @@
+ 
+                 <!-- Right: About description and bullets -->
+                 <div class="about-info">
+-                    <span class="section-tag">ABOUT MANKA REALTY</span>
+-                    <h2 class="section-title">Built on Trust.<br><span class="accent-text">Driven by Service.</span></h2>
++                    <span class="section-tag reveal">ABOUT MANKA REALTY</span>
++                    <h2 class="section-title reveal">Built on Trust.<br><span class="accent-text">Driven by Service.</span></h2>
+                     
+-                    <div class="about-desc">
++                    <div class="about-desc reveal">
+                         <p class="highlight-p">Manka Realty is a professional real-estate consultancy firm dedicated to providing personalised, reliable and result-oriented property solutions tailored to every client’s specific requirements.</p>
+                         <p>With over 12 years of experience in the real-estate industry, we have built our reputation through a positive approach, strong market knowledge, professional expertise and an unwavering commitment to client satisfaction.</p>
+                         <p>Our extensive real-estate network across multiple cities enables us to connect clients with the right opportunities across residential and commercial property markets. Whether you are looking to buy, sell, rent, lease or invest, our experienced team provides comprehensive guidance and support throughout the entire process.</p>
+@@ -338,16 +213,14 @@
+                         <p>We believe that successful real estate is built on trust, transparency and long-term relationships. Our team combines industry experience, market insights and a client-focused approach to deliver solutions that are efficient, transparent and aligned with our clients’ goals.</p>
+                     </div>
+ 
+-                    <a href="javascript:void(0)" onclick="openPortal('history')" class="btn btn-primary spacing-top" id="know-more-btn">
+-                        VIEW HISTORY TIMELINE &nbsp;&rarr;
+-                    </a>
++                    
+                 </div>
+             </div>
+ 
+             <!-- Permanently Visible Sections: Commitment and Our Team -->
+             <div class="about-permanent-blocks">
+                 <!-- Our Commitment -->
+-                <div class="commitment-block">
++                <div class="commitment-block reveal">
+                     <h4>Our Commitment</h4>
+                     <p>At Manka Realty, we understand that a property decision is more than just a transaction—it is an important financial and personal decision. That is why we focus on understanding our clients, providing the right information and delivering professional assistance at every step.</p>
+                     <p>Our goal is to make the real-estate experience simpler, smoother and more rewarding for our clients. With experience, expertise and an extensive network, we strive to deliver unmatched results and build relationships that last beyond a single transaction.</p>
+@@ -445,18 +318,18 @@
+     <section class="choose-us-section" id="choose-us">
+         <div class="section-container">
+             <div class="text-center-wrapper">
+-                <span class="section-tag">WHY WORK WITH US</span>
+-                <h2 class="section-title text-center">Why Choose Us</h2>
+-                <p class="section-subtitle text-center">Your requirements, interests and satisfaction are at the heart of everything we do.</p>
++                <span class="section-tag reveal">WHY WORK WITH US</span>
++                <h2 class="section-title text-center reveal">Why Choose Us</h2>
++                <p class="section-subtitle text-center reveal">Your requirements, interests and satisfaction are at the heart of everything we do.</p>
+             </div>
+             
+-            <div class="choose-us-intro-card">
++            <div class="choose-us-intro-card reveal">
+                 <p>At Manka Realty, we make property transactions seamless. Our dedication to clear communication, local expertise, and customized strategies ensures a secure and rewarding real estate experience.</p>
+             </div>
+             
+             <div class="choose-us-grid">
+                 <!-- Feature 1 -->
+-                <div class="choose-card">
++                <div class="choose-card reveal">
+                     <div class="choose-icon-wrapper">
+                         <i class="fa-solid fa-heart"></i>
+                     </div>
+@@ -465,7 +338,7 @@
+                 </div>
+ 
+                 <!-- Feature 2 -->
+-                <div class="choose-card">
++                <div class="choose-card reveal">
+                     <div class="choose-icon-wrapper">
+                         <i class="fa-solid fa-award"></i>
+                     </div>
+@@ -474,7 +347,7 @@
+                 </div>
+ 
+                 <!-- Feature 3 -->
+-                <div class="choose-card">
++                <div class="choose-card reveal">
+                     <div class="choose-icon-wrapper">
+                         <i class="fa-solid fa-globe"></i>
+                     </div>
+@@ -483,7 +356,7 @@
+                 </div>
+ 
+                 <!-- Feature 4 -->
+-                <div class="choose-card">
++                <div class="choose-card reveal">
+                     <div class="choose-icon-wrapper">
+                         <i class="fa-solid fa-shield-halved"></i>
+                     </div>
+@@ -492,7 +365,7 @@
+                 </div>
+ 
+                 <!-- Feature 5 -->
+-                <div class="choose-card">
++                <div class="choose-card reveal">
+                     <div class="choose-icon-wrapper">
+                         <i class="fa-solid fa-sliders"></i>
+                     </div>
+@@ -501,7 +374,7 @@
+                 </div>
+ 
+                 <!-- Feature 6 -->
+-                <div class="choose-card">
++                <div class="choose-card reveal">
+                     <div class="choose-icon-wrapper">
+                         <i class="fa-solid fa-handshake-angle"></i>
+                     </div>
+@@ -510,7 +383,7 @@
+                 </div>
+ 
+                 <!-- Feature 7 -->
+-                <div class="choose-card">
++                <div class="choose-card reveal">
+                     <div class="choose-icon-wrapper">
+                         <i class="fa-solid fa-people-group"></i>
+                     </div>
+@@ -525,9 +398,9 @@
+     <section class="expertise-section" id="expertise">
+         <div class="section-container">
+             <div class="text-center-wrapper">
+-                <span class="section-tag">OUR SERVICES</span>
+-                <h2 class="section-title text-center font-premium-h2">Tailored Real-Estate Solutions</h2>
+-                <p class="section-subtitle text-center">Providing professional property consultancy and management across residential & commercial sectors.</p>
++                <span class="section-tag reveal">OUR SERVICES</span>
++                <h2 class="section-title text-center font-premium-h2 reveal">Tailored Real-Estate Solutions</h2>
++                <p class="section-subtitle text-center reveal">Providing professional property consultancy and management across residential & commercial sectors.</p>
+             </div>
+ 
+             <div class="services-grid-layout">
+@@ -594,32 +467,24 @@
+     <section class="reviews-section" id="reviews">
+         <div class="section-container">
+             <div class="text-center-wrapper">
+-                <span class="section-tag">CLIENT FEEDBACK</span>
+-                <h2 class="section-title text-center font-premium-h2">Google Reviews & Ratings</h2>
+-                <p class="section-subtitle text-center">Read verified reviews from our residential and commercial clients.</p>
+-            </div>
+-            
+-            <div class="reviews-tabs-wrapper">
+-                <!-- Review Tabs Switcher -->
+-                <div class="reviews-tabs">
+-                    <button class="review-tab-btn active" data-type="residential">RESIDENTIAL REVIEWS</button>
+-                    <button class="review-tab-btn" data-type="commercial">COMMERCIAL REVIEWS</button>
+-                </div>
++                <span class="section-tag reveal">CLIENT FEEDBACK</span>
++                <h2 class="section-title text-center font-premium-h2 reveal">Google Reviews & Ratings</h2>
++                <p class="section-subtitle text-center reveal">Read verified reviews from our residential and commercial clients.</p>
+             </div>
+             
+             <div class="reviews-layout">
+                 <!-- Left: Google Rating Summary -->
+                 <div class="reviews-summary-card">
+-                    <div class="google-badge">
+-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 6px;">
++                    <div class="google-badge" style="display: inline-flex; align-items: center; background: #f8f9fa; border: 1px solid #e8eaed; padding: 6px 14px; border-radius: 20px; margin-bottom: 15px;">
++                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
+                             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                             <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                             <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l3.66-2.85z" fill="#FBBC05"/>
+                             <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.85c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                         </svg>
+-                        <span>Google Business</span>
++                        <span style="font-weight: 600; color: #3c4043; font-family: 'Outfit', sans-serif; font-size: 0.9rem;">Google Business</span>
+                     </div>
+-                    <div class="rating-number">4.9</div>
++                    <div class="rating-number stat-number" data-target="4.9">4.9</div>
+                     <div class="rating-stars">
+                         <i class="fa-solid fa-star"></i>
+                         <i class="fa-solid fa-star"></i>
+@@ -633,88 +498,183 @@
+                     </a>
+                 </div>
+ 
+-                <!-- Right: Categorized Reviews Cards Grid -->
+-                <div class="reviews-grid" id="reviews-grid-track">
+-                    <!-- Residential Reviews -->
+-                    <div class="review-card" data-category="residential">
+-                        <div class="review-header">
+-                            <div class="reviewer-info">
+-                                <div class="reviewer-avatar">AS</div>
+-                                <div>
+-                                    <h4>Amit Sharma</h4>
+-                                    <span class="review-date">A month ago</span>
++                
++                <!-- Right: Categorized Reviews Cards Grid as Marquee -->
++                <!-- Right: Categorized Reviews Cards Grid as Marquee -->
++                <div class="reviews-marquee-container" style="position: relative; display: flex; flex-direction: column; gap: 2rem; overflow: hidden; width: 100%; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); padding: 1rem 0;">
++                    
++                    <!-- First Row -->
++                    <div class="marquee-track" style="animation-duration: 45s; align-items: stretch;">
++                        <!-- Review 1 -->
++                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
++                            <div class="review-header">
++                                <div class="reviewer-info">
++                                    <div class="reviewer-avatar">AS</div>
++                                    <div>
++                                        <h4>Amit Sharma</h4>
++                                        <span class="review-date">A month ago</span>
++                                    </div>
+                                 </div>
++                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                             </div>
+-                            <div class="review-stars">
+-                                <i class="fa-solid fa-star"></i>
+-                                <i class="fa-solid fa-star"></i>
+-                                <i class="fa-solid fa-star"></i>
+-                                <i class="fa-solid fa-star"></i>
+-                                <i class="fa-solid fa-star"></i>
++                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"Showed us exactly what we asked for. No pushing properties outside our budget like other brokers do."</p>
++                        </div>
++                        <!-- Review 2 -->
++                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
++                            <div class="review-header">
++                                <div class="reviewer-info">
++                                    <div class="reviewer-avatar">PS</div>
++                                    <div>
++                                        <h4>Priya Sen</h4>
++                                        <span class="review-date">3 weeks ago</span>
++                                    </div>
++                                </div>
++                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
++                            </div>
++                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"Rahul was super patient with all our questions. Took a couple of weeks to finalize the lease but we absolutely love the apartment."</p>
++                        </div>
++                        <!-- Review 3 -->
++                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
++                            <div class="review-header">
++                                <div class="reviewer-info">
++                                    <div class="reviewer-avatar">KV</div>
++                                    <div>
++                                        <h4>Karan Verma</h4>
++                                        <span class="review-date">2 months ago</span>
++                                    </div>
++                                </div>
++                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                             </div>
++                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"We needed a 2,000 sq ft office in Andheri. They got it done without wasting our time showing us irrelevant spaces."</p>
+                         </div>
+-                        <p class="review-text">"Manka Realty made our house hunt in Bandra completely stress-free. They have an excellent network and are extremely honest and transparent throughout the negotiations."</p>
+-                    </div>
+-
+-                    <div class="review-card" data-category="residential">
+-                        <div class="review-header">
+-                            <div class="reviewer-info">
+-                                <div class="reviewer-avatar">PS</div>
+-                                <div>
+-                                    <h4>Priya Sen</h4>
+-                                    <span class="review-date">3 weeks ago</span>
++                        
++                        <!-- Duplicate for infinite scroll -->
++                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
++                            <div class="review-header">
++                                <div class="reviewer-info">
++                                    <div class="reviewer-avatar">AS</div>
++                                    <div>
++                                        <h4>Amit Sharma</h4>
++                                        <span class="review-date">A month ago</span>
++                                    </div>
+                                 </div>
++                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                             </div>
+-                            <div class="review-stars">
+-                                <i class="fa-solid fa-star"></i>
+-                                <i class="fa-solid fa-star"></i>
+-                                <i class="fa-solid fa-star"></i>
+-                                <i class="fa-solid fa-star"></i>
+-                                <i class="fa-solid fa-star"></i>
++                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"Showed us exactly what we asked for. No pushing properties outside our budget like other brokers do."</p>
++                        </div>
++                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
++                            <div class="review-header">
++                                <div class="reviewer-info">
++                                    <div class="reviewer-avatar">PS</div>
++                                    <div>
++                                        <h4>Priya Sen</h4>
++                                        <span class="review-date">3 weeks ago</span>
++                                    </div>
++                                </div>
++                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
++                            </div>
++                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"Rahul was super patient with all our questions. Took a couple of weeks to finalize the lease but we absolutely love the apartment."</p>
++                        </div>
++                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
++                            <div class="review-header">
++                                <div class="reviewer-info">
++                                    <div class="reviewer-avatar">KV</div>
++                                    <div>
++                                        <h4>Karan Verma</h4>
++                                        <span class="review-date">2 months ago</span>
++                                    </div>
++                                </div>
++                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                             </div>
++                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"We needed a 2,000 sq ft office in Andheri. They got it done without wasting our time showing us irrelevant spaces."</p>
+                         </div>
+-                        <p class="review-text">"Highly recommend Manka Realty for residential leasing. They found us a beautiful 3 BHK apartment in Khar in record time and managed all rent agreement registrations perfectly."</p>
+                     </div>
+ 
+-                    <!-- Commercial Reviews -->
+-                    <div class="review-card" data-category="commercial">
+-                        <div class="review-header">
+-                            <div class="reviewer-info">
+-                                <div class="reviewer-avatar">PM</div>
+-                                <div>
+-                                    <h4>Priya Mehta</h4>
+-                                    <span class="review-date">2 weeks ago</span>
++                    <!-- Second Row (Reverse) -->
++                    <div class="marquee-track marquee-track-reverse" style="animation-duration: 50s; align-items: stretch;">
++                        <!-- Review 4 -->
++                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
++                            <div class="review-header">
++                                <div class="reviewer-info">
++                                    <div class="reviewer-avatar">PM</div>
++                                    <div>
++                                        <h4>Priya Mehta</h4>
++                                        <span class="review-date">2 weeks ago</span>
++                                    </div>
+                                 </div>
++                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+                             </div>
+-                            <div class="review-stars">
+-                                <i class="fa-solid fa-star"></i>
+-                                <i class="fa-solid fa-star"></i>
+-                                <i class="fa-solid fa-star"></i>
+-                                <i class="fa-solid fa-star"></i>
+-                                <i class="fa-solid fa-star"></i>
++                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"The paperwork process was a little slow, but the team at Manka handled all the owner negotiations well. Got us a fair deal."</p>
++                        </div>
++                        <!-- Review 5 -->
++                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
++                            <div class="review-header">
++                                <div class="reviewer-info">
++                                    <div class="reviewer-avatar">RK</div>
++                                    <div>
++                                        <h4>Rajesh Khanna</h4>
++                                        <span class="review-date">1 month ago</span>
++                                    </div>
++                                </div>
++                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
++                            </div>
++                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"Honestly just glad they actually answer the phone after 7pm. Good service, zero hidden fees, and they know the neighborhood."</p>
++                        </div>
++                        <!-- Review 6 -->
++                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
++                            <div class="review-header">
++                                <div class="reviewer-info">
++                                    <div class="reviewer-avatar">ND</div>
++                                    <div>
++                                        <h4>Neha Desai</h4>
++                                        <span class="review-date">3 months ago</span>
++                                    </div>
++                                </div>
++                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                             </div>
++                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"Reliable and straightforward. Would definitely use them again for our next office expansion."</p>
+                         </div>
+-                        <p class="review-text">"Excellent commercial real estate team. They understood our corporate office requirements and helped us secure a premium space in BKC in record time."</p>
+-                    </div>
+-
+-                    <div class="review-card" data-category="commercial">
+-                        <div class="review-header">
+-                            <div class="reviewer-info">
+-                                <div class="reviewer-avatar">RK</div>
+-                                <div>
+-                                    <h4>Rajesh Khanna</h4>
+-                                    <span class="review-date">3 months ago</span>
++                        
++                        <!-- Duplicate for infinite scroll -->
++                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
++                            <div class="review-header">
++                                <div class="reviewer-info">
++                                    <div class="reviewer-avatar">PM</div>
++                                    <div>
++                                        <h4>Priya Mehta</h4>
++                                        <span class="review-date">2 weeks ago</span>
++                                    </div>
+                                 </div>
++                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+                             </div>
+-                            <div class="review-stars">
+-                                <i class="fa-solid fa-star"></i>
+-                                <i class="fa-solid fa-star"></i>
+-                                <i class="fa-solid fa-star"></i>
+-                                <i class="fa-solid fa-star"></i>
+-                                <i class="fa-solid fa-star"></i>
++                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"The paperwork process was a little slow, but the team at Manka handled all the owner negotiations well. Got us a fair deal."</p>
++                        </div>
++                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
++                            <div class="review-header">
++                                <div class="reviewer-info">
++                                    <div class="reviewer-avatar">RK</div>
++                                    <div>
++                                        <h4>Rajesh Khanna</h4>
++                                        <span class="review-date">1 month ago</span>
++                                    </div>
++                                </div>
++                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
++                            </div>
++                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"Honestly just glad they actually answer the phone after 7pm. Good service, zero hidden fees, and they know the neighborhood."</p>
++                        </div>
++                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
++                            <div class="review-header">
++                                <div class="reviewer-info">
++                                    <div class="reviewer-avatar">ND</div>
++                                    <div>
++                                        <h4>Neha Desai</h4>
++                                        <span class="review-date">3 months ago</span>
++                                    </div>
++                                </div>
++                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                             </div>
++                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"Reliable and straightforward. Would definitely use them again for our next office expansion."</p>
+                         </div>
+-                        <p class="review-text">"Unlike typical brokers, Manka Realty provides honest advisory and handles all commercial title verifications and lease agreement drafts with high professionalism."</p>
+                     </div>
+                 </div>
+             </div>
+@@ -728,9 +688,9 @@
+                 <div class="social-header-logo">
+                     <img src="assets/images/manka_logo_full.png" alt="Manka Realty Logo" class="social-logo-img" style="height: 100px; width: auto;">
+                 </div>
+-                <span class="section-tag tag-highlighted">STAY CONNECTED</span>
+-                <h2 class="section-title text-center font-premium-h2">Join Us On Social Media</h2>
+-                <p class="section-subtitle text-center">Follow our channels for walkthroughs, market updates, and exclusive property insights.</p>
++                <span class="section-tag tag-highlighted reveal">STAY CONNECTED</span>
++                <h2 class="section-title text-center font-premium-h2 reveal">Join Us On Social Media</h2>
++                <p class="section-subtitle text-center reveal">Follow our channels for walkthroughs, market updates, and exclusive property insights.</p>
+             </div>
+             
+             <div class="social-grid">
+@@ -822,8 +782,8 @@
+             <div class="contact-grid">
+                 <!-- Contact Info -->
+                 <div class="contact-info">
+-                    <span class="section-tag text-gold">GET IN TOUCH</span>
+-                    <h2 class="section-title">Let's Discuss Your Next Property</h2>
++                    <span class="section-tag text-gold reveal">GET IN TOUCH</span>
++                    <h2 class="section-title reveal">Let's Discuss Your Next Property</h2>
+                     <p class="contact-lead">Have questions or want to schedule a site visit? Get in touch with our team today for dedicated assistance.</p>
+                     
+                     <div class="contact-details">
+@@ -910,9 +870,44 @@
+                             </select>
+                         </div>
+ 
++                        
++                        <div class="form-row">
++                            <div class="form-group">
++                                <label for="intent">Intent</label>
++                                <select id="intent" name="intent">
++                                    <option value="buy">Looking to Buy</option>
++                                    <option value="rent">Looking to Rent</option>
++                                    <option value="sell">Looking to Sell</option>
++                                    <option value="lease">Looking to Lease Out</option>
++                                    <option value="other">Just Exploring</option>
++                                </select>
++                            </div>
++                            <div class="form-group">
++                                <label for="timeline">Timeline</label>
++                                <select id="timeline" name="timeline">
++                                    <option value="immediate">Ready now</option>
++                                    <option value="1-3-months">Within 3 months</option>
++                                    <option value="3-6-months">3 to 6 months</option>
++                                    <option value="exploring">Just exploring</option>
++                                </select>
++                            </div>
++                        </div>
++                        
++                        <div class="form-group">
++                            <label for="budget">Budget Range</label>
++                            <select id="budget" name="budget">
++                                <option value="not-sure">Not sure yet</option>
++                                <option value="under-1cr">Under ₹1 Cr</option>
++                                <option value="1-3cr">₹1 Cr - ₹3 Cr</option>
++                                <option value="3-5cr">₹3 Cr - ₹5 Cr</option>
++                                <option value="5-10cr">₹5 Cr - ₹10 Cr</option>
++                                <option value="above-10cr">Above ₹10 Cr</option>
++                            </select>
++                        </div>
++
+                         <div class="form-group">
+                             <label for="message">Message</label>
+-                            <textarea id="message" name="message" rows="4" placeholder="Describe your property requirements..." required></textarea>
++                            <textarea id="message" name="message" rows="4" placeholder="Describe your property requirements..."></textarea>
+                         </div>
+ 
+                         <button type="submit" class="btn btn-primary btn-block">SUBMIT INQUIRY</button>
+@@ -930,7 +925,7 @@
+         <section class="partners-banner-section" style="overflow: hidden;">
+             <div class="section-container" style="max-width: 100%; padding: 0;">
+                 <div style="text-align: center; margin-bottom: 20px;">
+-                    <span class="section-tag">OUR ALLIANCES</span>
++                    <span class="section-tag reveal">OUR ALLIANCES</span>
+                     <h2 class="partners-banner-title" style="margin-bottom: 10px;">Authorized Partners & Brands</h2>
+                     <p class="partners-banner-subtitle">Manka Realty is proud to work alongside Mumbai's premium luxury developers and leading national corporate brands.</p>
+                 </div>
+@@ -1704,9 +1699,9 @@
+                     </p>
+                     <div style="display: flex; gap: 14px;">
+                         <a href="https://wa.me/918928770059" target="_blank" style="width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.1); color: #25D366; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; text-decoration: none;"><i class="fa-brands fa-whatsapp"></i></a>
+-                        <a href="#" style="width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.1); color: #E4405F; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; text-decoration: none;"><i class="fa-brands fa-instagram"></i></a>
+-                        <a href="#" style="width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.1); color: #1877F2; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; text-decoration: none;"><i class="fa-brands fa-facebook"></i></a>
+-                        <a href="#" style="width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.1); color: #0A66C2; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; text-decoration: none;"><i class="fa-brands fa-linkedin"></i></a>
++                        
++                        
++                        
+                     </div>
+                 </div>
+ 
+@@ -1716,9 +1711,9 @@
+                     <ul style="list-style: none; padding: 0; margin: 0;">
+                         <li style="margin-bottom: 12px;"><a href="#hero" style="color: rgba(255,255,255,0.7); text-decoration: none;">Home</a></li>
+                         <li style="margin-bottom: 12px;"><a href="about.html" style="color: rgba(255,255,255,0.7); text-decoration: none;">About Us</a></li>
+-                        <li style="margin-bottom: 12px;"><a href="#services" style="color: rgba(255,255,255,0.7); text-decoration: none;">Services</a></li>
+-                        <li style="margin-bottom: 12px;"><a href="#projects" style="color: rgba(255,255,255,0.7); text-decoration: none;">Featured Projects</a></li>
+-                        <li style="margin-bottom: 12px;"><a href="#alliances" style="color: rgba(255,255,255,0.7); text-decoration: none;">Developer Partners</a></li>
++                        <li style="margin-bottom: 12px;"><a href="#expertise" style="color: rgba(255,255,255,0.7); text-decoration: none;">Services</a></li>
++                        <li style="margin-bottom: 12px;"><a href="#showcase" style="color: rgba(255,255,255,0.7); text-decoration: none;">Featured Projects</a></li>
++                        <li style="margin-bottom: 12px;"><a href="#stats" style="color: rgba(255,255,255,0.7); text-decoration: none;">Developer Partners</a></li>
+                         <li style="margin-bottom: 12px;"><a href="#contact" style="color: rgba(255,255,255,0.7); text-decoration: none;">Contact Us</a></li>
+                     </ul>
+                 </div>
+@@ -1766,7 +1761,7 @@
+                 </div>
+                 <div style="display: flex; gap: 20px;">
+                     <a href="about.html" style="color: rgba(255,255,255,0.5); text-decoration: none;">About Us</a>
+-                    <a href="#services" style="color: rgba(255,255,255,0.5); text-decoration: none;">Services</a>
++                    <a href="#expertise" style="color: rgba(255,255,255,0.5); text-decoration: none;">Services</a>
+                     <a href="#contact" style="color: rgba(255,255,255,0.5); text-decoration: none;">Contact</a>
+                 </div>
+             </div>
+@@ -1781,6 +1776,7 @@
+     <!-- Main JavaScript & Database -->
+     <script src="assets/js/data.js?v=1.1.0"></script>
+     <script src="assets/js/ui.js?v=1.1.0"></script>
++    <script src="assets/js/showcase.js"></script>
+     <script src="assets/js/portal.js?v=1.1.0"></script>
+     <!-- Fullscreen SPA View Overlay -->
+     <div id="portal-overlay" class="portal-overlay">

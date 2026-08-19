@@ -201,7 +201,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function animateCounter(element) {
         if (!element) return;
-        const target = parseInt(element.getAttribute('data-target'), 10);
+        const targetAttr = element.getAttribute('data-target');
+        if (!targetAttr) return;
+        
+        const isFloat = targetAttr.includes('.');
+        const target = parseFloat(targetAttr);
+        const prefix = element.getAttribute('data-prefix') || '';
+        const suffix = element.getAttribute('data-suffix') || '';
         const duration = 1500;
         const startTime = performance.now();
         
@@ -209,15 +215,22 @@ document.addEventListener('DOMContentLoaded', () => {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
             
-            const easeProgress = progress * (2 - progress);
-            const currentValue = Math.floor(easeProgress * target);
+            // Apply ease-out-cubic equivalent manually
+            const easeProgress = 1 - Math.pow(1 - progress, 3);
             
-            element.textContent = currentValue;
+            let currentValue;
+            if (isFloat) {
+                currentValue = (easeProgress * target).toFixed(1);
+            } else {
+                currentValue = Math.floor(easeProgress * target);
+            }
+            
+            element.textContent = prefix + currentValue + suffix;
             
             if (progress < 1) {
                 requestAnimationFrame(updateCounter);
             } else {
-                element.textContent = target;
+                element.textContent = prefix + targetAttr + suffix;
             }
         }
         
@@ -311,11 +324,22 @@ document.addEventListener('DOMContentLoaded', () => {
             
             console.log('Form submission received:', formData);
             
-            form.style.opacity = '0';
+            
+            const submitBtn = form.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            }
+            form.style.opacity = '0.5';
             setTimeout(() => {
                 form.style.display = 'none';
-                if (successMsg) successMsg.classList.add('active');
-            }, 300);
+                if (successMsg) {
+                    successMsg.classList.add('active');
+                    successMsg.style.opacity = '0';
+                    setTimeout(() => successMsg.style.opacity = '1', 50);
+                }
+            }, 1000);
+
         });
     }
 
@@ -376,7 +400,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
         
-        // Set default reviews on init (Residential)
+        
+            // Set default reviews on init (Residential)
         reviewCards.forEach(card => {
             if (card.getAttribute('data-category') === 'residential') {
                 card.classList.remove('hide');
@@ -416,5 +441,25 @@ document.addEventListener('DOMContentLoaded', () => {
         
         window.addEventListener('scroll', scrollSpyActiveState);
         scrollSpyActiveState();
+    }
+
+    /* ==========================================
+       10. GLOBAL SCROLL REVEAL (IntersectionObserver)
+       ========================================== */
+    const revealElements = document.querySelectorAll('.reveal');
+    if (revealElements.length > 0) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            rootMargin: '0px 0px -100px 0px',
+            threshold: 0.1
+        });
+        
+        revealElements.forEach(el => revealObserver.observe(el));
     }
 });

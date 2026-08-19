@@ -94,12 +94,35 @@
     align-items: center;
     transition: var(--transition-fast);
     border-radius: 0;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    background-color: #ffffff;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--duration-base) var(--ease-out);
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 /* SOLID RED ACTIVE NAV BLOCK */
 .nav-link.active {
     background-color: var(--brand-red) !important;
     color: #ffffff !important;
+}
+
+.nav-link.active::after {
+    display: none;
 }
 
 .nav-link:hover {

@@ -24,42 +24,6 @@
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="index.css?v=1.1.0">
     <link rel="stylesheet" href="assets/css/marquee.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "RealEstateAgent",
-  "name": "Manka Realty",
-  "image": "https://manka-realty-official.vercel.app/assets/images/manka_logo_full.png",
-  "@id": "",
-  "url": "https://manka-realty-official.vercel.app/",
-  "telephone": "+918928770059",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Bandra West",
-    "addressLocality": "Mumbai",
-    "postalCode": "400050",
-    "addressCountry": "IN"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 19.0596,
-    "longitude": 72.8295
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday"
-    ],
-    "opens": "10:00",
-    "closes": "19:00"
-  }
-}
-</script>
 </head>
 <body>
 
@@ -129,19 +93,15 @@
                 </div>
             </div>
         </div>
-    
-        <div class="scroll-indicator" style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 20;">
-            <a href="#showcase" style="color: white; font-size: 24px; animation: bounce 2s infinite;"><i class="fa-solid fa-chevron-down"></i></a>
-        </div>
     </section>
 
     <!-- Properties Showcase Section (99acres card layout, 10 property cards carousel) -->
     <section class="showcase-section" id="showcase">
         <div class="section-container">
             <div class="text-center-wrapper">
-                <span class="section-tag reveal">HANDPICKED SHOWCASE</span>
-                <h2 class="section-title text-center font-premium-h2 reveal">Featured Properties</h2>
-                <p class="section-subtitle text-center reveal">Swipe or view our selective commercial and residential portfolio.</p>
+                <span class="section-tag">HANDPICKED SHOWCASE</span>
+                <h2 class="section-title text-center font-premium-h2">Featured Properties</h2>
+                <p class="section-subtitle text-center">Swipe or view our selective commercial and residential portfolio.</p>
             </div>
 
             <!-- Showcase Tabs (Only Residential & Commercial - Beautifully Styled Buttons) -->
@@ -356,7 +316,7 @@
         <div class="section-container">
             <div class="about-grid">
                 <!-- Left: Overlapping images -->
-                <div class="about-visuals reveal">
+                <div class="about-visuals">
                     <div class="image-wrapper-large">
                         <img src="assets/images/about_large.jpg" alt="Premium luxury residential tower facade in Mumbai" class="img-about img-large">
                     </div>
@@ -367,10 +327,10 @@
 
                 <!-- Right: About description and bullets -->
                 <div class="about-info">
-                    <span class="section-tag reveal">ABOUT MANKA REALTY</span>
-                    <h2 class="section-title reveal">Built on Trust.<br><span class="accent-text">Driven by Service.</span></h2>
+                    <span class="section-tag">ABOUT MANKA REALTY</span>
+                    <h2 class="section-title">Built on Trust.<br><span class="accent-text">Driven by Service.</span></h2>
                     
-                    <div class="about-desc reveal">
+                    <div class="about-desc">
                         <p class="highlight-p">Manka Realty is a professional real-estate consultancy firm dedicated to providing personalised, reliable and result-oriented property solutions tailored to every client’s specific requirements.</p>
                         <p>With over 12 years of experience in the real-estate industry, we have built our reputation through a positive approach, strong market knowledge, professional expertise and an unwavering commitment to client satisfaction.</p>
                         <p>Our extensive real-estate network across multiple cities enables us to connect clients with the right opportunities across residential and commercial property markets. Whether you are looking to buy, sell, rent, lease or invest, our experienced team provides comprehensive guidance and support throughout the entire process.</p>
@@ -378,14 +338,16 @@
                         <p>We believe that successful real estate is built on trust, transparency and long-term relationships. Our team combines industry experience, market insights and a client-focused approach to deliver solutions that are efficient, transparent and aligned with our clients’ goals.</p>
                     </div>
 
-                    
+                    <a href="javascript:void(0)" onclick="openPortal('history')" class="btn btn-primary spacing-top" id="know-more-btn">
+                        VIEW HISTORY TIMELINE &nbsp;&rarr;
+                    </a>
                 </div>
             </div>
 
             <!-- Permanently Visible Sections: Commitment and Our Team -->
             <div class="about-permanent-blocks">
                 <!-- Our Commitment -->
-                <div class="commitment-block reveal">
+                <div class="commitment-block">
                     <h4>Our Commitment</h4>
                     <p>At Manka Realty, we understand that a property decision is more than just a transaction—it is an important financial and personal decision. That is why we focus on understanding our clients, providing the right information and delivering professional assistance at every step.</p>
                     <p>Our goal is to make the real-estate experience simpler, smoother and more rewarding for our clients. With experience, expertise and an extensive network, we strive to deliver unmatched results and build relationships that last beyond a single transaction.</p>
@@ -483,18 +445,18 @@
     <section class="choose-us-section" id="choose-us">
         <div class="section-container">
             <div class="text-center-wrapper">
-                <span class="section-tag reveal">WHY WORK WITH US</span>
-                <h2 class="section-title text-center reveal">Why Choose Us</h2>
-                <p class="section-subtitle text-center reveal">Your requirements, interests and satisfaction are at the heart of everything we do.</p>
+                <span class="section-tag">WHY WORK WITH US</span>
+                <h2 class="section-title text-center">Why Choose Us</h2>
+                <p class="section-subtitle text-center">Your requirements, interests and satisfaction are at the heart of everything we do.</p>
             </div>
             
-            <div class="choose-us-intro-card reveal">
+            <div class="choose-us-intro-card">
                 <p>At Manka Realty, we make property transactions seamless. Our dedication to clear communication, local expertise, and customized strategies ensures a secure and rewarding real estate experience.</p>
             </div>
             
             <div class="choose-us-grid">
                 <!-- Feature 1 -->
-                <div class="choose-card reveal">
+                <div class="choose-card">
                     <div class="choose-icon-wrapper">
                         <i class="fa-solid fa-heart"></i>
                     </div>
@@ -503,7 +465,7 @@
                 </div>
 
                 <!-- Feature 2 -->
-                <div class="choose-card reveal">
+                <div class="choose-card">
                     <div class="choose-icon-wrapper">
                         <i class="fa-solid fa-award"></i>
                     </div>
@@ -512,7 +474,7 @@
                 </div>
 
                 <!-- Feature 3 -->
-                <div class="choose-card reveal">
+                <div class="choose-card">
                     <div class="choose-icon-wrapper">
                         <i class="fa-solid fa-globe"></i>
                     </div>
@@ -521,7 +483,7 @@
                 </div>
 
                 <!-- Feature 4 -->
-                <div class="choose-card reveal">
+                <div class="choose-card">
                     <div class="choose-icon-wrapper">
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
@@ -530,7 +492,7 @@
                 </div>
 
                 <!-- Feature 5 -->
-                <div class="choose-card reveal">
+                <div class="choose-card">
                     <div class="choose-icon-wrapper">
                         <i class="fa-solid fa-sliders"></i>
                     </div>
@@ -539,7 +501,7 @@
                 </div>
 
                 <!-- Feature 6 -->
-                <div class="choose-card reveal">
+                <div class="choose-card">
                     <div class="choose-icon-wrapper">
                         <i class="fa-solid fa-handshake-angle"></i>
                     </div>
@@ -548,7 +510,7 @@
                 </div>
 
                 <!-- Feature 7 -->
-                <div class="choose-card reveal">
+                <div class="choose-card">
                     <div class="choose-icon-wrapper">
                         <i class="fa-solid fa-people-group"></i>
                     </div>
@@ -563,9 +525,9 @@
     <section class="expertise-section" id="expertise">
         <div class="section-container">
             <div class="text-center-wrapper">
-                <span class="section-tag reveal">OUR SERVICES</span>
-                <h2 class="section-title text-center font-premium-h2 reveal">Tailored Real-Estate Solutions</h2>
-                <p class="section-subtitle text-center reveal">Providing professional property consultancy and management across residential & commercial sectors.</p>
+                <span class="section-tag">OUR SERVICES</span>
+                <h2 class="section-title text-center font-premium-h2">Tailored Real-Estate Solutions</h2>
+                <p class="section-subtitle text-center">Providing professional property consultancy and management across residential & commercial sectors.</p>
             </div>
 
             <div class="services-grid-layout">
@@ -632,24 +594,32 @@
     <section class="reviews-section" id="reviews">
         <div class="section-container">
             <div class="text-center-wrapper">
-                <span class="section-tag reveal">CLIENT FEEDBACK</span>
-                <h2 class="section-title text-center font-premium-h2 reveal">Google Reviews & Ratings</h2>
-                <p class="section-subtitle text-center reveal">Read verified reviews from our residential and commercial clients.</p>
+                <span class="section-tag">CLIENT FEEDBACK</span>
+                <h2 class="section-title text-center font-premium-h2">Google Reviews & Ratings</h2>
+                <p class="section-subtitle text-center">Read verified reviews from our residential and commercial clients.</p>
+            </div>
+            
+            <div class="reviews-tabs-wrapper">
+                <!-- Review Tabs Switcher -->
+                <div class="reviews-tabs">
+                    <button class="review-tab-btn active" data-type="residential">RESIDENTIAL REVIEWS</button>
+                    <button class="review-tab-btn" data-type="commercial">COMMERCIAL REVIEWS</button>
+                </div>
             </div>
             
             <div class="reviews-layout">
                 <!-- Left: Google Rating Summary -->
                 <div class="reviews-summary-card">
-                    <div class="google-badge" style="display: inline-flex; align-items: center; background: #f8f9fa; border: 1px solid #e8eaed; padding: 6px 14px; border-radius: 20px; margin-bottom: 15px;">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
+                    <div class="google-badge">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 6px;">
                             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                             <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
                             <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l3.66-2.85z" fill="#FBBC05"/>
                             <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.85c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
                         </svg>
-                        <span style="font-weight: 600; color: #3c4043; font-family: 'Outfit', sans-serif; font-size: 0.9rem;">Google Business</span>
+                        <span>Google Business</span>
                     </div>
-                    <div class="rating-number stat-number" data-target="4.9">4.9</div>
+                    <div class="rating-number">4.9</div>
                     <div class="rating-stars">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -663,183 +633,88 @@
                     </a>
                 </div>
 
-                
-                <!-- Right: Categorized Reviews Cards Grid as Marquee -->
-                <!-- Right: Categorized Reviews Cards Grid as Marquee -->
-                <div class="reviews-marquee-container" style="position: relative; display: flex; flex-direction: column; gap: 2rem; overflow: hidden; width: 100%; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); padding: 1rem 0;">
-                    
-                    <!-- First Row -->
-                    <div class="marquee-track" style="animation-duration: 45s; align-items: stretch;">
-                        <!-- Review 1 -->
-                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
-                            <div class="review-header">
-                                <div class="reviewer-info">
-                                    <div class="reviewer-avatar">AS</div>
-                                    <div>
-                                        <h4>Amit Sharma</h4>
-                                        <span class="review-date">A month ago</span>
-                                    </div>
+                <!-- Right: Categorized Reviews Cards Grid -->
+                <div class="reviews-grid" id="reviews-grid-track">
+                    <!-- Residential Reviews -->
+                    <div class="review-card" data-category="residential">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">AS</div>
+                                <div>
+                                    <h4>Amit Sharma</h4>
+                                    <span class="review-date">A month ago</span>
                                 </div>
-                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                             </div>
-                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"Showed us exactly what we asked for. No pushing properties outside our budget like other brokers do."</p>
-                        </div>
-                        <!-- Review 2 -->
-                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
-                            <div class="review-header">
-                                <div class="reviewer-info">
-                                    <div class="reviewer-avatar">PS</div>
-                                    <div>
-                                        <h4>Priya Sen</h4>
-                                        <span class="review-date">3 weeks ago</span>
-                                    </div>
-                                </div>
-                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <div class="review-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
                             </div>
-                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"Rahul was super patient with all our questions. Took a couple of weeks to finalize the lease but we absolutely love the apartment."</p>
                         </div>
-                        <!-- Review 3 -->
-                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
-                            <div class="review-header">
-                                <div class="reviewer-info">
-                                    <div class="reviewer-avatar">KV</div>
-                                    <div>
-                                        <h4>Karan Verma</h4>
-                                        <span class="review-date">2 months ago</span>
-                                    </div>
-                                </div>
-                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                            </div>
-                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"We needed a 2,000 sq ft office in Andheri. They got it done without wasting our time showing us irrelevant spaces."</p>
-                        </div>
-                        
-                        <!-- Duplicate for infinite scroll -->
-                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
-                            <div class="review-header">
-                                <div class="reviewer-info">
-                                    <div class="reviewer-avatar">AS</div>
-                                    <div>
-                                        <h4>Amit Sharma</h4>
-                                        <span class="review-date">A month ago</span>
-                                    </div>
-                                </div>
-                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                            </div>
-                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"Showed us exactly what we asked for. No pushing properties outside our budget like other brokers do."</p>
-                        </div>
-                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
-                            <div class="review-header">
-                                <div class="reviewer-info">
-                                    <div class="reviewer-avatar">PS</div>
-                                    <div>
-                                        <h4>Priya Sen</h4>
-                                        <span class="review-date">3 weeks ago</span>
-                                    </div>
-                                </div>
-                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                            </div>
-                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"Rahul was super patient with all our questions. Took a couple of weeks to finalize the lease but we absolutely love the apartment."</p>
-                        </div>
-                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
-                            <div class="review-header">
-                                <div class="reviewer-info">
-                                    <div class="reviewer-avatar">KV</div>
-                                    <div>
-                                        <h4>Karan Verma</h4>
-                                        <span class="review-date">2 months ago</span>
-                                    </div>
-                                </div>
-                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                            </div>
-                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"We needed a 2,000 sq ft office in Andheri. They got it done without wasting our time showing us irrelevant spaces."</p>
-                        </div>
+                        <p class="review-text">"Manka Realty made our house hunt in Bandra completely stress-free. They have an excellent network and are extremely honest and transparent throughout the negotiations."</p>
                     </div>
 
-                    <!-- Second Row (Reverse) -->
-                    <div class="marquee-track marquee-track-reverse" style="animation-duration: 50s; align-items: stretch;">
-                        <!-- Review 4 -->
-                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
-                            <div class="review-header">
-                                <div class="reviewer-info">
-                                    <div class="reviewer-avatar">PM</div>
-                                    <div>
-                                        <h4>Priya Mehta</h4>
-                                        <span class="review-date">2 weeks ago</span>
-                                    </div>
+                    <div class="review-card" data-category="residential">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">PS</div>
+                                <div>
+                                    <h4>Priya Sen</h4>
+                                    <span class="review-date">3 weeks ago</span>
                                 </div>
-                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
                             </div>
-                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"The paperwork process was a little slow, but the team at Manka handled all the owner negotiations well. Got us a fair deal."</p>
+                            <div class="review-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
                         </div>
-                        <!-- Review 5 -->
-                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
-                            <div class="review-header">
-                                <div class="reviewer-info">
-                                    <div class="reviewer-avatar">RK</div>
-                                    <div>
-                                        <h4>Rajesh Khanna</h4>
-                                        <span class="review-date">1 month ago</span>
-                                    </div>
+                        <p class="review-text">"Highly recommend Manka Realty for residential leasing. They found us a beautiful 3 BHK apartment in Khar in record time and managed all rent agreement registrations perfectly."</p>
+                    </div>
+
+                    <!-- Commercial Reviews -->
+                    <div class="review-card" data-category="commercial">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">PM</div>
+                                <div>
+                                    <h4>Priya Mehta</h4>
+                                    <span class="review-date">2 weeks ago</span>
                                 </div>
-                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                             </div>
-                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"Honestly just glad they actually answer the phone after 7pm. Good service, zero hidden fees, and they know the neighborhood."</p>
+                            <div class="review-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
                         </div>
-                        <!-- Review 6 -->
-                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
-                            <div class="review-header">
-                                <div class="reviewer-info">
-                                    <div class="reviewer-avatar">ND</div>
-                                    <div>
-                                        <h4>Neha Desai</h4>
-                                        <span class="review-date">3 months ago</span>
-                                    </div>
+                        <p class="review-text">"Excellent commercial real estate team. They understood our corporate office requirements and helped us secure a premium space in BKC in record time."</p>
+                    </div>
+
+                    <div class="review-card" data-category="commercial">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">RK</div>
+                                <div>
+                                    <h4>Rajesh Khanna</h4>
+                                    <span class="review-date">3 months ago</span>
                                 </div>
-                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                             </div>
-                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"Reliable and straightforward. Would definitely use them again for our next office expansion."</p>
-                        </div>
-                        
-                        <!-- Duplicate for infinite scroll -->
-                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
-                            <div class="review-header">
-                                <div class="reviewer-info">
-                                    <div class="reviewer-avatar">PM</div>
-                                    <div>
-                                        <h4>Priya Mehta</h4>
-                                        <span class="review-date">2 weeks ago</span>
-                                    </div>
-                                </div>
-                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+                            <div class="review-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
                             </div>
-                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"The paperwork process was a little slow, but the team at Manka handled all the owner negotiations well. Got us a fair deal."</p>
                         </div>
-                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
-                            <div class="review-header">
-                                <div class="reviewer-info">
-                                    <div class="reviewer-avatar">RK</div>
-                                    <div>
-                                        <h4>Rajesh Khanna</h4>
-                                        <span class="review-date">1 month ago</span>
-                                    </div>
-                                </div>
-                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                            </div>
-                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"Honestly just glad they actually answer the phone after 7pm. Good service, zero hidden fees, and they know the neighborhood."</p>
-                        </div>
-                        <div class="review-card" style="width: 340px; flex-shrink: 0; margin: 0; box-sizing: border-box;">
-                            <div class="review-header">
-                                <div class="reviewer-info">
-                                    <div class="reviewer-avatar">ND</div>
-                                    <div>
-                                        <h4>Neha Desai</h4>
-                                        <span class="review-date">3 months ago</span>
-                                    </div>
-                                </div>
-                                <div class="review-stars" style="color: #fbbc05;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                            </div>
-                            <p class="review-text" style="font-size: 0.95rem; line-height: 1.5; color: #4b5563;">"Reliable and straightforward. Would definitely use them again for our next office expansion."</p>
-                        </div>
+                        <p class="review-text">"Unlike typical brokers, Manka Realty provides honest advisory and handles all commercial title verifications and lease agreement drafts with high professionalism."</p>
                     </div>
                 </div>
             </div>
@@ -853,9 +728,9 @@
                 <div class="social-header-logo">
                     <img src="assets/images/manka_logo_full.png" alt="Manka Realty Logo" class="social-logo-img" style="height: 100px; width: auto;">
                 </div>
-                <span class="section-tag tag-highlighted reveal">STAY CONNECTED</span>
-                <h2 class="section-title text-center font-premium-h2 reveal">Join Us On Social Media</h2>
-                <p class="section-subtitle text-center reveal">Follow our channels for walkthroughs, market updates, and exclusive property insights.</p>
+                <span class="section-tag tag-highlighted">STAY CONNECTED</span>
+                <h2 class="section-title text-center font-premium-h2">Join Us On Social Media</h2>
+                <p class="section-subtitle text-center">Follow our channels for walkthroughs, market updates, and exclusive property insights.</p>
             </div>
             
             <div class="social-grid">
@@ -947,8 +822,8 @@
             <div class="contact-grid">
                 <!-- Contact Info -->
                 <div class="contact-info">
-                    <span class="section-tag text-gold reveal">GET IN TOUCH</span>
-                    <h2 class="section-title reveal">Let's Discuss Your Next Property</h2>
+                    <span class="section-tag text-gold">GET IN TOUCH</span>
+                    <h2 class="section-title">Let's Discuss Your Next Property</h2>
                     <p class="contact-lead">Have questions or want to schedule a site visit? Get in touch with our team today for dedicated assistance.</p>
                     
                     <div class="contact-details">
@@ -1035,44 +910,9 @@
                             </select>
                         </div>
 
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="intent">Intent</label>
-                                <select id="intent" name="intent">
-                                    <option value="buy">Looking to Buy</option>
-                                    <option value="rent">Looking to Rent</option>
-                                    <option value="sell">Looking to Sell</option>
-                                    <option value="lease">Looking to Lease Out</option>
-                                    <option value="other">Just Exploring</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="timeline">Timeline</label>
-                                <select id="timeline" name="timeline">
-                                    <option value="immediate">Ready now</option>
-                                    <option value="1-3-months">Within 3 months</option>
-                                    <option value="3-6-months">3 to 6 months</option>
-                                    <option value="exploring">Just exploring</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="budget">Budget Range</label>
-                            <select id="budget" name="budget">
-                                <option value="not-sure">Not sure yet</option>
-                                <option value="under-1cr">Under ₹1 Cr</option>
-                                <option value="1-3cr">₹1 Cr - ₹3 Cr</option>
-                                <option value="3-5cr">₹3 Cr - ₹5 Cr</option>
-                                <option value="5-10cr">₹5 Cr - ₹10 Cr</option>
-                                <option value="above-10cr">Above ₹10 Cr</option>
-                            </select>
-                        </div>
-
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Describe your property requirements..."></textarea>
+                            <textarea id="message" name="message" rows="4" placeholder="Describe your property requirements..." required></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-block">SUBMIT INQUIRY</button>
@@ -1090,7 +930,7 @@
         <section class="partners-banner-section" style="overflow: hidden;">
             <div class="section-container" style="max-width: 100%; padding: 0;">
                 <div style="text-align: center; margin-bottom: 20px;">
-                    <span class="section-tag reveal">OUR ALLIANCES</span>
+                    <span class="section-tag">OUR ALLIANCES</span>
                     <h2 class="partners-banner-title" style="margin-bottom: 10px;">Authorized Partners & Brands</h2>
                     <p class="partners-banner-subtitle">Manka Realty is proud to work alongside Mumbai's premium luxury developers and leading national corporate brands.</p>
                 </div>
@@ -1864,9 +1704,9 @@
                     </p>
                     <div style="display: flex; gap: 14px;">
                         <a href="https://wa.me/918928770059" target="_blank" style="width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.1); color: #25D366; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; text-decoration: none;"><i class="fa-brands fa-whatsapp"></i></a>
-                        
-                        
-                        
+                        <a href="#" style="width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.1); color: #E4405F; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; text-decoration: none;"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" style="width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.1); color: #1877F2; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; text-decoration: none;"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" style="width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.1); color: #0A66C2; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; text-decoration: none;"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
                 </div>
 
@@ -1876,9 +1716,9 @@
                     <ul style="list-style: none; padding: 0; margin: 0;">
                         <li style="margin-bottom: 12px;"><a href="#hero" style="color: rgba(255,255,255,0.7); text-decoration: none;">Home</a></li>
                         <li style="margin-bottom: 12px;"><a href="about.html" style="color: rgba(255,255,255,0.7); text-decoration: none;">About Us</a></li>
-                        <li style="margin-bottom: 12px;"><a href="#expertise" style="color: rgba(255,255,255,0.7); text-decoration: none;">Services</a></li>
-                        <li style="margin-bottom: 12px;"><a href="#showcase" style="color: rgba(255,255,255,0.7); text-decoration: none;">Featured Projects</a></li>
-                        <li style="margin-bottom: 12px;"><a href="#stats" style="color: rgba(255,255,255,0.7); text-decoration: none;">Developer Partners</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#services" style="color: rgba(255,255,255,0.7); text-decoration: none;">Services</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#projects" style="color: rgba(255,255,255,0.7); text-decoration: none;">Featured Projects</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#alliances" style="color: rgba(255,255,255,0.7); text-decoration: none;">Developer Partners</a></li>
                         <li style="margin-bottom: 12px;"><a href="#contact" style="color: rgba(255,255,255,0.7); text-decoration: none;">Contact Us</a></li>
                     </ul>
                 </div>
@@ -1926,7 +1766,7 @@
                 </div>
                 <div style="display: flex; gap: 20px;">
                     <a href="about.html" style="color: rgba(255,255,255,0.5); text-decoration: none;">About Us</a>
-                    <a href="#expertise" style="color: rgba(255,255,255,0.5); text-decoration: none;">Services</a>
+                    <a href="#services" style="color: rgba(255,255,255,0.5); text-decoration: none;">Services</a>
                     <a href="#contact" style="color: rgba(255,255,255,0.5); text-decoration: none;">Contact</a>
                 </div>
             </div>
