@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Org Chart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f6f8;
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 50px 20px;
+        }
+
+        /* --- ORG CHART CSS --- */
+        .org-tree {
+            display: flex;
+            justify-content: center;
+            overflow-x: auto; /* Allow scrolling on small screens */
+            padding-bottom: 20px;
+        }
+
+        .org-tree ul {
+            padding-top: 20px;
+            position: relative;
+            transition: all 0.5s;
+            display: flex;
+            justify-content: center;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .org-tree li {
+            float: left;
+            text-align: center;
+            list-style-type: none;
+            position: relative;
+            padding: 20px 5px 0 5px;
+            transition: all 0.5s;
+        }
+
+        /* Connectors */
+        .org-tree li::before, .org-tree li::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 50%;
+            border-top: 2px solid #555;
+            width: 50%;
+            height: 20px;
+        }
+        .org-tree li::after {
+            right: auto;
+            left: 50%;
+            border-left: 2px solid #555;
+        }
+
+        /* First and last children connector fixes */
+        .org-tree li:only-child::after, .org-tree li:only-child::before {
+            display: none;
+        }
+        .org-tree li:only-child {
+            padding-top: 0;
+        }
+        .org-tree li:first-child::before, .org-tree li:last-child::after {
+            border: 0 none;
+        }
+        .org-tree li:last-child::before {
+            border-right: 2px solid #555;
+            border-radius: 0 5px 0 0;
+        }
+        .org-tree li:first-child::after {
+            border-radius: 5px 0 0 0;
+        }
+
+        /* Downward connectors from parents */
+        .org-tree ul ul::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            border-left: 2px solid #555;
+            width: 0;
+            height: 20px;
+        }
+
+        /* --- CARD STYLES --- */
+        .org-card {
+            background-color: #f0f4f8; /* slightly light blueish grey */
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            display: inline-block;
+            padding: 15px;
+            text-decoration: none;
+            color: #1e293b;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: all 0.2s ease;
+        }
+        .org-card:hover {
+            background-color: #fff;
+            transform: scale(1.02);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .org-img-wrap {
+            background: #cbd5e1;
+            padding: 4px;
+            border: 1px solid #94a3b8;
+            margin: 0 auto 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .org-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            background: #e2e8f0;
+        }
+
+        .org-name {
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            line-height: 1.2;
+            margin-bottom: 3px;
+        }
+        .org-role {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            color: #334155;
+            letter-spacing: 0.05em;
+        }
+
+        /* Size Variants based on the image */
+        
+        /* Tier 1 (Founder) */
+        .card-tier-1 {
+            width: 220px;
+            padding-top: 20px;
+        }
+        .card-tier-1 .org-img-wrap {
+            width: 110px;
+            height: 120px;
+        }
+        .card-tier-1 .org-name { font-size: 1.1rem; }
+        .card-tier-1 .org-role { font-size: 0.8rem; }
+        
+        /* Extra label for founder box as per image */
+        .founder-top-label {
+            font-weight: 800;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1e293b;
+            text-transform: uppercase;
+        }
+
+        /* Tier 2 (Heads) */
+        .card-tier-2 {
+            width: 190px;
+        }
+        .card-tier-2 .org-img-wrap {
+            width: 90px;
+            height: 100px;
+        }
+        .card-tier-2 .org-name { font-size: 0.95rem; }
+
+        /* Tier 3 & 4 (Coordinators & Sales Managers) */
+        .card-tier-3 {
+            width: 130px;
+            padding: 12px 8px;
+        }
+        .card-tier-3 .org-img-wrap {
+            width: 70px;
+            height: 75px;
+        }
+        .card-tier-3 .org-name { font-size: 0.75rem; }
+        .card-tier-3 .org-role { font-size: 0.55rem; line-height: 1.3; }
+
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align: center; margin-bottom: 40px; font-family: 'Montserrat', sans-serif;">Organizational Structure</h2>
+
+    <div class="org-tree">
+        <ul>
+            <li>
+                <!-- Founder -->
+                <div class="org-card card-tier-1">
+                    <div class="founder-top-label">Founder</div>
+                    <div class="org-img-wrap"><img src="assets/images/team/manish.jpg" alt="Manish Maurya"></div>
+                    <div class="org-name">Manish Maurya</div>
+                    <div class="org-role">Founder</div>
+                </div>
+
+                <ul>
+                    <li>
+                        <!-- Commercial Head -->
+                        <div class="org-card card-tier-2">
+                            <div class="org-img-wrap"><img src="assets/images/team/arjun.jpg" alt="Arjun Maurya"></div>
+                            <div class="org-name">Arjun Maurya</div>
+                            <div class="org-role">Commercial Head</div>
+                        </div>
+                        <ul>
+                            <li>
+                                <div class="org-card card-tier-3">
+                                    <div class="org-img-wrap"><img src="assets/images/avatar_female.png" alt="Anjali Sharma"></div>
+                                    <div class="org-name">Anjali Sharma</div>
+                                    <div class="org-role">Office Co-ordinator</div>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <div class="org-card card-tier-3">
+                                            <div class="org-img-wrap"><img src="assets/images/team/hardik.jpg" alt="Hardik Jadhav"></div>
+                                            <div class="org-name">Hardik Jadhav</div>
+                                            <div class="org-role">Sales Manager</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="org-card card-tier-3">
+                                    <div class="org-img-wrap"><img src="assets/images/avatar_female.png" alt="Chandrika Parmar"></div>
+                                    <div class="org-name">Chandrika Parmar</div>
+                                    <div class="org-role">Office Co-ordinator</div>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <div class="org-card card-tier-3">
+                                            <div class="org-img-wrap"><img src="assets/images/team/avnish.jpg" alt="Avnish Maurya"></div>
+                                            <div class="org-name">Avnish Maurya</div>
+                                            <div class="org-role">Sales Manager</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <!-- Residential Head -->
+                        <div class="org-card card-tier-2">
+                            <div class="org-img-wrap"><img src="assets/images/team/jai.jpg" alt="Jai Rajdev"></div>
+                            <div class="org-name">Jai Rajdev</div>
+                            <div class="org-role">Residential Head</div>
+                        </div>
+                        <ul>
+                            <li>
+                                <div class="org-card card-tier-3">
+                                    <div class="org-img-wrap"><img src="assets/images/avatar_female.png" alt="Uzma Khan"></div>
+                                    <div class="org-name">Uzma Khan</div>
+                                    <div class="org-role">Office Co-ordinator</div>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <div class="org-card card-tier-3">
+                                            <div class="org-img-wrap"><img src="assets/images/avatar_male.png" alt="Samir Das"></div>
+                                            <div class="org-name">Samir Das</div>
+                                            <div class="org-role">Sales Manager</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="org-card card-tier-3">
+                                    <div class="org-img-wrap"><img src="assets/images/avatar_female.png" alt="Swati Gupta"></div>
+                                    <div class="org-name">Swati Gupta</div>
+                                    <div class="org-role">Office Co-ordinator</div>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <div class="org-card card-tier-3">
+                                            <div class="org-img-wrap"><img src="assets/images/avatar_male.png" alt="Pradeep Singh"></div>
+                                            <div class="org-name">Pradeep Singh</div>
+                                            <div class="org-role">Sales Manager</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <!-- Digital Manager -->
+                        <div class="org-card card-tier-2">
+                            <div class="org-img-wrap"><img src="assets/images/avatar_female.png" alt="Manaswi Pawar"></div>
+                            <div class="org-name">Manaswi Pawar</div>
+                            <div class="org-role">Digital Manager</div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>
