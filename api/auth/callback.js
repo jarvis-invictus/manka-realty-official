@@ -32,7 +32,6 @@ module.exports = async function handler(req, res) {
         throw new Error(data.error_description || data.error || "No token received from GitHub");
     }
 
-    // Decap CMS expects this specific message format sent to window.opener
     const message = JSON.stringify({
       token: token,
       provider: 'github'
@@ -49,19 +48,13 @@ module.exports = async function handler(req, res) {
           (function() {
             function receiveMessage(e) {
               console.log("receiveMessage %o", e);
-              // Send the authorization message back to the opener
               window.opener.postMessage(
                 'authorization:github:success:${message}',
                 e.origin
               );
             }
             window.addEventListener("message", receiveMessage, false);
-            
-            // Fallback for immediate postMessage if the event isn't received
-            window.opener.postMessage(
-              'authorization:github:success:${message}',
-              "*"
-            );
+            window.opener.postMessage("authorizing:github", "*");
           })();
         </script>
       </body>
