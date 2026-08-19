@@ -314,32 +314,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const interestEl = document.getElementById('interest');
             const messageEl = document.getElementById('message');
 
-            const formData = {
-                name: nameEl ? nameEl.value : '',
-                phone: phoneEl ? phoneEl.value : '',
-                email: emailEl ? emailEl.value : '',
-                interest: interestEl ? interestEl.value : '',
-                message: messageEl ? messageEl.value : ''
-            };
+            const name = nameEl ? nameEl.value.trim() : '';
+            const phone = phoneEl ? phoneEl.value.trim() : '';
+            const email = emailEl ? emailEl.value.trim() : '';
             
-            console.log('Form submission received:', formData);
-            
-            
-            const submitBtn = form.querySelector('button[type="submit"]');
-            if (submitBtn) {
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            let interest = '';
+            if (interestEl && interestEl.options.length > 0) {
+                interest = interestEl.options[interestEl.selectedIndex].text;
             }
-            form.style.opacity = '0.5';
-            setTimeout(() => {
-                form.style.display = 'none';
-                if (successMsg) {
-                    successMsg.classList.add('active');
-                    successMsg.style.opacity = '0';
-                    setTimeout(() => successMsg.style.opacity = '1', 50);
-                }
-            }, 1000);
 
+            const message = messageEl ? messageEl.value.trim() : '';
+
+            let msg = `Hi Manka Realty, I'm ${name}.\n`;
+            msg += `Phone: ${phone}\n`;
+            msg += `Email: ${email}\n`;
+            msg += `Property Interest: ${interest}`;
+
+            if (message !== '') {
+                msg += `\n\n${message}`;
+            }
+
+            window.location.href = `https://wa.me/918928770059?text=${encodeURIComponent(msg)}`;
         });
     }
 
