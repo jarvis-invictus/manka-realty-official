@@ -46,19 +46,20 @@
 }
 
 .brand-name {
+    font-family: 'Outfit', 'Montserrat', sans-serif;
     font-size: 1.35rem;
     font-weight: 700;
-    letter-spacing: 0.03em;
-    color: #ffffff !important; /* White brand name on navy */
+    letter-spacing: -0.01em;
+    color: #ffffff !important; /* Crisp white on dark header */
 }
 
 .brand-tagline {
-    font-size: 0.68rem;
+    font-family: 'Outfit', 'Montserrat', sans-serif;
+    font-size: 0.72rem;
     font-weight: 400;
-    letter-spacing: 0.02em;
-    color: rgba(255, 255, 255, 0.8); /* Muted white tagline */
-    font-style: italic;
-    margin-top: 2px;
+    letter-spacing: 0.01em;
+    color: rgba(255, 255, 255, 0.85); /* Readable tagline */
+    margin-top: 1px;
 }
 
 /* Menu Links */
