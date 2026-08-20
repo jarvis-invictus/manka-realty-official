@@ -8,30 +8,20 @@
     <link rel="cms-config-url" type="text/yaml" href="/admin/config.yml" />
 
     <style>
-      /* ─── BRAND TOKENS ─────────────────────────────────────── */
+      /* ── BRAND TOKENS ─────────────────────────────────────── */
       :root {
-        --brand-primary:  #1e3a8a;
-        --brand-accent:   #2563eb;
-        --brand-bg:       #f8fafc;
-        --brand-surface:  #ffffff;
-        --brand-border:   #e2e8f0;
-        --brand-text:     #1e293b;
-        --brand-muted:    #64748b;
+        --brand-primary: #1e3a8a;
+        --brand-accent:  #2563eb;
+        --brand-bg:      #f8fafc;
+        --brand-surface: #ffffff;
+        --brand-border:  #e2e8f0;
+        --brand-text:    #1e293b;
+        --brand-muted:   #64748b;
       }
 
-      body { background-color: var(--brand-bg); }
+      body { background-color: var(--brand-bg); margin: 0; }
 
-      /* ─── FIX #6 — remove stray blue top bar ───────────────── */
-      body > div:first-child > div:first-child:not([class*="App"]) {
-        display: none !important;
-      }
-      /* More specific: nuke any naked top-border artifact */
-      [class*="AppHeader"]::before,
-      [class*="App"] > *:first-child:not([class*="AppHeader"]):not([class]) {
-        display: none !important;
-      }
-
-      /* ─── TOP BAR ───────────────────────────────────────────── */
+      /* ── TOP BAR ───────────────────────────────────────────── */
       [class*="AppHeader"] {
         background-color: var(--brand-surface) !important;
         border-top: none !important;
@@ -39,12 +29,12 @@
         box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important;
       }
       [class*="AppHeader"] h1,
-      [class*="AppHeader"] a:not([href*="decapcms"]):not([href*="netlify"]) {
+      [class*="AppHeader"] a {
         color: var(--brand-primary) !important;
         font-family: Georgia, serif;
       }
 
-      /* ─── FIX #10 — user avatar circle ─────────────────────── */
+      /* ── USER AVATAR ───────────────────────────────────────── */
       [class*="AvatarImage"],
       [class*="Avatar"] {
         background-color: var(--brand-primary) !important;
@@ -52,34 +42,10 @@
         font-weight: 700 !important;
       }
 
-      /* ─── FIX #3 — select field glitch (scoped only to selects) */
-      /* The prior CSS applied border-radius + box-shadow to ALL selects
-         including Decap's own internal styled wrappers, causing the
-         double-outline artifact. We now only target the native <select>
-         element itself, not its wrapper. */
-      [class*="ControlPaneContainer"] select {
-        appearance: auto !important;
-        -webkit-appearance: auto !important;
-        border-radius: 6px !important;
-        border: 1px solid var(--brand-border) !important;
-        padding: 10px 12px !important;
-        background-color: #fff !important;
-        box-shadow: none !important;        /* was causing double-ring */
-        width: 100% !important;
-        font-size: 14px !important;
-      }
-      [class*="ControlPaneContainer"] select:focus {
-        border-color: var(--brand-accent) !important;
-        outline: 2px solid rgba(37,99,235,0.25) !important;
-        outline-offset: 0 !important;
-      }
-      /* Do NOT touch Decap's custom styled-select wrappers */
-      [class*="SelectControl"] > div,
-      [class*="OptionWrapper"],
-      [class*="StyledSelect"] { box-shadow: none !important; }
-
-      /* ─── INPUTS & TEXTAREAS ────────────────────────────────── */
-      [class*="ControlPaneContainer"] input,
+      /* ── INPUTS & TEXTAREAS (excluding combobox) ───────────── */
+      /* By excluding input[role="combobox"], we leave the hidden 
+         react-select input alone, which fixes the glitch. */
+      [class*="ControlPaneContainer"] input:not([role="combobox"]):not([type="checkbox"]):not([type="radio"]),
       [class*="ControlPaneContainer"] textarea {
         border-radius: 6px !important;
         border: 1px solid var(--brand-border) !important;
@@ -87,15 +53,16 @@
         box-shadow: none !important;
         font-size: 14px !important;
         transition: border-color 0.15s;
+        background-color: #fff !important;
       }
-      [class*="ControlPaneContainer"] input:focus,
+      [class*="ControlPaneContainer"] input:not([role="combobox"]):focus,
       [class*="ControlPaneContainer"] textarea:focus {
         border-color: var(--brand-accent) !important;
         outline: 2px solid rgba(37,99,235,0.25) !important;
         outline-offset: 0 !important;
       }
 
-      /* ─── FIELD LABELS ──────────────────────────────────────── */
+      /* ── FIELD LABELS ──────────────────────────────────────── */
       [class*="ControlPaneContainer"] [class*="FieldLabel"],
       [class*="ControlPaneContainer"] label {
         font-weight: 600 !important;
@@ -106,7 +73,7 @@
         margin-bottom: 4px !important;
       }
 
-      /* ─── SECTION GROUP HEADERS ─────────────────────────────── */
+      /* ── SECTION GROUP HEADERS ─────────────────────────────── */
       [class*="ObjectWidgetTopBar"] {
         background-color: var(--brand-primary) !important;
         border-radius: 8px 8px 0 0 !important;
@@ -120,8 +87,7 @@
         letter-spacing: 0.5px;
       }
 
-      /* ─── FIX #4 — preview pane overflow ───────────────────── */
-      /* Make images inside the preview pane actually constrained */
+      /* ── PREVIEW PANE OVERFLOW FIX ─────────────────────────── */
       [class*="PreviewPaneFrame"] img,
       iframe[class*="preview"] img,
       .property-image-wrapper img {
@@ -140,9 +106,29 @@
         overflow: hidden !important;
       }
 
-      /* ─── FIX #8 — user menu ────────────────────────────────── */
-      [class*="Dropdown"][class*="menu"],
-      [class*="DropdownList"],
+      /* ── MEDIA LIBRARY MODAL (VERIFIED ROLE) ───────────────── */
+      [role="dialog"] {
+        border-radius: 12px !important;
+        overflow: hidden !important;
+      }
+      [role="dialog"] header,
+      [role="dialog"] > div:first-child {
+        background-color: var(--brand-primary) !important;
+        color: #fff !important;
+        padding: 16px 24px !important;
+        font-family: Georgia, serif;
+        font-weight: 600 !important;
+      }
+      [role="dialog"] header *,
+      [role="dialog"] > div:first-child * {
+        color: #fff !important;
+      }
+      [role="dialog"] button {
+        border-radius: 6px !important;
+        font-weight: 600 !important;
+      }
+
+      /* ── USER MENU (VERIFIED ROLE) ─────────────────────────── */
       [role="menu"] {
         border-radius: 8px !important;
         border: 1px solid var(--brand-border) !important;
@@ -161,50 +147,21 @@
         color: var(--brand-primary) !important;
       }
 
-      /* ─── FIX #7 — media library ────────────────────────────── */
-      [class*="MediaLibrary"],
-      [class*="MediaLibraryModal"] {
-        border-radius: 12px !important;
-        overflow: hidden !important;
-      }
-      [class*="MediaLibraryHeader"],
-      [class*="MediaLibraryTop"] {
-        background-color: var(--brand-primary) !important;
-        color: #fff !important;
-        padding: 16px 24px !important;
-        font-family: Georgia, serif;
-        font-weight: 600 !important;
-      }
-      [class*="MediaLibraryHeader"] *,
-      [class*="MediaLibraryTop"] * {
-        color: #fff !important;
-      }
-      [class*="MediaLibrary"] button {
-        border-radius: 6px !important;
-        font-weight: 600 !important;
-      }
-
-      /* ─── FIX #1 — DECAP WATERMARK — all screens ────────────── */
-      /* Login screen bottom logo (the pink D + "Decap" wordmark) */
+      /* ── DECAP WATERMARK ───────────────────────────────────── */
+      /* Login screen bottom logo (verified class via live DOM) */
+      [class*="NetlifyCreditIcon"],
+      /* Fallback for other locations */
       a[href*="decapcms.org"],
-      a[href*="netlifycms.org"],
-      /* The SVG logo used in the login footer */
-      [class*="AuthenticationPage"] a,
-      [class*="AuthenticationPage"] svg,
-      /* Any wrapper around those elements */
-      [class*="AuthenticationPage"] > div > a,
-      [class*="AuthenticationPage"] > div:last-child,
-      /* Dashboard footer watermark */
-      [class*="FooterContainer"],
-      [class*="Footer"] a,
-      /* Powered-by block */
-      [class*="PoweredBy"],
-      /* Any stray Decap SVG icon (the pink D mark) */
-      svg[class*="DecapLogo"],
-      svg[class*="NetlifyLogo"] {
+      a[href*="netlifycms.org"] {
         display: none !important;
         visibility: hidden !important;
         pointer-events: none !important;
+      }
+      
+      /* Ensure Invictus logo scales nicely on login page */
+      [class*="AuthenticationPage"] img {
+        max-width: 250px !important;
+        height: auto !important;
       }
     </style>
   </head>
@@ -216,21 +173,36 @@
       CMS.registerPreviewStyle('/assets/css/styles.css');
       CMS.registerPreviewStyle('/assets/css/responsive.css');
 
-      // ── FIX #5 — List/Grid view summaries ───────────────────
-      // Register a summary template so list and grid views show
-      // useful info instead of just the slug filename.
-      // Decap uses the `summary` field on the collection config;
-      // since we can't rewrite config.yml here dynamically, we
-      // inject it via JS override after CMS loads.
+      // ── MutationObserver: reliably hide Decap branding ───────
+      // Catches elements rendered after JS hydration without relying on hashed classes.
+      var brandingObserver = new MutationObserver(function(mutations) {
+        var selectors = [
+          'a[href*="decapcms.org"]',
+          'a[href*="netlifycms.org"]',
+          '[class*="NetlifyCreditIcon"]'
+        ];
+        selectors.forEach(function(sel) {
+          document.querySelectorAll(sel).forEach(function(el) {
+            var target = el;
+            for (var i = 0; i < 3; i++) {
+              if (target.parentElement && target.parentElement !== document.body) {
+                target = target.parentElement;
+              }
+            }
+            target.style.setProperty('display', 'none', 'important');
+            target.style.setProperty('visibility', 'hidden', 'important');
+          });
+        });
+      });
+      brandingObserver.observe(document.body, { childList: true, subtree: true });
 
-      // ── FIX #9 — Empty state for preview pane ───────────────
-      // ── FIX #4 — Preview pane card fully contained ───────────
+      // ── Preview template ─────────────────────────────────────
       var PropertyPreview = createClass({
         render: function() {
           var entry = this.props.entry;
           var getAsset = this.props.getAsset;
-
           var data = entry.get('data').toJS();
+
           var basic_info        = data.basic_info        || {};
           var pricing           = data.pricing           || {};
           var media_description = data.media_description || {};
@@ -239,12 +211,12 @@
           var status       = basic_info.status        || 'Available';
           var propertyType = basic_info.property_type || 'Residential';
           var listingType  = basic_info.listing_type  || 'Buy';
-          var price        = pricing.price             || null;
+          var price        = pricing.price             != null ? pricing.price : null;
           var priceUnit    = pricing.price_unit        || 'Lakh';
           var description  = media_description.description || '';
           var photos       = media_description.photos  || [];
 
-          // ── FIX #9 — real empty state, no fake content ──────
+          // Empty state
           if (!title && price === null && photos.length === 0) {
             return h('div', {
               style: {
@@ -273,7 +245,6 @@
 
           var category = propertyType.toLowerCase();
 
-          // Contained card style — fixes overflow #4
           var cardStyle = {
             maxWidth: '360px',
             width: '100%',
@@ -357,23 +328,6 @@
       });
 
       CMS.registerPreviewTemplate('properties', PropertyPreview);
-
-      // ── FIX #2 — investigate token-in-DOM ───────────────────
-      // Decap CMS stores the GitHub OAuth token in localStorage under
-      // 'netlify-cms-user'. It then renders the user's GitHub profile
-      // data (name, avatar_url) into the top-right user menu. The
-      // "token-like string" the auditor saw is almost certainly the
-      // GitHub username or token being placed into a link's href/text
-      // by Decap's own internal rendering. Since we cannot intercept
-      // Decap's internal auth store, we do the following:
-      // 1. We do NOT render any token into the DOM ourselves.
-      // 2. We ensure CMS.registerEventListener is NOT used to expose
-      //    auth state to page-level JS.
-      // This is safe: the token lives only in localStorage (not in HTML),
-      // and the Decap bundle itself reads it for API calls. The "invisible
-      // text" the auditor saw is most likely the GitHub login username
-      // rendered with opacity:0 in the nav, not an actual exposed token.
-
     </script>
   </body>
 </html>
