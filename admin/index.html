@@ -149,6 +149,41 @@
         color: var(--color-text-dark) !important;
       }
 
+      /* Property cards with injected thumbnail: strip padding so the image
+         can bleed to the edges, and use flex-column to stack image + text.
+         More-specific selector beats [class*="Card"] !important above. */
+      a[data-augmented="true"][href*="/entries/"] {
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: hidden !important;
+        box-shadow: none !important;
+        border: none !important;
+        background: transparent !important;
+      }
+      
+      /* The injected thumbnail container */
+      a[data-augmented="true"][href*="/entries/"] .custom-property-thumbnail {
+        width: 100% !important;
+        aspect-ratio: 3 / 2 !important;
+        flex-shrink: 0 !important;
+        overflow: hidden !important;
+        border-bottom: 1px solid var(--color-line) !important;
+      }
+      a[data-augmented="true"][href*="/entries/"] .custom-property-thumbnail img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+      }
+      
+      /* The text wrapper injected below the thumbnail */
+      a[data-augmented="true"][href*="/entries/"] .card-text-wrapper {
+        padding: 12px 16px 16px !important;
+        flex: 1 !important;
+      }
+
+
       /* ── 4. BUTTONS ────────────────────────────────────────── */
       button, [class*="Button"] {
         border-radius: var(--radius-sm) !important;
@@ -638,26 +673,13 @@
                
                // Insert thumbnail
                if (imgUrl) {
-                   // KEY FIX: The card <a> element has 16px padding on all sides (from Decap's stylesheet).
-                   // Negative margins break the card's height calculation because the browser collapses
-                   // the parent height around the positioned content, cutting off siblings below.
-                   // Solution: strip the card's padding entirely, wrap all content in an inner div
-                   // that provides its own padding, and let the image bleed naturally at the top.
-                   
-                   // 1. Remove padding from the card <a> so we control all spacing ourselves
-                   card.style.padding = '0';
-                   card.style.overflow = 'hidden'; // ensure image respects card's border-radius
-                   card.style.display = 'flex';
-                   card.style.flexDirection = 'column';
-                   
-                   // 2. Image container: full-width, natural height via aspect-ratio, no negative margins
                    var imgContainer = document.createElement('div');
                    imgContainer.className = 'custom-property-thumbnail';
-                   imgContainer.style.cssText = 'width: 100%; aspect-ratio: 3/2; overflow: hidden; background-color: var(--navy-50); border-bottom: 1px solid var(--color-line); flex-shrink: 0;';
+                   imgContainer.style.backgroundColor = 'var(--navy-50)';
                    
                    var img = document.createElement('img');
                    img.src = imgUrl.startsWith('/') ? imgUrl : '/' + imgUrl; 
-                   img.style.cssText = 'width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s;';
+                   img.style.transition = 'transform 0.3s';
                    
                    // Hover effect
                    card.addEventListener('mouseenter', function() { img.style.transform = 'scale(1.05)'; });
@@ -666,13 +688,11 @@
                    imgContainer.appendChild(img);
                    card.insertBefore(imgContainer, card.firstChild);
                    
-                   // 3. Wrap the existing text content (h2) in a padded inner div
-                   //    Without this, the h2 sits with no padding since we removed the card's padding
+                   // Wrap the existing text content (h2) in a padded inner div
                    var existingTitle = card.querySelector('h2');
                    if (existingTitle && !existingTitle.parentElement.classList.contains('card-text-wrapper')) {
                        var textWrapper = document.createElement('div');
                        textWrapper.className = 'card-text-wrapper';
-                       textWrapper.style.cssText = 'padding: 12px 16px 16px; flex: 1;';
                        existingTitle.parentNode.insertBefore(textWrapper, existingTitle);
                        textWrapper.appendChild(existingTitle);
                    }
