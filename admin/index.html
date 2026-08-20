@@ -638,21 +638,44 @@
                
                // Insert thumbnail
                if (imgUrl) {
+                   // KEY FIX: The card <a> element has 16px padding on all sides (from Decap's stylesheet).
+                   // Negative margins break the card's height calculation because the browser collapses
+                   // the parent height around the positioned content, cutting off siblings below.
+                   // Solution: strip the card's padding entirely, wrap all content in an inner div
+                   // that provides its own padding, and let the image bleed naturally at the top.
+                   
+                   // 1. Remove padding from the card <a> so we control all spacing ourselves
+                   card.style.padding = '0';
+                   card.style.overflow = 'hidden'; // ensure image respects card's border-radius
+                   card.style.display = 'flex';
+                   card.style.flexDirection = 'column';
+                   
+                   // 2. Image container: full-width, natural height via aspect-ratio, no negative margins
                    var imgContainer = document.createElement('div');
                    imgContainer.className = 'custom-property-thumbnail';
-                   // Decap CMS's link element has 16px padding on all sides. We want the image to span the full width.
-                   imgContainer.style.cssText = 'width: calc(100% + 32px); margin-left: -16px; margin-top: -16px; margin-right: -16px; aspect-ratio: 3/2; overflow: hidden; background-color: var(--navy-50); border-radius: var(--radius-card) var(--radius-card) 0 0; margin-bottom: 16px; border-bottom: 1px solid var(--color-line);';
+                   imgContainer.style.cssText = 'width: 100%; aspect-ratio: 3/2; overflow: hidden; background-color: var(--navy-50); border-bottom: 1px solid var(--color-line); flex-shrink: 0;';
                    
                    var img = document.createElement('img');
                    img.src = imgUrl.startsWith('/') ? imgUrl : '/' + imgUrl; 
                    img.style.cssText = 'width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s;';
                    
-                   // Hover effect mimicking tailwind group-hover:scale-105
-                   card.addEventListener('mouseenter', function() { img.style.transform = 'scale(105%)'; });
-                   card.addEventListener('mouseleave', function() { img.style.transform = 'scale(100%)'; });
+                   // Hover effect
+                   card.addEventListener('mouseenter', function() { img.style.transform = 'scale(1.05)'; });
+                   card.addEventListener('mouseleave', function() { img.style.transform = 'scale(1)'; });
                    
                    imgContainer.appendChild(img);
                    card.insertBefore(imgContainer, card.firstChild);
+                   
+                   // 3. Wrap the existing text content (h2) in a padded inner div
+                   //    Without this, the h2 sits with no padding since we removed the card's padding
+                   var existingTitle = card.querySelector('h2');
+                   if (existingTitle && !existingTitle.parentElement.classList.contains('card-text-wrapper')) {
+                       var textWrapper = document.createElement('div');
+                       textWrapper.className = 'card-text-wrapper';
+                       textWrapper.style.cssText = 'padding: 12px 16px 16px; flex: 1;';
+                       existingTitle.parentNode.insertBefore(textWrapper, existingTitle);
+                       textWrapper.appendChild(existingTitle);
+                   }
                }
                
                // Fix the nesting: remove border/shadow from <a> since <li> already has it
