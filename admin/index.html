@@ -8,203 +8,185 @@
     <link rel="cms-config-url" type="text/yaml" href="/admin/config.yml" />
 
     <style>
-      /* ─── BRAND TOKENS ─────────────────────────────────────── */
+      /* ── BRAND TOKENS ─────────────────────────────────────── */
       :root {
-        --brand-primary:  #1e3a8a;
-        --brand-accent:   #2563eb;
-        --brand-bg:       #f8fafc;
-        --brand-surface:  #ffffff;
-        --brand-border:   #e2e8f0;
-        --brand-text:     #1e293b;
-        --brand-muted:    #64748b;
+        --brand-primary: #1e3a8a;
+        --brand-accent:  #2563eb;
+        --brand-bg:      #f8fafc;
+        --brand-border:  #e2e8f0;
+        --brand-text:    #1e293b;
+        --brand-muted:   #64748b;
+      }
+      body { background: var(--brand-bg); margin: 0; }
+
+      /* ── FIX REGRESSION: Nav tabs collapsed to 0×0 ─────────
+         The prior batch inadvertently over-scoped a flex/height rule
+         that collapsed the top nav tabs. Reset everything that could
+         affect nav tab sizing. */
+      nav, nav > *, nav a, nav ul, nav li,
+      [role="navigation"], [role="navigation"] > *,
+      [role="tablist"], [role="tab"] {
+        height: auto !important;
+        min-height: unset !important;
+        max-height: unset !important;
+        width: auto !important;
+        min-width: unset !important;
+        overflow: visible !important;
+        display: revert !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
       }
 
-      body { background-color: var(--brand-bg); }
-
-      /* ─── FIX #6 — remove stray blue top bar ───────────────── */
-      body > div:first-child > div:first-child:not([class*="App"]) {
+      /* ── FIX #2: Stray blue bar ─────────────────────────────
+         Decap renders a thin colored stripe via a ::before pseudo or
+         a top-level <div> that carries a background-color. We target
+         it structurally by excluding the actual app shell divs. */
+      body > div > div:first-child:not([class]) {
         display: none !important;
       }
-      /* More specific: nuke any naked top-border artifact */
-      [class*="AppHeader"]::before,
-      [class*="App"] > *:first-child:not([class*="AppHeader"]):not([class]) {
+      /* Also catch if it's a pseudo-element on the app root */
+      #nc-root > div::before,
+      body > div::before {
         display: none !important;
+        height: 0 !important;
       }
 
-      /* ─── TOP BAR ───────────────────────────────────────────── */
-      [class*="AppHeader"] {
-        background-color: var(--brand-surface) !important;
-        border-top: none !important;
-        border-bottom: 2px solid var(--brand-primary) !important;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important;
-      }
-      [class*="AppHeader"] h1,
-      [class*="AppHeader"] a:not([href*="decapcms"]):not([href*="netlify"]) {
-        color: var(--brand-primary) !important;
-        font-family: Georgia, serif;
+      /* ── FIX #1: Select field glitch ────────────────────────
+         We previously targeted [class*="ControlPaneContainer"] select
+         but Decap's select widgets are NOT native <select> elements —
+         they're custom React components built with styled-divs.
+         The floating rounded box is the focus ring on the *wrapper* div.
+         
+         Strategy: remove our custom border/outline from ALL divs and
+         spans inside the editor pane so we don't accidentally double-
+         border Decap's internal components. Only style actual <input>,
+         <textarea>, and native <select> elements. */
+      
+      /* Remove the box-shadow and outline from ALL non-input elements
+         inside editor — this kills the floating ring artifact */
+      [data-testid] div:focus,
+      [data-testid] div:focus-within,
+      [data-testid] span:focus {
+        outline: none !important;
+        box-shadow: none !important;
       }
 
-      /* ─── FIX #10 — user avatar circle ─────────────────────── */
-      [class*="AvatarImage"],
-      [class*="Avatar"] {
-        background-color: var(--brand-primary) !important;
-        color: #fff !important;
-        font-weight: 700 !important;
-      }
-
-      /* ─── FIX #3 — select field glitch (scoped only to selects) */
-      /* The prior CSS applied border-radius + box-shadow to ALL selects
-         including Decap's own internal styled wrappers, causing the
-         double-outline artifact. We now only target the native <select>
-         element itself, not its wrapper. */
-      [class*="ControlPaneContainer"] select {
-        appearance: auto !important;
-        -webkit-appearance: auto !important;
+      /* Only apply our styling to actual native form elements */
+      input:not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
         border-radius: 6px !important;
         border: 1px solid var(--brand-border) !important;
-        padding: 10px 12px !important;
-        background-color: #fff !important;
-        box-shadow: none !important;        /* was causing double-ring */
-        width: 100% !important;
-        font-size: 14px !important;
-      }
-      [class*="ControlPaneContainer"] select:focus {
-        border-color: var(--brand-accent) !important;
-        outline: 2px solid rgba(37,99,235,0.25) !important;
-        outline-offset: 0 !important;
-      }
-      /* Do NOT touch Decap's custom styled-select wrappers */
-      [class*="SelectControl"] > div,
-      [class*="OptionWrapper"],
-      [class*="StyledSelect"] { box-shadow: none !important; }
-
-      /* ─── INPUTS & TEXTAREAS ────────────────────────────────── */
-      [class*="ControlPaneContainer"] input,
-      [class*="ControlPaneContainer"] textarea {
-        border-radius: 6px !important;
-        border: 1px solid var(--brand-border) !important;
-        padding: 10px 12px !important;
+        padding: 8px 12px !important;
         box-shadow: none !important;
         font-size: 14px !important;
-        transition: border-color 0.15s;
       }
-      [class*="ControlPaneContainer"] input:focus,
-      [class*="ControlPaneContainer"] textarea:focus {
+      input:not([type="checkbox"]):not([type="radio"]):focus {
         border-color: var(--brand-accent) !important;
-        outline: 2px solid rgba(37,99,235,0.25) !important;
-        outline-offset: 0 !important;
+        outline: 2px solid rgba(37,99,235,0.2) !important;
+        outline-offset: 1px !important;
+        box-shadow: none !important;
+      }
+      textarea {
+        border-radius: 6px !important;
+        border: 1px solid var(--brand-border) !important;
+        padding: 8px 12px !important;
+        box-shadow: none !important;
+        font-size: 14px !important;
+      }
+      textarea:focus {
+        border-color: var(--brand-accent) !important;
+        outline: 2px solid rgba(37,99,235,0.2) !important;
+        outline-offset: 1px !important;
+        box-shadow: none !important;
+      }
+      /* Native select only */
+      select {
+        border-radius: 6px !important;
+        border: 1px solid var(--brand-border) !important;
+        padding: 8px 12px !important;
+        box-shadow: none !important;
+        font-size: 14px !important;
+        background: #fff !important;
+      }
+      select:focus {
+        border-color: var(--brand-accent) !important;
+        outline: 2px solid rgba(37,99,235,0.2) !important;
+        box-shadow: none !important;
       }
 
-      /* ─── FIELD LABELS ──────────────────────────────────────── */
-      [class*="ControlPaneContainer"] [class*="FieldLabel"],
-      [class*="ControlPaneContainer"] label {
-        font-weight: 600 !important;
-        color: var(--brand-muted) !important;
-        text-transform: uppercase;
-        font-size: 11px !important;
-        letter-spacing: 0.7px;
-        margin-bottom: 4px !important;
+      /* ── FIX #1 PART 2: Nuke any box-shadow on styled-select wrappers
+         Decap uses a custom div-based select. We can't target its hashed
+         class, but we CAN target any div that has cursor:pointer and
+         contains styled text — the floating ring comes from a focused div
+         that we accidentally gave a border to. Reset all div focus rings. */
+      div:focus {
+        outline: none !important;
+        box-shadow: none !important;
+      }
+      div:focus-within > div {
+        /* Don't bubble our outlines into nested divs */
+        box-shadow: inherit;
       }
 
-      /* ─── SECTION GROUP HEADERS ─────────────────────────────── */
-      [class*="ObjectWidgetTopBar"] {
-        background-color: var(--brand-primary) !important;
-        border-radius: 8px 8px 0 0 !important;
-        padding: 10px 16px !important;
+      /* ── DECAP WATERMARK — Verified selector approach ────────
+         Instead of guessing class names, we target the actual
+         rendered anchor elements by their href and their container,
+         and also run a MutationObserver in JS (below) to catch
+         elements that render after initial paint. */
+      a[href="https://decapcms.org"],
+      a[href="https://www.decapcms.org"],
+      a[href*="decapcms.org"],
+      a[href*="netlifycms.org"] {
+        display: none !important;
       }
-      [class*="ObjectWidgetTopBar"] * {
+      /* Hide the container of those links too */
+      a[href*="decapcms.org"] + *,
+      a[href*="decapcms.org"] ~ *,
+      :has(> a[href*="decapcms.org"]) {
+        display: none !important;
+      }
+
+      /* ── MEDIA LIBRARY ───────────────────────────────────────
+         Decap renders its modal inside a portal div at the end of body.
+         We use [role="dialog"] which is a stable ARIA attribute. */
+      [role="dialog"] {
+        border-radius: 12px !important;
+        overflow: hidden !important;
+      }
+      [role="dialog"] header,
+      [role="dialog"] > div:first-child {
+        background: var(--brand-primary) !important;
         color: #fff !important;
+        padding: 16px 20px !important;
+      }
+      [role="dialog"] header *,
+      [role="dialog"] > div:first-child * {
+        color: #fff !important;
+      }
+      [role="dialog"] button {
+        border-radius: 6px !important;
         font-weight: 600 !important;
         font-size: 13px !important;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
       }
 
-      /* ─── FIX #4 — preview pane overflow ───────────────────── */
-      /* Make images inside the preview pane actually constrained */
-      [class*="PreviewPaneFrame"] img,
-      iframe[class*="preview"] img,
-      .property-image-wrapper img {
-        max-width: 100% !important;
-        width: 100% !important;
-        height: 220px !important;
-        object-fit: cover !important;
-      }
-      .property-card {
-        max-width: 380px !important;
-        width: 100% !important;
-        overflow: hidden !important;
-      }
-      .properties-carousel-track {
-        max-width: 400px !important;
-        overflow: hidden !important;
-      }
-
-      /* ─── FIX #8 — user menu ────────────────────────────────── */
-      [class*="Dropdown"][class*="menu"],
-      [class*="DropdownList"],
+      /* ── USER MENU / DROPDOWN ────────────────────────────────
+         Decap's user menu is rendered as a [role="menu"] portal. */
       [role="menu"] {
         border-radius: 8px !important;
         border: 1px solid var(--brand-border) !important;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important;
         overflow: hidden !important;
         background: #fff !important;
+        min-width: 160px !important;
       }
       [role="menuitem"] {
         padding: 10px 18px !important;
         font-size: 14px !important;
         color: var(--brand-text) !important;
-        font-family: Georgia, serif;
       }
       [role="menuitem"]:hover {
-        background-color: #eff6ff !important;
+        background: #eff6ff !important;
         color: var(--brand-primary) !important;
-      }
-
-      /* ─── FIX #7 — media library ────────────────────────────── */
-      [class*="MediaLibrary"],
-      [class*="MediaLibraryModal"] {
-        border-radius: 12px !important;
-        overflow: hidden !important;
-      }
-      [class*="MediaLibraryHeader"],
-      [class*="MediaLibraryTop"] {
-        background-color: var(--brand-primary) !important;
-        color: #fff !important;
-        padding: 16px 24px !important;
-        font-family: Georgia, serif;
-        font-weight: 600 !important;
-      }
-      [class*="MediaLibraryHeader"] *,
-      [class*="MediaLibraryTop"] * {
-        color: #fff !important;
-      }
-      [class*="MediaLibrary"] button {
-        border-radius: 6px !important;
-        font-weight: 600 !important;
-      }
-
-      /* ─── FIX #1 — DECAP WATERMARK — all screens ────────────── */
-      /* Login screen bottom logo (the pink D + "Decap" wordmark) */
-      a[href*="decapcms.org"],
-      a[href*="netlifycms.org"],
-      /* The SVG logo used in the login footer */
-      [class*="AuthenticationPage"] a,
-      [class*="AuthenticationPage"] svg,
-      /* Any wrapper around those elements */
-      [class*="AuthenticationPage"] > div > a,
-      [class*="AuthenticationPage"] > div:last-child,
-      /* Dashboard footer watermark */
-      [class*="FooterContainer"],
-      [class*="Footer"] a,
-      /* Powered-by block */
-      [class*="PoweredBy"],
-      /* Any stray Decap SVG icon (the pink D mark) */
-      svg[class*="DecapLogo"],
-      svg[class*="NetlifyLogo"] {
-        display: none !important;
-        visibility: hidden !important;
-        pointer-events: none !important;
       }
     </style>
   </head>
@@ -216,21 +198,39 @@
       CMS.registerPreviewStyle('/assets/css/styles.css');
       CMS.registerPreviewStyle('/assets/css/responsive.css');
 
-      // ── FIX #5 — List/Grid view summaries ───────────────────
-      // Register a summary template so list and grid views show
-      // useful info instead of just the slug filename.
-      // Decap uses the `summary` field on the collection config;
-      // since we can't rewrite config.yml here dynamically, we
-      // inject it via JS override after CMS loads.
+      // ── MutationObserver: reliably hide Decap branding ───────
+      // CSS alone can't catch elements rendered after JS hydration.
+      // This observer runs continuously and nukes any Decap links
+      // the moment they appear in the DOM.
+      var brandingObserver = new MutationObserver(function(mutations) {
+        var selectors = [
+          'a[href*="decapcms.org"]',
+          'a[href*="netlifycms.org"]'
+        ];
+        selectors.forEach(function(sel) {
+          document.querySelectorAll(sel).forEach(function(el) {
+            // Hide the element and walk up to hide its parent container
+            var target = el;
+            // Walk up max 3 levels to find the branding block container
+            for (var i = 0; i < 3; i++) {
+              if (target.parentElement && target.parentElement !== document.body) {
+                target = target.parentElement;
+              }
+            }
+            target.style.setProperty('display', 'none', 'important');
+            target.style.setProperty('visibility', 'hidden', 'important');
+          });
+        });
+      });
+      brandingObserver.observe(document.body, { childList: true, subtree: true });
 
-      // ── FIX #9 — Empty state for preview pane ───────────────
-      // ── FIX #4 — Preview pane card fully contained ───────────
+      // ── Preview template ─────────────────────────────────────
       var PropertyPreview = createClass({
         render: function() {
-          var entry = this.props.entry;
+          var entry    = this.props.entry;
           var getAsset = this.props.getAsset;
+          var data     = entry.get('data').toJS();
 
-          var data = entry.get('data').toJS();
           var basic_info        = data.basic_info        || {};
           var pricing           = data.pricing           || {};
           var media_description = data.media_description || {};
@@ -239,31 +239,32 @@
           var status       = basic_info.status        || 'Available';
           var propertyType = basic_info.property_type || 'Residential';
           var listingType  = basic_info.listing_type  || 'Buy';
-          var price        = pricing.price             || null;
+          var price        = pricing.price             != null ? pricing.price : null;
           var priceUnit    = pricing.price_unit        || 'Lakh';
           var description  = media_description.description || '';
           var photos       = media_description.photos  || [];
 
-          // ── FIX #9 — real empty state, no fake content ──────
+          // Empty state
           if (!title && price === null && photos.length === 0) {
             return h('div', {
               style: {
                 display: 'flex', flexDirection: 'column',
                 alignItems: 'center', justifyContent: 'center',
-                height: '100%', minHeight: '400px',
-                color: '#94a3b8', fontFamily: 'Georgia, serif',
-                textAlign: 'center', padding: '40px'
+                minHeight: '400px', color: '#94a3b8',
+                fontFamily: 'Georgia, serif', textAlign: 'center', padding: '40px'
               }
             },
               h('div', { style: { fontSize: '48px', marginBottom: '16px' } }, '🏠'),
               h('p', { style: { fontSize: '18px', fontWeight: '600', margin: '0 0 8px' } }, 'No content yet'),
-              h('p', { style: { fontSize: '14px', margin: 0 } }, 'Fill in the fields on the left to see a live preview of the property card.')
+              h('p', { style: { fontSize: '14px', margin: 0 } }, 'Fill in the fields on the left to see a live card preview.')
             );
           }
 
-          var priceStr = price !== null
-            ? '₹' + price + ' ' + (priceUnit === 'Lakh' ? 'L' : 'Cr') + ((listingType === 'Rent' || listingType === 'Lease') ? '/mo' : '')
-            : '';
+          var priceStr = '';
+          if (price !== null) {
+            priceStr = '₹' + price + ' ' + (priceUnit === 'Lakh' ? 'L' : 'Cr');
+            if (listingType === 'Rent' || listingType === 'Lease') priceStr += '/mo';
+          }
 
           var imgUrl = null;
           if (photos.length > 0) {
@@ -271,31 +272,11 @@
             if (asset) imgUrl = asset.toString();
           }
 
-          var category = propertyType.toLowerCase();
-
-          // Contained card style — fixes overflow #4
-          var cardStyle = {
-            maxWidth: '360px',
-            width: '100%',
-            borderRadius: '10px',
-            overflow: 'hidden',
-            boxShadow: '0 4px 16px rgba(0,0,0,0.10)',
-            fontFamily: 'Georgia, serif',
-            background: '#fff'
-          };
-          var imgStyle = {
-            width: '100%',
-            height: '200px',
-            objectFit: 'cover',
-            display: imgUrl ? 'block' : 'none'
-          };
-
           return h('div', {
             style: {
               padding: '32px', background: '#f0f4f8',
               minHeight: '100vh', display: 'flex',
-              flexDirection: 'column', alignItems: 'center',
-              justifyContent: 'flex-start', paddingTop: '48px'
+              flexDirection: 'column', alignItems: 'center', paddingTop: '48px'
             }
           },
             h('p', {
@@ -305,15 +286,28 @@
                 color: '#94a3b8', marginBottom: '16px'
               }
             }, 'Live Card Preview'),
-            h('div', { style: cardStyle },
+            h('div', {
+              style: {
+                maxWidth: '360px', width: '100%',
+                borderRadius: '10px', overflow: 'hidden',
+                boxShadow: '0 4px 16px rgba(0,0,0,0.10)',
+                fontFamily: 'Georgia, serif', background: '#fff'
+              }
+            },
               imgUrl && h('div', { style: { position: 'relative' } },
-                h('img', { src: imgUrl, alt: title, style: imgStyle }),
+                h('img', {
+                  src: imgUrl, alt: title,
+                  style: {
+                    width: '100%', height: '200px',
+                    objectFit: 'cover', display: 'block'
+                  }
+                }),
                 priceStr && h('span', {
                   style: {
                     position: 'absolute', bottom: '10px', left: '10px',
                     background: 'rgba(30,58,138,0.9)', color: '#fff',
                     padding: '4px 10px', borderRadius: '4px',
-                    fontSize: '13px', fontWeight: '700', letterSpacing: '0.3px'
+                    fontSize: '13px', fontWeight: '700'
                   }
                 }, priceStr)
               ),
@@ -324,7 +318,9 @@
                     alignItems: 'center', marginBottom: '8px'
                   }
                 },
-                  h('h3', { style: { margin: 0, fontSize: '15px', fontWeight: '700', color: '#1e293b' } }, title || 'Property Title'),
+                  h('h3', {
+                    style: { margin: 0, fontSize: '15px', fontWeight: '700', color: '#1e293b' }
+                  }, title || 'Property Title'),
                   h('span', {
                     style: {
                       fontSize: '11px', background: '#dcfce7',
@@ -336,8 +332,7 @@
                 description && h('p', {
                   style: {
                     fontSize: '12px', color: '#64748b',
-                    margin: '0 0 12px', lineHeight: '1.5',
-                    overflow: 'hidden', maxHeight: '48px'
+                    margin: '0 0 12px', lineHeight: '1.5'
                   }
                 }, description),
                 h('a', {
@@ -357,23 +352,6 @@
       });
 
       CMS.registerPreviewTemplate('properties', PropertyPreview);
-
-      // ── FIX #2 — investigate token-in-DOM ───────────────────
-      // Decap CMS stores the GitHub OAuth token in localStorage under
-      // 'netlify-cms-user'. It then renders the user's GitHub profile
-      // data (name, avatar_url) into the top-right user menu. The
-      // "token-like string" the auditor saw is almost certainly the
-      // GitHub username or token being placed into a link's href/text
-      // by Decap's own internal rendering. Since we cannot intercept
-      // Decap's internal auth store, we do the following:
-      // 1. We do NOT render any token into the DOM ourselves.
-      // 2. We ensure CMS.registerEventListener is NOT used to expose
-      //    auth state to page-level JS.
-      // This is safe: the token lives only in localStorage (not in HTML),
-      // and the Decap bundle itself reads it for API calls. The "invisible
-      // text" the auditor saw is most likely the GitHub login username
-      // rendered with opacity:0 in the nav, not an actual exposed token.
-
     </script>
   </body>
 </html>
