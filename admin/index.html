@@ -191,28 +191,70 @@
       }
 
             /* Collapsible Section Headers (Matching Reference) */
-      div[class*="ObjectControl-root"] {
+      [aria-label="object field"],
+      [aria-label="list field"] {
+        position: relative !important;
         border: 1px solid var(--color-line) !important;
-        border-radius: var(--radius-card) !important;
-        background-color: var(--color-surface) !important;
+        border-radius: 14px !important;
+        background-color: #ffffff !important;
         box-shadow: var(--shadow-card) !important;
-        overflow: hidden !important;
-        margin-bottom: var(--space-lg) !important;
+        margin-bottom: 24px !important;
+        padding: 0 !important;
+        overflow: visible !important;
       }
-      [class*="ObjectWidgetTopBar-root"] {
-        background-color: transparent !important;
-        border: none !important;
+      
+      [aria-label="object field"] > [class*="-ControlTopbar"],
+      [aria-label="list field"] > [class*="-ControlTopbar"] {
+        padding: 16px !important;
         border-bottom: 1px solid var(--color-line) !important;
-        padding: 16px 20px !important;
-        border-radius: 0 !important;
+        background-color: #ffffff !important;
+        border-radius: 14px 14px 0 0 !important;
+        margin: 0 !important;
+        display: flex !important;
+        align-items: center !important;
       }
-      [class*="ObjectWidgetTopBar-root"] * {
-        color: var(--color-ink) !important;
-        font-family: var(--font-heading) !important;
+      
+      [aria-label="object field"] > [class*="-ControlTopbar"] label,
+      [aria-label="list field"] > [class*="-ControlTopbar"] label {
+        color: var(--navy-900) !important;
         font-weight: 600 !important;
         font-size: 14px !important;
         text-transform: none !important;
         letter-spacing: normal !important;
+        font-family: var(--font-heading) !important;
+        margin: 0 !important;
+      }
+      
+      [aria-label="object field"] > div:nth-child(2) > [class*="-TopBarContainer"],
+      [aria-label="list field"] > div:nth-child(2) > [class*="-TopBarContainer"] {
+        position: absolute !important;
+        top: 12px !important;
+        right: 16px !important;
+        background: transparent !important;
+        border: none !important;
+        width: auto !important;
+        padding: 0 !important;
+      }
+      
+      [aria-label="object field"] > div:nth-child(2) > [class*="-TopBarContainer"] button[data-testid="expand-button"],
+      [aria-label="list field"] > div:nth-child(2) > [class*="-TopBarContainer"] button[data-testid="expand-button"] {
+        background: transparent !important;
+        border: none !important;
+        color: var(--color-ink-muted) !important;
+        padding: 4px !important;
+        width: auto !important;
+        height: auto !important;
+      }
+      
+      [aria-label="object field"] > div:nth-child(2) > div:nth-child(2),
+      [aria-label="list field"] > div:nth-child(2) > div:nth-child(2) {
+        padding: 16px !important;
+      }
+      
+      [aria-label="object field"] [aria-label="object field"],
+      [aria-label="list field"] [aria-label="object field"] {
+        box-shadow: none !important;
+        margin-bottom: 16px !important;
       }
 
       /* ── 6. PREVIEW PANE CONTAINER ─────────────────────────── */
@@ -494,23 +536,11 @@
            if (header && !dialog.dataset.augmented) {
                dialog.dataset.augmented = 'true';
                var text = document.createElement('p');
-               text.innerHTML = 'This is where every photo used across your property listings lives. Upload new photos here, then attach them to a listing from that property\'s Photos field. If you delete something by accident, it\'s not gone — <span style="font-weight: 600; color: var(--navy-800); text-decoration: underline; text-underline-offset: 2px;">check the Trash tab</span> to recover it within 30 days.';
+               text.innerHTML = 'This is where every photo used across your property listings lives. Upload new photos here, then attach them to a listing from that property\'s Photos field.';
                text.style.cssText = 'max-width: 520px; font-size: 13px; line-height: 1.625; color: var(--color-ink-muted); margin-top: 4px; font-family: var(--font-body); font-weight: 400; white-space: normal;';
                header.appendChild(text);
            }
-           // Trash tab prominence
-           var tabs = dialog.querySelectorAll('button, a');
-           tabs.forEach(function(tab) {
-               if (tab.textContent.includes('Trash') && !tab.dataset.augmented) {
-                   tab.dataset.augmented = 'true';
-                   tab.style.backgroundColor = '#fef3c7'; /* amber-50 */
-                   tab.style.color = '#d97706'; /* amber-600 */
-                   tab.style.fontWeight = '500';
-                   tab.style.border = 'none';
-                   tab.style.padding = '8px 12px';
-                   tab.style.borderRadius = '6px';
-               }
-           });
+           
         }
 
         // 3. Properties List - Residential/Commercial Filter and Thumbnails
@@ -578,38 +608,57 @@
                if (card.dataset.augmented) return;
                card.dataset.augmented = 'true';
                
-               // Clean up the text (remove "Residential||")
+               // Clean up the text (remove "Residential||" and photo URL)
                var titleEl = card.querySelector('h2');
                var originalText = '';
+               var imgUrl = null;
+               
                if (titleEl) {
                    originalText = titleEl.textContent;
                    var parts = originalText.split('||');
+                   
+                   // Extract photo from the end if it exists: List [ "..." ]
+                   var lastPart = parts[parts.length - 1];
+                   if (lastPart && (lastPart.includes('List [') || lastPart.includes('Map {'))) {
+                       var match = lastPart.match(/"([^"]+)"/);
+                       if (match && match[1]) {
+                           imgUrl = match[1];
+                       }
+                       parts.pop(); // Remove the photo part
+                   }
+                   
                    if (parts.length > 1) {
                        card.dataset.propertyType = parts[0].trim();
                        titleEl.textContent = parts.slice(1).join('||').trim();
                    } else {
                        card.dataset.propertyType = 'Unknown';
+                       titleEl.textContent = parts[0];
                    }
                }
                
-               // Try to add thumbnail
-               var slug = card.getAttribute('href').split('/').pop();
-               var entry = entries[slug];
-               
-               if (entry && entry.data) {
-                   var photos = entry.data.media_description && entry.data.media_description.photos;
-                   var imgUrl = null;
-                   if (photos && photos.length > 0 && photos[0].photo) {
-                       imgUrl = photos[0].photo;
-                   }
-                   if (imgUrl) {
-                       var img = document.createElement('img');
-                       // Handle relative vs absolute
-                       img.src = imgUrl.startsWith('/assets') ? imgUrl : '/assets/images/' + imgUrl.split('/').pop(); 
-                       img.style.cssText = 'width: 100%; aspect-ratio: 4/3; object-fit: cover; border-bottom: 1px solid var(--color-line); margin-bottom: 16px; border-radius: var(--radius-card) var(--radius-card) 0 0; margin-top: -var(--space-md); margin-left: -var(--space-md); margin-right: -var(--space-md); max-width: calc(100% + 32px); display: block; background-color: var(--navy-50); transition: transform 0.3s;';
-                       card.insertBefore(img, card.firstChild);
-                   }
+               // Insert thumbnail
+               if (imgUrl) {
+                   var imgContainer = document.createElement('div');
+                   imgContainer.className = 'custom-property-thumbnail';
+                   // Decap CMS's link element has 16px padding on all sides. We want the image to span the full width.
+                   imgContainer.style.cssText = 'width: calc(100% + 32px); margin-left: -16px; margin-top: -16px; margin-right: -16px; aspect-ratio: 3/2; overflow: hidden; background-color: var(--navy-50); border-radius: var(--radius-card) var(--radius-card) 0 0; margin-bottom: 16px; border-bottom: 1px solid var(--color-line);';
+                   
+                   var img = document.createElement('img');
+                   img.src = imgUrl.startsWith('/') ? imgUrl : '/' + imgUrl; 
+                   img.style.cssText = 'width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s;';
+                   
+                   // Hover effect mimicking tailwind group-hover:scale-105
+                   card.addEventListener('mouseenter', function() { img.style.transform = 'scale(105%)'; });
+                   card.addEventListener('mouseleave', function() { img.style.transform = 'scale(100%)'; });
+                   
+                   imgContainer.appendChild(img);
+                   card.insertBefore(imgContainer, card.firstChild);
                }
+               
+               // Fix the nesting: remove border/shadow from <a> since <li> already has it
+               card.style.boxShadow = 'none';
+               card.style.border = 'none';
+               card.style.background = 'transparent';
            });
         }
       });

@@ -19,7 +19,7 @@ collections:
     create: true
     slug: "{{basic_info.title}}"
     identifier_field: "basic_info.title"
-    summary: "{{basic_info.property_type}}||{{basic_info.title}} — {{basic_info.status}} | ₹{{pricing.price}} {{pricing.price_unit}} | {{location_specs.locality}}"
+    summary: "{{basic_info.property_type}}||{{basic_info.title}} — {{basic_info.status}} | ₹{{pricing.price}} {{pricing.price_unit}} | {{location_specs.locality}}||{{media_description.photos}}"
     extension: "json"
     format: "json"
     fields:
