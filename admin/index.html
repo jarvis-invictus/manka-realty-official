@@ -183,6 +183,26 @@
         flex: 1 !important;
       }
 
+      /* The <li> parent that wraps the card <a> has a fixed height (~240px) set by
+         Decap's own runtime CSS-in-JS, which is lower than the actual content
+         (photo ~200px + text ~90px = ~290px). Override it to auto so the <li>
+         sizes itself to its children instead of clipping them.
+         :has() is supported in all modern browsers (Chrome 105+, Firefox 121+, Safari 15.4+).
+         The fallback covers any case where :has() fails. */
+      li:has(> a[data-augmented="true"][href*="/entries/"]) {
+        height: auto !important;
+        min-height: 0 !important;
+        overflow: visible !important;
+      }
+
+      /* Fallback: class-name-based selector for Decap's GridCard <li> wrapper.
+         Decap's class contains "card" (lowercase) from the CSS-in-JS template. */
+      li[class*="card"]:has(> a[data-augmented="true"]) {
+        height: auto !important;
+        min-height: 0 !important;
+        overflow: visible !important;
+      }
+
 
       /* ── 4. BUTTONS ────────────────────────────────────────── */
       button, [class*="Button"] {
