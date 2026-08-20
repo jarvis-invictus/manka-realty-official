@@ -1,0 +1,30 @@
+[
+  {
+    "selector": "body",
+    "borderTop": "0px none rgb(121, 130, 145)",
+    "boxShadow": "none",
+    "backgroundColor": "rgb(239, 240, 244)",
+    "backgroundImage": "none"
+  },
+  {
+    "selector": "#nc-root",
+    "borderTop": "0px none rgb(121, 130, 145)",
+    "boxShadow": "none",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "none"
+  },
+  {
+    "selector": ".css-no93ty-StyledAuthenticationPage",
+    "borderTop": "0px none rgb(121, 130, 145)",
+    "boxShadow": "none",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "none"
+  },
+  {
+    "selector": ".Toastify",
+    "borderTop": "0px none rgb(121, 130, 145)",
+    "boxShadow": "none",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "none"
+  }
+]

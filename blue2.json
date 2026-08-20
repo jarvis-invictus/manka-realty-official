@@ -1,0 +1,26 @@
+{
+  "rootChild": {
+    "tag": "DIV",
+    "className": "",
+    "bg": "rgba(0, 0, 0, 0)",
+    "height": "auto",
+    "borderTop": "0px none rgb(121, 130, 145)",
+    "boxShadow": "none"
+  },
+  "toast": {
+    "tag": "DIV",
+    "className": "Toastify",
+    "bg": "rgba(0, 0, 0, 0)",
+    "height": "auto",
+    "borderTop": "0px none rgb(121, 130, 145)",
+    "boxShadow": "none"
+  },
+  "auth": {
+    "tag": "SECTION",
+    "className": "css-no93ty-StyledAuthenticationPage exus10f5",
+    "bg": "rgba(0, 0, 0, 0)",
+    "height": "720px",
+    "borderTop": "0px none rgb(121, 130, 145)",
+    "boxShadow": "none"
+  }
+}

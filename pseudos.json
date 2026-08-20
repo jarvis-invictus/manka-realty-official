@@ -1,0 +1,62 @@
+[
+  {
+    "selector": "body",
+    "before": {
+      "height": "auto",
+      "bg": "rgba(0, 0, 0, 0)",
+      "display": "inline",
+      "content": "none"
+    },
+    "after": {
+      "height": "auto",
+      "bg": "rgba(0, 0, 0, 0)",
+      "display": "inline",
+      "content": "none"
+    }
+  },
+  {
+    "selector": "#nc-root",
+    "before": {
+      "height": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "display": "none",
+      "content": "none"
+    },
+    "after": {
+      "height": "auto",
+      "bg": "rgba(0, 0, 0, 0)",
+      "display": "inline",
+      "content": "none"
+    }
+  },
+  {
+    "selector": "#nc-root > div",
+    "before": {
+      "height": "0px",
+      "bg": "rgba(0, 0, 0, 0)",
+      "display": "none",
+      "content": "none"
+    },
+    "after": {
+      "height": "auto",
+      "bg": "rgba(0, 0, 0, 0)",
+      "display": "inline",
+      "content": "none"
+    }
+  },
+  {
+    "selector": ".css-no93ty-StyledAuthenticationPage",
+    "before": {
+      "height": "auto",
+      "bg": "rgba(0, 0, 0, 0)",
+      "display": "block",
+      "content": "none"
+    },
+    "after": {
+      "height": "auto",
+      "bg": "rgba(0, 0, 0, 0)",
+      "display": "block",
+      "content": "none"
+    }
+  }
+]
