@@ -183,14 +183,8 @@
         ];
         selectors.forEach(function(sel) {
           document.querySelectorAll(sel).forEach(function(el) {
-            var target = el;
-            for (var i = 0; i < 3; i++) {
-              if (target.parentElement && target.parentElement !== document.body) {
-                target = target.parentElement;
-              }
-            }
-            target.style.setProperty('display', 'none', 'important');
-            target.style.setProperty('visibility', 'hidden', 'important');
+            el.style.setProperty('display', 'none', 'important');
+            el.style.setProperty('visibility', 'hidden', 'important');
           });
         });
       });
