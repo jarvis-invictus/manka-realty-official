@@ -150,32 +150,30 @@
       }
 
       /* Fix the parent <li> fixed height issue for augmented cards */
-      li:has(> a[data-augmented="true"][href*="/entries/"]) {
+      body[data-cms-view="grid"] li:has(> a[data-augmented="true"][href*="/entries/"]) {
         height: auto !important;
         min-height: 290px !important;
+        margin-bottom: 24px !important;
+      }
+      body[data-cms-view="list"] li:has(> a[data-augmented="true"][href*="/entries/"]) {
+        height: auto !important;
+        min-height: 120px !important;
+        margin-bottom: 16px !important;
       }
 
-
-      /* Property cards with injected thumbnail: strip padding so the image
-         can bleed to the edges, and use flex-column to stack image + text.
-         More-specific selector beats [class*="Card"] !important above. */
+      /* Base card styles */
       a[data-augmented="true"][href*="/entries/"] {
         padding: 0 !important;
         display: flex !important;
-        flex-direction: column !important;
         overflow: hidden !important;
         box-shadow: none !important;
         border: none !important;
         background: transparent !important;
       }
-      
-      /* The injected thumbnail container */
       a[data-augmented="true"][href*="/entries/"] .custom-property-thumbnail {
-        width: 100% !important;
-        aspect-ratio: 3 / 2 !important;
         flex-shrink: 0 !important;
         overflow: hidden !important;
-        border-bottom: 1px solid var(--color-line) !important;
+        background-color: var(--navy-50) !important;
       }
       a[data-augmented="true"][href*="/entries/"] .custom-property-thumbnail img {
         width: 100% !important;
@@ -183,13 +181,40 @@
         object-fit: cover !important;
         display: block !important;
       }
-      
-      /* The text wrapper injected below the thumbnail */
-      a[data-augmented="true"][href*="/entries/"] .card-text-wrapper {
+
+      /* GRID VIEW STYLES */
+      body[data-cms-view="grid"] a[data-augmented="true"][href*="/entries/"] {
+        flex-direction: column !important;
+      }
+      body[data-cms-view="grid"] a[data-augmented="true"][href*="/entries/"] .custom-property-thumbnail {
+        width: 100% !important;
+        aspect-ratio: 3 / 2 !important;
+        border-bottom: 1px solid var(--color-line) !important;
+      }
+      body[data-cms-view="grid"] a[data-augmented="true"][href*="/entries/"] .card-text-wrapper {
         padding: 12px 16px 16px !important;
         flex: 1 !important;
       }
 
+      /* LIST VIEW STYLES */
+      body[data-cms-view="list"] a[data-augmented="true"][href*="/entries/"] {
+        flex-direction: row !important;
+        align-items: center !important;
+        border: 1px solid var(--color-line) !important;
+        border-radius: var(--radius-md) !important;
+      }
+      body[data-cms-view="list"] a[data-augmented="true"][href*="/entries/"] .custom-property-thumbnail {
+        width: 200px !important;
+        height: 133px !important;
+        border-right: 1px solid var(--color-line) !important;
+      }
+      body[data-cms-view="list"] a[data-augmented="true"][href*="/entries/"] .card-text-wrapper {
+        padding: 16px 24px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        flex: 1 !important;
+      }
 
       /* ── 4. BUTTONS ────────────────────────────────────────── */
       button, [class*="Button"] {
@@ -380,11 +405,33 @@
         height: auto !important;
       }
     </style>
+    <!-- End Invictus Styles -->
   </head>
   <body>
+    <!-- 1. Decap CMS Script -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
+    <!-- 2. UI Enhancements Script -->
     <script>
+      // ── View Mode Tracker ────────────────────────────────────
+      function updateViewMode() {
+          var viewStyle = localStorage.getItem('decap-cms.entries.viewStyle') || 'VIEW_STYLE_LIST';
+          if (viewStyle === 'VIEW_STYLE_GRID') {
+              document.body.setAttribute('data-cms-view', 'grid');
+          } else {
+              document.body.setAttribute('data-cms-view', 'list');
+          }
+      }
+      updateViewMode();
+      
+      // Update when clicking toggle buttons (give local storage a tiny delay to update first)
+      document.addEventListener('click', function(e) {
+          var btn = e.target.closest('button[class*="ViewControlsButton"]');
+          if (btn) {
+              setTimeout(updateViewMode, 50);
+          }
+      });
+
       // ── Load real site styles into preview pane ──────────────
       CMS.registerPreviewStyle('/assets/css/styles.css');
       CMS.registerPreviewStyle('/assets/css/responsive.css');
@@ -682,7 +729,6 @@
                if (imgUrl) {
                    var imgContainer = document.createElement('div');
                    imgContainer.className = 'custom-property-thumbnail';
-                   imgContainer.style.backgroundColor = 'var(--navy-50)';
                    
                    var img = document.createElement('img');
                    img.src = imgUrl.startsWith('/') ? imgUrl : '/' + imgUrl; 

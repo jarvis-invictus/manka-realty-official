@@ -1,3 +1,4 @@
+
 backend:
   name: github
   repo: jarvis-invictus/manka-realty-official
@@ -56,6 +57,6 @@ collections:
         widget: "object"
         collapsed: false
         fields:
-          - {label: "Photos", name: "photos", widget: "list", field: {label: "Photo", name: "photo", widget: "image"}}
+          - {label: "Photos", name: "photos", widget: "list", summary: "{{fields.photo}}", field: {label: "Photo", name: "photo", widget: "image"}}
           - {label: "Featured", name: "featured", widget: "boolean", default: false}
           - {label: "Description", name: "description", widget: "text"}
