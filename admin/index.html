@@ -10,21 +10,39 @@
     <style>
       /* ── DESIGN TOKEN SYSTEM ──────────────────────────────── */
       :root {
-        /* Colors */
-        --color-primary: #1e3a8a;        /* Core Navy */
-        --color-accent: #2563eb;         /* Interactive Navy */
-        --color-bg: #f8fafc;             /* Page Background */
-        --color-surface: #ffffff;        /* Cards & Panels */
-        --color-text-dark: #0f172a;      /* Headings & Body */
-        --color-text-secondary: #64748b; /* Labels & Muted */
-        --color-border: #e2e8f0;         /* Lines & Outlines */
+        /* Colors - Magic Patterns */
+        --navy-50:  #eef2fb;
+        --navy-100: #dbe3f6;
+        --navy-200: #bcccef;
+        --navy-300: #8ea9e2;
+        --navy-400: #5a7fd0;
+        --navy-500: #3a5dba;
+        --navy-600: #2a459c;
+        --navy-700: #22397f;
+        --navy-800: #1e3a8a;  /* primary */
+        --navy-900: #172b60;  /* hover */
+        --navy-950: #101c40;
+
+        --color-canvas: #f5f6f8;
+        --color-ink: #12161f;
+        --color-ink-muted: #5b6472;
+        --color-ink-soft: #8b94a3;
+        --color-line: #e5e8ee;
         
-        --color-success: #16a34a;        /* Publish / Active */
-        --color-danger: #dc2626;         /* Delete / Error */
+        --color-primary: var(--navy-800);
+        --color-accent: var(--navy-500);
+        --color-bg: var(--color-canvas);
+        --color-surface: #ffffff;
+        --color-text-dark: var(--color-ink);
+        --color-text-secondary: var(--color-ink-muted);
+        --color-border: var(--color-line);
+        
+        --color-success: #16a34a;
+        --color-danger: #dc2626;
         
         /* Typography */
-        --font-heading: 'Georgia', serif;
-        --font-body: system-ui, -apple-system, sans-serif;
+        --font-heading: 'Inter', ui-sans-serif, system-ui, sans-serif;
+        --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
         
         --text-xs: 11px;
         --text-sm: 13px;
@@ -37,10 +55,15 @@
         --space-lg: 24px;
         --space-xl: 32px;
         
-        /* Shape */
-        --radius-sm: 6px;                /* Buttons, Inputs */
-        --radius-card: 12px;             /* Panels, Modals */
-        --shadow-elevated: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        /* Shape & Shadows - Magic Patterns */
+        --radius-sm: 6px;
+        --radius-card: 14px;
+        
+        --shadow-card: 0 1px 2px rgba(16,28,64,0.04), 0 6px 16px -8px rgba(16,28,64,0.12);
+        --shadow-raised: 0 2px 4px rgba(16,28,64,0.05), 0 16px 32px -12px rgba(16,28,64,0.18);
+        --shadow-overlay: 0 24px 64px -16px rgba(16,28,64,0.34);
+        
+        --shadow-elevated: var(--shadow-raised);
       }
 
       body { 
@@ -117,7 +140,7 @@
         background-color: var(--color-surface) !important;
         border: 1px solid var(--color-border) !important;
         border-radius: var(--radius-card) !important;
-        box-shadow: var(--shadow-elevated) !important;
+        box-shadow: var(--shadow-card) !important;
         padding: var(--space-md) !important;
         margin-bottom: var(--space-md) !important;
       }
@@ -212,7 +235,7 @@
       [role="dialog"] {
         border-radius: var(--radius-card) !important;
         overflow: hidden !important;
-        box-shadow: var(--shadow-elevated) !important;
+        box-shadow: var(--shadow-overlay) !important;
       }
       [role="dialog"] header,
       [role="dialog"] > div:first-child {
@@ -231,7 +254,7 @@
       [role="menu"] {
         border-radius: var(--radius-sm) !important;
         border: 1px solid var(--color-border) !important;
-        box-shadow: var(--shadow-elevated) !important;
+        box-shadow: var(--shadow-raised) !important;
         overflow: hidden !important;
         background: var(--color-surface) !important;
       }
@@ -299,6 +322,7 @@
           var basic_info        = data.basic_info        || {};
           var pricing           = data.pricing           || {};
           var media_description = data.media_description || {};
+          var location_specs    = data.location_specs    || {};
 
           var title        = basic_info.title         || '';
           var status       = basic_info.status        || 'Available';
@@ -308,6 +332,10 @@
           var priceUnit    = pricing.price_unit        || 'Lakh';
           var description  = media_description.description || '';
           var photos       = media_description.photos  || [];
+          
+          var bhk          = location_specs.bhk          || '';
+          var carpetArea   = location_specs.carpet_area  || '';
+          var furnishing   = location_specs.furnishing_status || '';
 
           // Empty state
           if (!title && price === null && photos.length === 0) {
@@ -397,23 +425,34 @@
                     }
                   }, status)
                 ),
+                (bhk || carpetArea || furnishing) && h('div', {
+                  style: {
+                    display: 'flex', gap: '6px', marginBottom: '12px', flexWrap: 'wrap'
+                  }
+                },
+                  [
+                    bhk ? bhk + ' BHK' : null,
+                    carpetArea ? carpetArea + ' sq ft' : null,
+                    furnishing
+                  ].filter(Boolean).map(function(spec) {
+                    return h('span', {
+                      style: {
+                        fontSize: '11px', background: 'var(--navy-100)',
+                        color: 'var(--navy-800)', padding: '2px 8px',
+                        borderRadius: '4px', fontWeight: '500',
+                        fontFamily: 'var(--font-body)'
+                      }
+                    }, spec);
+                  })
+                ),
                 description && h('p', {
                   style: {
-                    fontSize: '12px', color: '#475569',
+                    fontSize: '14px', color: 'var(--color-ink-muted)',
                     margin: '0 0 12px', lineHeight: '1.5',
-                    overflow: 'hidden', maxHeight: '48px'
+                    overflow: 'hidden', maxHeight: '48px',
+                    fontFamily: 'var(--font-body)'
                   }
-                }, description),
-                h('a', {
-                  href: '#',
-                  style: {
-                    display: 'block', textAlign: 'center',
-                    background: '#1e3a8a', color: '#fff',
-                    padding: '10px', borderRadius: '6px',
-                    fontSize: '12px', fontWeight: '700',
-                    letterSpacing: '0.5px', textDecoration: 'none'
-                  }
-                }, 'INQUIRE VIA WHATSAPP →')
+                }, description)
               )
             )
           );
@@ -421,6 +460,151 @@
       });
 
       CMS.registerPreviewTemplate('properties', PropertyPreview);
+      // ── UI Augmentation Observer ──
+      var uiObserver = new MutationObserver(function(mutations) {
+        
+        // 1. Sidebar - Hide everything except Properties under Collections
+        document.querySelectorAll('[class*="SidebarHeading"]').forEach(function(heading) {
+           if (heading.textContent.includes('Collections')) {
+               var ul = heading.nextElementSibling;
+               if (ul && ul.tagName === 'UL') {
+                   Array.from(ul.querySelectorAll('li a')).forEach(function(link) {
+                       if (link.textContent.trim() !== 'Properties') {
+                           link.parentElement.style.display = 'none';
+                       }
+                   });
+               }
+           }
+        });
+
+        // 2. Media Library enhancements
+        var dialog = document.querySelector('[role="dialog"]');
+        if (dialog) {
+           var header = dialog.querySelector('header') || dialog.querySelector('h1')?.parentElement;
+           if (header && !dialog.dataset.augmented) {
+               dialog.dataset.augmented = 'true';
+               var text = document.createElement('p');
+               text.textContent = 'Manage your assets here. Deleted assets are moved to Trash, where they can be recovered.';
+               text.style.cssText = 'color: rgba(255,255,255,0.8); font-size: 13px; margin-top: 8px; font-weight: 400; font-family: var(--font-body); line-height: 1.4;';
+               header.appendChild(text);
+           }
+           // Trash tab prominence
+           var tabs = dialog.querySelectorAll('button, a');
+           tabs.forEach(function(tab) {
+               if (tab.textContent.includes('Trash') && !tab.dataset.augmented) {
+                   tab.dataset.augmented = 'true';
+                   tab.style.backgroundColor = 'var(--color-danger)';
+                   tab.style.color = '#fff';
+                   tab.style.fontWeight = 'bold';
+                   tab.style.border = 'none';
+               }
+           });
+        }
+
+        // 3. Properties List - Residential/Commercial Filter and Thumbnails
+        if (window.location.hash.startsWith('#/collections/properties') && !window.location.hash.includes('entries/')) {
+           
+           // Extract entries from Decap Redux store if available
+           var entries = {};
+           try {
+             if (window.store) {
+               var state = window.store.getState();
+               if (state && state.entries) {
+                 var props = state.entries.get('properties');
+                 if (props && props.get('entities')) {
+                   entries = props.get('entities').toJS();
+                 }
+               }
+             }
+           } catch(e) {}
+
+           // A. Filter Tabs
+           var topContainer = document.querySelector('[class*="CollectionTop"]'); 
+           if (topContainer && !document.getElementById('custom-property-filter')) {
+               var filterDiv = document.createElement('div');
+               filterDiv.id = 'custom-property-filter';
+               filterDiv.style.cssText = 'display: flex; gap: 8px; margin: 16px 0 24px; padding: 4px; background: var(--color-canvas); border-radius: 8px; width: fit-content; border: 1px solid var(--color-line);';
+               
+               ['All', 'Residential', 'Commercial'].forEach(function(type) {
+                   var btn = document.createElement('button');
+                   btn.textContent = type;
+                   btn.className = 'custom-filter-btn';
+                   btn.style.cssText = 'padding: 6px 16px; border-radius: 6px; border: none !important; background: transparent !important; color: var(--color-ink-muted) !important; cursor: pointer; font-size: 13px; font-weight: 500 !important; font-family: var(--font-body) !important; transition: all 0.2s; box-shadow: none !important;';
+                   if (type === 'All') {
+                       btn.style.background = 'var(--color-surface) !important';
+                       btn.style.color = 'var(--color-primary) !important';
+                       btn.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1) !important';
+                   }
+                   btn.onclick = function(e) {
+                       e.preventDefault();
+                       document.querySelectorAll('.custom-filter-btn').forEach(b => {
+                           b.style.background = 'transparent !important';
+                           b.style.color = 'var(--color-ink-muted) !important';
+                           b.style.boxShadow = 'none !important';
+                       });
+                       btn.style.background = 'var(--color-surface) !important';
+                       btn.style.color = 'var(--color-primary) !important';
+                       btn.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1) !important';
+                       
+                       // Filter cards
+                       document.querySelectorAll('a[href^="#/collections/properties/entries/"]').forEach(function(card) {
+                           if (type === 'All') {
+                               card.style.display = '';
+                           } else {
+                               if (card.dataset.propertyType === type) {
+                                   card.style.display = '';
+                               } else {
+                                   card.style.display = 'none';
+                               }
+                           }
+                       });
+                   };
+                   filterDiv.appendChild(btn);
+               });
+               topContainer.parentElement.insertBefore(filterDiv, topContainer.nextSibling);
+           }
+
+           // B. Card Thumbnails and Clean Title
+           document.querySelectorAll('a[href^="#/collections/properties/entries/"]').forEach(function(card) {
+               if (card.dataset.augmented) return;
+               card.dataset.augmented = 'true';
+               
+               // Clean up the text (remove "Residential||")
+               var titleEl = card.querySelector('h2');
+               var originalText = '';
+               if (titleEl) {
+                   originalText = titleEl.textContent;
+                   var parts = originalText.split('||');
+                   if (parts.length > 1) {
+                       card.dataset.propertyType = parts[0].trim();
+                       titleEl.textContent = parts.slice(1).join('||').trim();
+                   } else {
+                       card.dataset.propertyType = 'Unknown';
+                   }
+               }
+               
+               // Try to add thumbnail
+               var slug = card.getAttribute('href').split('/').pop();
+               var entry = entries[slug];
+               
+               if (entry && entry.data) {
+                   var photos = entry.data.media_description && entry.data.media_description.photos;
+                   var imgUrl = null;
+                   if (photos && photos.length > 0 && photos[0].photo) {
+                       imgUrl = photos[0].photo;
+                   }
+                   if (imgUrl) {
+                       var img = document.createElement('img');
+                       // Handle relative vs absolute
+                       img.src = imgUrl.startsWith('/assets') ? imgUrl : '/assets/images/' + imgUrl.split('/').pop(); 
+                       img.style.cssText = 'width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid var(--color-line); margin-bottom: 16px; border-radius: var(--radius-card) var(--radius-card) 0 0; margin-top: -var(--space-md); margin-left: -var(--space-md); margin-right: -var(--space-md); max-width: calc(100% + 32px); display: block;';
+                       card.insertBefore(img, card.firstChild);
+                   }
+               }
+           });
+        }
+      });
+      uiObserver.observe(document.body, { childList: true, subtree: true });
     </script>
   </body>
 </html>
