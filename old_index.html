@@ -88,7 +88,7 @@
     <header class="main-header" id="header">
       <div class="header-container">
         <div class="logo-wrapper">
-          <a class="logo" href="index.html" class="nav-link active" id="logo-link">
+          <a class="logo" href="index.html" id="logo-link">
             <img
               alt="Manka Realty Logo"
               class="logo-image"
@@ -99,21 +99,30 @@
         </div>
         <nav class="nav-menu" id="nav-menu">
           <ul>
-            <li><a class="nav-link" href="index.html" class="nav-link active">HOME</a></li>
+            <li><a class="nav-link active" href="#hero">HOME</a></li>
             <li><a class="nav-link" href="about.html">ABOUT US</a></li>
             <li class="dropdown">
               <a class="nav-link dropdown-toggle" href="javascript:void(0)">
                 PROPERTIES
-                <i class="fa-solid fa-chevron-down" style="font-size: 0.65rem; margin-left: 4px"></i>
+                <i
+                  class="fa-solid fa-chevron-down"
+                  style="font-size: 0.65rem; margin-left: 4px"
+                ></i>
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-link" href="residential.html">Residential</a></li>
-                <li><a class="dropdown-link" href="commercial.html">Commercial</a></li>
+                <li>
+                  <a class="dropdown-link" href="residential.html"
+                    >Residential</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-link" href="commercial.html">Commercial</a>
+                </li>
               </ul>
             </li>
-            <li><a class="nav-link" href="why-choose-us.html">WHY CHOOSE US</a></li>
-            <li><a class="nav-link" href="services.html">SERVICES</a></li>
-            <li><a class="nav-link" href="contact.html">CONTACT</a></li>
+            <li><a class="nav-link" href="#choose-us">WHY CHOOSE US</a></li>
+            <li><a class="nav-link" href="#expertise">SERVICES</a></li>
+            <li><a class="nav-link" href="#contact">CONTACT</a></li>
           </ul>
         </nav>
         <div class="nav-right">
@@ -507,13 +516,499 @@
       </div>
     </section>
     <!-- About Section (Commitment & Team Permanently Visible) -->
-    
+    <section class="about-section" id="about">
+      <div class="section-container">
+        <div class="about-grid">
+          <!-- Left: Overlapping images -->
+          <div class="about-visuals reveal">
+            <div class="image-wrapper-large">
+              <img
+                alt="Premium luxury residential tower facade in Mumbai"
+                class="img-about img-large"
+                src="assets/images/about_large.jpg"
+              />
+            </div>
+            <div class="image-wrapper-small">
+              <img
+                alt="Modern luxury residential lounge interior"
+                class="img-about img-small"
+                src="assets/images/about_small.jpg"
+              />
+            </div>
+          </div>
+          <!-- Right: About description and bullets -->
+          <div class="about-info">
+            <span class="section-tag reveal">ABOUT MANKA REALTY</span>
+            <h2 class="section-title reveal">
+              Built on Trust.<br /><span class="accent-text"
+                >Driven by Service.</span
+              >
+            </h2>
+            <div class="about-desc reveal">
+              <p class="highlight-p">
+                Manka Realty is a professional real-estate consultancy firm
+                dedicated to providing personalised, reliable and
+                result-oriented property solutions tailored to every client’s
+                specific requirements.
+              </p>
+              <p>
+                With over 12 years of experience in the real-estate industry, we
+                have built our reputation through a positive approach, strong
+                market knowledge, professional expertise and an unwavering
+                commitment to client satisfaction.
+              </p>
+              <p>
+                Our extensive real-estate network across multiple cities enables
+                us to connect clients with the right opportunities across
+                residential and commercial property markets. Whether you are
+                looking to buy, sell, rent, lease or invest, our experienced
+                team provides comprehensive guidance and support throughout the
+                entire process.
+              </p>
+              <p class="about-philosophy">
+                At Manka Realty, our core philosophy is simple:<br /><strong
+                  >“Good Service &amp; Happy Customers”</strong
+                >
+              </p>
+              <p>
+                We believe that successful real estate is built on trust,
+                transparency and long-term relationships. Our team combines
+                industry experience, market insights and a client-focused
+                approach to deliver solutions that are efficient, transparent
+                and aligned with our clients’ goals.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Permanently Visible Sections: Commitment and Our Team -->
+        <div class="about-permanent-blocks">
+          <!-- Our Commitment -->
+          <div class="commitment-block reveal commitment-enhanced">
+            <div class="commitment-icon-wrap">
+                <i class="fa-solid fa-quote-left pulse-anim"></i>
+            </div>
+            <h4>Our Commitment</h4>
+            <p>
+              At Manka Realty, we understand that a property decision is more
+              than just a transaction—it is an important financial and personal
+              decision. That is why we focus on understanding our clients,
+              providing the right information and delivering professional
+              assistance at every step.
+            </p>
+            <p>
+              Our goal is to make the real-estate experience simpler, smoother
+              and more rewarding for our clients. With experience, expertise and
+              an extensive network, we strive to deliver unmatched results and
+              build relationships that last beyond a single transaction.
+            </p>
+            <p class="commitment-signature">Manka Realty</p>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Team Org Chart Section -->
-    
+    <section class="org-chart-container" id="team">
+      <div class="section-container" style="max-width: 1200px; margin: 0 auto">
+        <div
+          class="text-center-wrapper"
+          style="text-align: center; margin-bottom: 40px"
+        >
+          <span class="section-tag reveal">LEADERSHIP &amp; EXPERTS</span>
+          <h2
+            class="section-title font-premium-h2 reveal"
+            style="color: #1e293b"
+          >
+            Our Organizational Structure
+          </h2>
+          <p
+            class="section-subtitle reveal"
+            style="color: #64748b; max-width: 650px; margin: 0 auto"
+          >
+            Dedicated real estate professionals committed to understanding your
+            needs and delivering results.
+          </p>
+        </div>
+        <div class="org-tree reveal">
+          <ul>
+            <li>
+              <!-- Founder -->
+              <div class="org-card card-tier-1">
+                
+                <div class="org-img-wrap">
+                  <img
+                    alt="Manish Maurya"
+                    src="assets/images/team/manish.jpg"
+                  />
+                </div>
+                <div class="org-name">Manish Maurya</div>
+                <div class="org-role">Founder</div>
+              </div>
+              <ul>
+                <li>
+                  <!-- Commercial Head -->
+                  <div class="org-card card-tier-2">
+                    <div class="org-img-wrap">
+                      <img
+                        alt="Arjun Maurya"
+                        src="assets/images/team/arjun.jpg"
+                      />
+                    </div>
+                    <div class="org-name">Arjun Maurya</div>
+                    <div class="org-role">Commercial Head</div>
+                  </div>
+                  <ul>
+                    <li>
+                      <div class="org-card card-tier-3">
+                        <div class="org-img-wrap">
+                          <img
+                            alt="Anjali Sharma"
+                            src="assets/images/avatar_female.png"
+                          />
+                        </div>
+                        <div class="org-name">Anjali Sharma</div>
+                        <div class="org-role">Office Co-ordinator</div>
+                      </div>
+                      <ul>
+                        <li>
+                          <div class="org-card card-tier-3">
+                            <div class="org-img-wrap">
+                              <img
+                                alt="Hardik Jadhav"
+                                src="assets/images/team/hardik.jpg"
+                              />
+                            </div>
+                            <div class="org-name">Hardik Jadhav</div>
+                            <div class="org-role">Sales Manager</div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <div class="org-card card-tier-3">
+                        <div class="org-img-wrap">
+                          <img
+                            alt="Chandrika Parmar"
+                            src="assets/images/avatar_female.png"
+                          />
+                        </div>
+                        <div class="org-name">Chandrika Parmar</div>
+                        <div class="org-role">Office Co-ordinator</div>
+                      </div>
+                      <ul>
+                        <li>
+                          <div class="org-card card-tier-3">
+                            <div class="org-img-wrap">
+                              <img
+                                alt="Avnish Maurya"
+                                src="assets/images/team/avnish.jpg"
+                              />
+                            </div>
+                            <div class="org-name">Avnish Maurya</div>
+                            <div class="org-role">Sales Manager</div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <!-- Residential Head -->
+                  <div class="org-card card-tier-2">
+                    <div class="org-img-wrap">
+                      <img alt="Jai Rajdev" src="assets/images/team/jai.jpg" />
+                    </div>
+                    <div class="org-name">Jai Rajdev</div>
+                    <div class="org-role">Residential Head</div>
+                  </div>
+                  <ul>
+                    <li>
+                      <div class="org-card card-tier-3">
+                        <div class="org-img-wrap">
+                          <img
+                            alt="Uzma Khan"
+                            src="assets/images/avatar_female.png"
+                          />
+                        </div>
+                        <div class="org-name">Uzma Khan</div>
+                        <div class="org-role">Office Co-ordinator</div>
+                      </div>
+                      <ul>
+                        <li>
+                          <div class="org-card card-tier-3">
+                            <div class="org-img-wrap">
+                              <img
+                                alt="Samir Das"
+                                src="assets/images/avatar_male.png"
+                              />
+                            </div>
+                            <div class="org-name">Samir Das</div>
+                            <div class="org-role">Sales Manager</div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <div class="org-card card-tier-3">
+                        <div class="org-img-wrap">
+                          <img
+                            alt="Swati Gupta"
+                            src="assets/images/avatar_female.png"
+                          />
+                        </div>
+                        <div class="org-name">Swati Gupta</div>
+                        <div class="org-role">Office Co-ordinator</div>
+                      </div>
+                      <ul>
+                        <li>
+                          <div class="org-card card-tier-3">
+                            <div class="org-img-wrap">
+                              <img
+                                alt="Pradeep Singh"
+                                src="assets/images/avatar_male.png"
+                              />
+                            </div>
+                            <div class="org-name">Pradeep Singh</div>
+                            <div class="org-role">Sales Manager</div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <!-- Digital Manager -->
+                  <div class="org-card card-tier-2">
+                    <div class="org-img-wrap">
+                      <img
+                        alt="Manaswi Pawar"
+                        src="assets/images/avatar_female.png"
+                      />
+                    </div>
+                    <div class="org-name">Manaswi Pawar</div>
+                    <div class="org-role">Digital Manager</div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <p
+          id="org-swipe-hint"
+          style="
+            text-align: center;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-top: 15px;
+            display: none;
+          "
+        >
+          <i class="fas fa-arrows-left-right"></i> Swipe to explore team
+          structure
+        </p>
+      </div>
+    </section>
     <!-- Why Choose Us Circular Diagram Section -->
-    
+    <section class="choose-us-section" id="choose-us">
+      <div class="section-container">
+        <div class="text-center-wrapper">
+          <span class="section-tag reveal">WHY WORK WITH US</span>
+          <h2 class="section-title text-center reveal">Why Choose Us</h2>
+          <p class="section-subtitle text-center reveal">
+            Your requirements, interests and satisfaction are at the heart of
+            everything we do.
+          </p>
+        </div>
+        <div class="choose-us-intro-card reveal">
+          <p>
+            At Manka Realty, we make property transactions seamless. Our
+            dedication to clear communication, local expertise, and customized
+            strategies ensures a secure and rewarding real estate experience.
+          </p>
+        </div>
+        <div class="choose-us-grid">
+          <!-- Feature 1 -->
+          <div class="choose-card reveal">
+            <div class="choose-icon-wrapper">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <h4>Client First</h4>
+            <p>
+              Your requirements, interests and satisfaction are at the heart of
+              everything we do.
+            </p>
+          </div>
+          <!-- Feature 2 -->
+          <div class="choose-card reveal">
+            <div class="choose-icon-wrapper">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <h4>12+ Years of Experience</h4>
+            <p>
+              Strong knowledge of market trends, property values and real-estate
+              transactions.
+            </p>
+          </div>
+          <!-- Feature 3 -->
+          <div class="choose-card reveal">
+            <div class="choose-icon-wrapper">
+              <i class="fa-solid fa-globe"></i>
+            </div>
+            <h4>Extensive Network</h4>
+            <p>
+              A strong network across multiple cities, giving clients access to
+              more properties and opportunities.
+            </p>
+          </div>
+          <!-- Feature 4 -->
+          <div class="choose-card reveal">
+            <div class="choose-icon-wrapper">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h4>Transparency &amp; Trust</h4>
+            <p>
+              Clear communication, honest advice and transparent transactions
+              from start to finish.
+            </p>
+          </div>
+          <!-- Feature 5 -->
+          <div class="choose-card reveal">
+            <div class="choose-icon-wrapper">
+              <i class="fa-solid fa-sliders"></i>
+            </div>
+            <h4>Personalised Service</h4>
+            <p>
+              We understand every client’s unique requirements and provide
+              solutions accordingly.
+            </p>
+          </div>
+          <!-- Feature 6 -->
+          <div class="choose-card reveal">
+            <div class="choose-icon-wrapper">
+              <i class="fa-solid fa-handshake-angle"></i>
+            </div>
+            <h4>End-to-End Support</h4>
+            <p>
+              Support at every stage, from finding the right property and
+              negotiation to documentation and closing.
+            </p>
+          </div>
+          <!-- Feature 7 -->
+          <div class="choose-card reveal">
+            <div class="choose-icon-wrapper">
+              <i class="fa-solid fa-people-group"></i>
+            </div>
+            <h4>Passionate Team</h4>
+            <p>
+              A dedicated and passionate team committed to understanding your
+              needs and delivering the right solutions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Services Section -->
-    
+    <section class="expertise-section" id="expertise">
+      <div class="section-container">
+        <div class="text-center-wrapper">
+          <span class="section-tag reveal">OUR SERVICES</span>
+          <h2 class="section-title text-center font-premium-h2 reveal">
+            Tailored Real-Estate Solutions
+          </h2>
+          <p class="section-subtitle text-center reveal">
+            Providing professional property consultancy and management across
+            residential &amp; commercial sectors.
+          </p>
+        </div>
+        <div class="services-grid-layout">
+          <!-- Service 1 -->
+          <div class="services-item-card">
+            <div class="services-icon">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+            <h3>Buying &amp; Selling</h3>
+            <p>
+              Helping clients identify the right properties and achieve the best
+              possible outcomes.
+            </p>
+          </div>
+          <!-- Service 2 -->
+          <div class="services-item-card">
+            <div class="services-icon">
+              <i class="fa-solid fa-house-chimney-window"></i>
+            </div>
+            <h3>Residential &amp; Commercial Outright Sale</h3>
+            <p>
+              Assisting clients with the purchase and sale of residential and
+              commercial properties through professional guidance and market
+              expertise.
+            </p>
+          </div>
+          <!-- Service 3 -->
+          <div class="services-item-card">
+            <div class="services-icon">
+              <i class="fa-solid fa-file-signature"></i>
+            </div>
+            <h3>Residential &amp; Commercial Leasing</h3>
+            <p>
+              Professional assistance for landlords, tenants and businesses.
+            </p>
+          </div>
+          <!-- Service 4 -->
+          <div class="services-item-card">
+            <div class="services-icon">
+              <i class="fa-solid fa-comments"></i>
+            </div>
+            <h3>Property Consultancy</h3>
+            <p>
+              Providing practical market insights and professional guidance for
+              property decisions.
+            </p>
+          </div>
+          <!-- Service 5 -->
+          <div class="services-item-card">
+            <div class="services-icon"><i class="fa-solid fa-key"></i></div>
+            <h3>Property Management</h3>
+            <p>
+              Supporting property owners with reliable and efficient management
+              solutions.
+            </p>
+          </div>
+          <!-- Service 6 -->
+          <div class="services-item-card">
+            <div class="services-icon">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3>Investment Advisory</h3>
+            <p>
+              Helping clients identify potential real-estate opportunities based
+              on their objectives.
+            </p>
+          </div>
+          <!-- Service 7 -->
+          <div class="services-item-card">
+            <div class="services-icon">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+            </div>
+            <h3>Home Maintenance</h3>
+            <p>
+              Providing reliable home maintenance and support services to help
+              property owners keep their homes well-maintained.
+            </p>
+          </div>
+          <!-- Service 8 -->
+          <div class="services-item-card">
+            <div class="services-icon">
+              <i class="fa-solid fa-passport"></i>
+            </div>
+            <h3>NRI Services</h3>
+            <p>
+              Offering dedicated real-estate assistance to NRI clients for
+              buying, selling, leasing and managing properties in India.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Google Reviews & Ratings Section (Separated into Residential & Commercial Tabs) -->
     <section class="reviews-section" id="reviews">
       <div class="section-container">
@@ -1073,7 +1568,207 @@
       </div>
     </section>
     <!-- Contact & Footer Section -->
-    <!-- Premium Partners & Brands CTA Banner Section -->
+    <section class="contact-section" id="contact">
+      <div class="section-container">
+        <div class="contact-grid">
+          <!-- Contact Info -->
+          <div class="contact-info">
+            <span class="section-tag text-gold reveal">GET IN TOUCH</span>
+            <h2 class="section-title reveal">
+              Let's Discuss Your Next Property
+            </h2>
+            <p class="contact-lead">
+              Have questions or want to schedule a site visit? Get in touch with
+              our team today for dedicated assistance.
+            </p>
+            <div class="contact-details">
+              <div class="detail-item">
+                <div class="detail-icon">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="detail-text">
+                  <h3>Office Address</h3>
+                  <p>
+                    1st Floor, Elco Arcade, D-Wing, Hill Road, Bandra West,
+                    Mumbai, Maharashtra
+                  </p>
+                </div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-icon"><i class="fa-solid fa-phone"></i></div>
+                <div class="detail-text">
+                  <h3>Direct Call</h3>
+                  <p>
+                    <a class="hover-underline" href="tel:+918928770059"
+                      >+91 89287 70059</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-icon">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div class="detail-text">
+                  <h3>WhatsApp Chat</h3>
+                  <p>
+                    <a
+                      class="hover-underline"
+                      href="https://wa.me/918928770059"
+                      target="_blank"
+                      >+91 89287 70059</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-icon">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="detail-text">
+                  <h3>Email Address</h3>
+                  <p>
+                    <a
+                      class="hover-underline"
+                      href="mailto:info@mankarealty.com"
+                      >info@mankarealty.com</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-icon"><i class="fa-solid fa-clock"></i></div>
+                <div class="detail-text">
+                  <h3>Business Hours</h3>
+                  <p>All Days: 10:30 AM – 7:30 PM</p>
+                </div>
+              </div>
+            </div>
+            <!-- Embedded Google Map -->
+            <div class="map-container">
+              <iframe
+                allowfullscreen=""
+                height="280"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.411626295552!2d72.83151831479803!3d19.058145187098675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c917ea2d46e1%3A0x8e8334469dd1c15f!2sElco%20Arcade!5e0!3m2!1sen!2sin!4v1713000000000!5m2!1sen!2sin"
+                style="border: 0; border-radius: 8px"
+                width="100%"
+              ></iframe>
+            </div>
+          </div>
+          <!-- Contact Form -->
+          <div class="contact-form-wrapper">
+            <form action="#" class="contact-form" id="property-form">
+              <h3 class="form-title">Send An Inquiry</h3>
+              <p class="form-subtitle">
+                Fill in the form below and we will contact you shortly.
+              </p>
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input
+                  id="name"
+                  name="name"
+                  placeholder="John Doe"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    placeholder="+91 98765 43210"
+                    required=""
+                    type="tel"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input
+                    id="email"
+                    name="email"
+                    placeholder="john@example.com"
+                    type="email"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="interest">Property Interest</label>
+                <select id="interest" name="interest">
+                  <option value="buying-selling">Buying &amp; Selling</option>
+                  <option value="outright-sale">
+                    Residential &amp; Commercial Outright Sale
+                  </option>
+                  <option value="leasing">
+                    Residential &amp; Commercial Leasing
+                  </option>
+                  <option value="consultancy">Property Consultancy</option>
+                  <option value="management">Property Management</option>
+                  <option value="investment">Investment Advisory</option>
+                  <option value="maintenance">Home Maintenance</option>
+                  <option value="nri-services">NRI Services</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="intent">Intent</label>
+                  <select id="intent" name="intent">
+                    <option value="buy">Looking to Buy</option>
+                    <option value="rent">Looking to Rent</option>
+                    <option value="sell">Looking to Sell</option>
+                    <option value="lease">Looking to Lease Out</option>
+                    <option value="other">Just Exploring</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="timeline">Timeline</label>
+                  <select id="timeline" name="timeline">
+                    <option value="immediate">Ready now</option>
+                    <option value="1-3-months">Within 3 months</option>
+                    <option value="3-6-months">3 to 6 months</option>
+                    <option value="exploring">Just exploring</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="budget">Budget Range</label>
+                <select id="budget" name="budget">
+                  <option value="not-sure">Not sure yet</option>
+                  <option value="under-1cr">Under ₹1 Cr</option>
+                  <option value="1-3cr">₹1 Cr - ₹3 Cr</option>
+                  <option value="3-5cr">₹3 Cr - ₹5 Cr</option>
+                  <option value="5-10cr">₹5 Cr - ₹10 Cr</option>
+                  <option value="above-10cr">Above ₹10 Cr</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Describe your property requirements..."
+                  rows="4"
+                ></textarea>
+              </div>
+              <button class="btn btn-primary btn-block" type="submit">
+                SUBMIT INQUIRY
+              </button>
+            </form>
+            <div class="form-success-message" id="form-success">
+              <i class="fa-solid fa-circle-check"></i>
+              <h3>Thank You!</h3>
+              <p>
+                Your inquiry has been submitted. Our property consultants will
+                contact you shortly.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Close previous contact section-container -->
+        <!-- Premium Partners & Brands CTA Banner Section -->
         <section class="partners-banner-section" style="overflow: hidden">
           <div class="section-container" style="max-width: 100%; padding: 0">
             <div style="text-align: center; margin-bottom: 20px">
