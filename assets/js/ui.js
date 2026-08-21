@@ -409,9 +409,9 @@ document.addEventListener('DOMContentLoaded', () => {
         /* ==========================================
        9. DYNAMIC ACTIVE NAV INDICATOR
        ========================================== */
-        let currentPath = window.location.pathname.split('/').pop();
+            let currentPath = window.location.pathname.replace(/\/$/, ""); // Remove trailing slash
     if (!currentPath || currentPath === "") {
-        currentPath = 'index.html';
+        currentPath = '/';
     }
     
     // First remove all active classes to be safe
@@ -421,10 +421,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Highlight the correct main nav link or dropdown child
     let found = false;
     
+    // Helper function to check if href matches current path
+    const matchesPath = (href, path) => {
+        if (!href) return false;
+        // Exact match or matches the path (e.g. href="/about" matches path "/about" or "/about.html")
+        // Also strip .html from path just in case
+        const cleanPath = path.replace(/\.html$/, '');
+        return href === cleanPath || href === cleanPath + '/';
+    };
+    
     // Check dropdown links first
     document.querySelectorAll('.dropdown-link').forEach(link => {
         const href = link.getAttribute('href');
-        if (href && href.includes(currentPath)) {
+        if (matchesPath(href, currentPath)) {
             link.classList.add('active');
             // Also highlight the parent PROPERTIES nav link
             const parentDropdownToggle = link.closest('.dropdown')?.querySelector('.dropdown-toggle');
@@ -439,7 +448,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!found) {
         navLinks.forEach(link => {
             const href = link.getAttribute('href');
-            if (href && href.includes(currentPath) && !link.classList.contains('dropdown-toggle')) {
+            if (matchesPath(href, currentPath) && !link.classList.contains('dropdown-toggle')) {
                 link.classList.add('active');
             }
         });
