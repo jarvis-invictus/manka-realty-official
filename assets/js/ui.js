@@ -406,36 +406,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* ==========================================
-       9. NAVIGATION SCROLLSPY (Active Indicator - Filtered)
+        /* ==========================================
+       9. DYNAMIC ACTIVE NAV INDICATOR
        ========================================== */
-    const sections = document.querySelectorAll('section[id="hero"], section[id="showcase"], section[id="about"], section[id="choose-us"], section[id="expertise"], section[id="contact"]');
+        let currentPath = window.location.pathname.split('/').pop();
+    if (!currentPath || currentPath === "") {
+        currentPath = 'index.html';
+    }
     
-    if (sections.length > 0) {
-        function scrollSpyActiveState() {
-            if (isScrolling) return; // Skip updating active classes while programmatically scrolling
-            
-            const scrollPosition = window.scrollY + 120; // offset
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        const hrefAttr = link.getAttribute('href');
-                        if (hrefAttr === `#${sectionId}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
+    // First remove all active classes to be safe
+    navLinks.forEach(link => link.classList.remove('active'));
+    document.querySelectorAll('.dropdown-link').forEach(link => link.classList.remove('active'));
+
+    // Highlight the correct main nav link or dropdown child
+    let found = false;
+    
+    // Check dropdown links first
+    document.querySelectorAll('.dropdown-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.includes(currentPath)) {
+            link.classList.add('active');
+            // Also highlight the parent PROPERTIES nav link
+            const parentDropdownToggle = link.closest('.dropdown')?.querySelector('.dropdown-toggle');
+            if (parentDropdownToggle) {
+                parentDropdownToggle.classList.add('active');
+            }
+            found = true;
         }
-        
-        window.addEventListener('scroll', scrollSpyActiveState);
-        scrollSpyActiveState();
+    });
+
+    // Check main nav links
+    if (!found) {
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && href.includes(currentPath) && !link.classList.contains('dropdown-toggle')) {
+                link.classList.add('active');
+            }
+        });
     }
 
     /* ==========================================

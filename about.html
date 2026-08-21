@@ -142,17 +142,21 @@
   </head>
 <body>
     <header class="main-header" id="header">
-        <div class="header-container">
-            <div class="logo-wrapper">
-                <a href="index.html" class="logo" id="logo-link">
-                    <img src="assets/images/menu-bar-logo-light.png" alt="Manka Realty Logo" class="logo-image" style="height: 65px; width: auto; max-width: 100%;">
+      <div class="header-container">
+        <div class="logo-wrapper">
+          <a class="logo" href="index.html" id="logo-link">
+            <img
+              alt="Manka Realty Logo"
+              class="logo-image"
+              src="assets/images/menu-bar-logo-light.png"
+              style="height: 65px; width: auto; max-width: 100%;"
+            />
           </a>
-            </div>
-            
-            <nav class="nav-menu" id="nav-menu">
+        </div>
+        <nav class="nav-menu" id="nav-menu">
           <ul>
             <li><a class="nav-link" href="index.html">HOME</a></li>
-            <li><a class="nav-link active" href="about.html">ABOUT US</a></li>
+            <li><a class="nav-link" href="about.html">ABOUT US</a></li>
             <li class="dropdown">
               <a class="nav-link dropdown-toggle" href="javascript:void(0)">
                 PROPERTIES
@@ -168,11 +172,18 @@
             <li><a class="nav-link" href="contact.html">CONTACT</a></li>
           </ul>
         </nav>
-
-            <div class="mobile-toggle" id="mobile-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+        <div class="nav-right">
+          <button
+            aria-label="Toggle Menu"
+            class="mobile-toggle"
+            id="mobile-toggle"
+          >
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
         </div>
+      </div>
     </header>
 
     <!-- Page Hero Banner -->
