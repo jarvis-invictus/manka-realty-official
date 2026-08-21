@@ -176,3 +176,8 @@
     transition: var(--transition-fast);
 }
 
+
+.dropdown-link.active {
+    background-color: var(--brand-red) !important;
+    color: #ffffff !important;
+}
