@@ -3340,7 +3340,12 @@
 /* Tier 3 & 4 (Coordinators & Sales Managers) */
 .card-tier-3 {
     width: 130px;
+    height: 180px; /* Force consistent height for every box */
     padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 .card-tier-3 .org-img-wrap {
     width: 70px;
