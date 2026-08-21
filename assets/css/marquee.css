@@ -64,8 +64,8 @@
 
 .marquee-logo {
     position: relative;
-    height: 3rem; /* 48px */
-    width: auto;
+    height: 3.5rem; /* 56px */
+    width: 8rem; /* 128px */
     object-fit: contain;
     z-index: 10;
     margin-bottom: 0.75rem;
