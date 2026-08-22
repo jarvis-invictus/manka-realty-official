@@ -3358,3 +3358,125 @@
 @media (max-width: 900px) {
     #org-swipe-hint { display: block !important; }
 }
+
+/* ==========================================================================
+   MOBILE-FIRST RESPONSIVE OPTIMIZATIONS
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* 1. Touch Targets & Header */
+    .mobile-toggle {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .social-links a, .footer-links a, button, .nav-link, .dropdown-link {
+        min-height: 44px; 
+    }
+
+    /* 2. Typography Adjustments */
+    .hero-title, .section-title {
+        font-size: 2.2rem !important;
+        line-height: 1.2 !important;
+    }
+    .hero-subtitle, .section-subtitle {
+        font-size: 1.1rem !important;
+    }
+    
+    /* 3. Layout Reflow - Grids to Single Column */
+    .choose-us-grid, 
+    .services-grid, 
+    .properties-grid, 
+    .stats-container,
+    .reviews-grid-track {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    
+    .hero-content {
+        padding: 0 20px;
+    }
+    
+    /* 4. Contact Form Adjustments */
+    .contact-form-card {
+        padding: 24px 16px !important;
+    }
+    
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+        font-size: 16px !important; /* Prevents iOS auto-zoom */
+        padding: 12px 16px !important;
+        height: auto;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+    
+    /* 5. Org Chart - Vertical Stacking Reflow */
+    /* Remove horizontal squeeze/scroll and stack them vertically */
+    .org-tree {
+        overflow-x: hidden !important;
+        padding-bottom: 0 !important;
+    }
+    .org-tree ul {
+        flex-direction: column !important;
+        align-items: center !important;
+        padding-top: 0 !important;
+    }
+    .org-tree li {
+        padding: 15px 0 0 0 !important;
+        float: none !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    /* Hide the complex absolute-positioned connector lines for mobile */
+    .org-tree li::before, .org-tree li::after, .org-tree ul ul::before {
+        display: none !important;
+    }
+    
+    .org-card {
+        margin: 0 auto 20px auto !important;
+        width: 100% !important;
+        max-width: 280px !important;
+    }
+    
+    /* Hide swipe hint since we are stacking vertically */
+    #org-swipe-hint {
+        display: none !important;
+    }
+    
+    /* 6. Spacing */
+    .section-container {
+        padding: 40px 20px !important;
+    }
+    
+    /* 7. Image Scaling & Prevent horizontal overflow */
+    body {
+        overflow-x: hidden;
+    }
+    
+    .property-img img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .partner-marquee img {
+        max-width: 110px !important; 
+    }
+    
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+        width: 50px !important;
+        height: 50px !important;
+        bottom: 20px !important;
+        right: 20px !important;
+        font-size: 24px !important;
+    }
+}
