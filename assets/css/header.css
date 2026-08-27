@@ -8,15 +8,15 @@
     background-color: #000e25; /* Dark Navy Background */
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    height: 80px;
+    height: 65px;
     transition: var(--transition-premium);
 }
 
 .header-container {
     width: 100%;
-    max-width: 1360px; /* Centered container within 1320-1400px range */
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 0 40px; /* Equal breathing room on both sides */
+    padding: 0 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -45,6 +45,13 @@
     display: flex;
     align-items: center;
     gap: 14px;
+    height: 100%;
+}
+
+.logo-image {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
 }
 
 .logo-text {
@@ -55,18 +62,18 @@
 
 .brand-name {
     font-family: 'Outfit', 'Montserrat', sans-serif;
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-weight: 700;
     letter-spacing: -0.01em;
-    color: #ffffff !important; /* Crisp white on dark header */
+    color: #ffffff !important;
 }
 
 .brand-tagline {
     font-family: 'Outfit', 'Montserrat', sans-serif;
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 400;
     letter-spacing: 0.01em;
-    color: rgba(255, 255, 255, 0.85); /* Readable tagline */
+    color: rgba(255, 255, 255, 0.85);
     margin-top: 1px;
 }
 
@@ -92,11 +99,11 @@
 }
 
 .nav-link {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.08em;
-    color: rgba(255, 255, 255, 0.85); /* White links */
-    padding: 0 20px;
+    color: rgba(255, 255, 255, 0.85);
+    padding: 0 16px;
     height: 100%;
     display: inline-flex;
     align-items: center;
@@ -108,9 +115,9 @@
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
+    bottom: 12px;
+    left: 16px;
+    right: 16px;
     height: 2px;
     background-color: #ffffff;
     transform: scaleX(0);
@@ -123,10 +130,11 @@
     transform-origin: left;
 }
 
-/* SOLID RED ACTIVE NAV BLOCK */
+/* SOLID RED ACTIVE NAV BLOCK - FULL HEIGHT */
 .nav-link.active {
     background-color: var(--brand-red) !important;
     color: #ffffff !important;
+    height: 100%;
 }
 
 .nav-link.active::after {
@@ -183,7 +191,6 @@
     background-color: #ffffff;
     transition: var(--transition-fast);
 }
-
 
 .dropdown-link.active {
     background-color: var(--brand-red) !important;
