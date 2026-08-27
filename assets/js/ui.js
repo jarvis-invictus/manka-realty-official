@@ -111,6 +111,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 const filterValue = btn.getAttribute('data-filter');
                 
+                // Toggle matching View All Properties CTA button so it's 100% centered
+                const ctaButtons = document.querySelectorAll('[data-cta]');
+                ctaButtons.forEach(cta => {
+                    if (cta.getAttribute('data-cta') === filterValue) {
+                        cta.style.display = 'inline-flex';
+                    } else {
+                        cta.style.display = 'none';
+                    }
+                });
+
                 track.style.opacity = '0.3';
                 
                 setTimeout(() => {
@@ -312,6 +322,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const phoneEl = document.getElementById('phone');
             const emailEl = document.getElementById('email');
             const interestEl = document.getElementById('interest');
+            const intentEl = document.getElementById('intent');
+            const timelineEl = document.getElementById('timeline');
+            const budgetEl = document.getElementById('budget');
             const messageEl = document.getElementById('message');
 
             const name = nameEl ? nameEl.value.trim() : '';
@@ -319,20 +332,39 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = emailEl ? emailEl.value.trim() : '';
             
             let interest = '';
-            if (interestEl && interestEl.options.length > 0) {
+            if (interestEl && interestEl.options && interestEl.options.length > 0 && interestEl.selectedIndex >= 0) {
                 interest = interestEl.options[interestEl.selectedIndex].text;
             }
 
+            let intent = '';
+            if (intentEl && intentEl.options && intentEl.options.length > 0 && intentEl.selectedIndex >= 0) {
+                intent = intentEl.options[intentEl.selectedIndex].text;
+            }
+
+            let timeline = '';
+            if (timelineEl && timelineEl.options && timelineEl.options.length > 0 && timelineEl.selectedIndex >= 0) {
+                timeline = timelineEl.options[timelineEl.selectedIndex].text;
+            }
+
+            const budget = budgetEl ? budgetEl.value.trim() : '';
             const message = messageEl ? messageEl.value.trim() : '';
 
-            let msg = `Hi Manka Realty, I'm ${name}.\n`;
-            msg += `Phone: ${phone}\n`;
-            msg += `Email: ${email}\n`;
-            msg += `Property Interest: ${interest}`;
-
-            if (message !== '') {
-                msg += `\n\n${message}`;
-            }
+            let msg = `Hi Manka Realty, I'm ${name}.
+`;
+            msg += `Phone: ${phone}
+`;
+            if (email) msg += `Email: ${email}
+`;
+            if (interest) msg += `Property Interest: ${interest}
+`;
+            if (intent) msg += `Intent: ${intent}
+`;
+            if (timeline) msg += `Timeline: ${timeline}
+`;
+            if (budget) msg += `Budget: ${budget}
+`;
+            if (message) msg += `
+Message: ${message}`;
 
             window.location.href = `https://wa.me/918928770059?text=${encodeURIComponent(msg)}`;
         });
@@ -482,5 +514,45 @@ document.addEventListener('click', (e) => {
     if (navMenu && mobileToggle && navMenu.classList.contains('active') && !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
         mobileToggle.classList.remove('active');
         navMenu.classList.remove('active');
+    }
+
+    /* ==========================================
+       IN-PAGE PROPERTY FILTERING LOGIC
+       ========================================== */
+    const subTypeSelect = document.getElementById('filter-subtype');
+    const listingTypeSelect = document.getElementById('filter-listing-type');
+    const clearFiltersBtn = document.getElementById('clear-page-filters');
+    const pageGridCards = document.querySelectorAll('.properties-grid-container .property-card');
+
+    if (subTypeSelect && listingTypeSelect && pageGridCards.length > 0) {
+        function applyInPageFilters() {
+            const selectedSubtype = subTypeSelect.value;
+            const selectedListingType = listingTypeSelect.value;
+
+            pageGridCards.forEach(card => {
+                const cardSubtype = card.getAttribute('data-subtype');
+                const cardListingType = card.getAttribute('data-listing-type');
+
+                const matchesSubtype = (selectedSubtype === 'all' || cardSubtype === selectedSubtype);
+                const matchesListingType = (selectedListingType === 'all' || cardListingType === selectedListingType);
+
+                if (matchesSubtype && matchesListingType) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        subTypeSelect.addEventListener('change', applyInPageFilters);
+        listingTypeSelect.addEventListener('change', applyInPageFilters);
+
+        if (clearFiltersBtn) {
+            clearFiltersBtn.addEventListener('click', () => {
+                subTypeSelect.value = 'all';
+                listingTypeSelect.value = 'all';
+                applyInPageFilters();
+            });
+        }
     }
 });

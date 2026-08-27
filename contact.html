@@ -131,10 +131,18 @@
 <div style="padding-top: 100px;"></div>
 <section class="contact-section" id="contact">
       <div class="section-container">
+        <div class="text-center-wrapper" style="margin-bottom: 50px;">
+          <span class="section-tag reveal">GET IN TOUCH</span>
+          <h1 class="section-title text-center font-premium-h2 reveal">
+            Contact Manka Realty
+          </h1>
+          <p class="section-subtitle text-center reveal">
+            We're here to help you find, buy, sell, or lease the right property. Reach out anytime.
+          </p>
+        </div>
         <div class="contact-grid">
           <!-- Contact Info -->
           <div class="contact-info">
-            <span class="section-tag text-gold reveal">GET IN TOUCH</span>
             <h2 class="section-title reveal">
               Let's Discuss Your Next Property
             </h2>
@@ -259,18 +267,12 @@
               <div class="form-group">
                 <label for="interest">Property Interest</label>
                 <select id="interest" name="interest">
-                  <option value="buying-selling">Buying &amp; Selling</option>
-                  <option value="outright-sale">
-                    Residential &amp; Commercial Outright Sale
-                  </option>
-                  <option value="leasing">
-                    Residential &amp; Commercial Leasing
-                  </option>
-                  <option value="consultancy">Property Consultancy</option>
-                  <option value="management">Property Management</option>
-                  <option value="investment">Investment Advisory</option>
-                  <option value="maintenance">Home Maintenance</option>
-                  <option value="nri-services">NRI Services</option>
+                  <option value="residential">Residential</option>
+                  <option value="commercial">Commercial</option>
+                  <option value="bungalows">Bungalows</option>
+                  <option value="villa-second-home">Villa / Second Home</option>
+                  <option value="plots">Plots</option>
+                  <option value="other">Other</option>
                 </select>
               </div>
               <div class="form-row">
@@ -287,23 +289,21 @@
                 <div class="form-group">
                   <label for="timeline">Timeline</label>
                   <select id="timeline" name="timeline">
-                    <option value="immediate">Ready now</option>
-                    <option value="1-3-months">Within 3 months</option>
-                    <option value="3-6-months">3 to 6 months</option>
-                    <option value="exploring">Just exploring</option>
+                    <option value="immediate">Immediate</option>
+                    <option value="within-3-months">Within 3 Months</option>
+                    <option value="3-6-months">3 to 6 Months</option>
+                    <option value="not-yet-decided">Not yet decided</option>
                   </select>
                 </div>
               </div>
               <div class="form-group">
                 <label for="budget">Budget Range</label>
-                <select id="budget" name="budget">
-                  <option value="not-sure">Not sure yet</option>
-                  <option value="under-1cr">Under ₹1 Cr</option>
-                  <option value="1-3cr">₹1 Cr - ₹3 Cr</option>
-                  <option value="3-5cr">₹3 Cr - ₹5 Cr</option>
-                  <option value="5-10cr">₹5 Cr - ₹10 Cr</option>
-                  <option value="above-10cr">Above ₹10 Cr</option>
-                </select>
+                <input
+                  id="budget"
+                  name="budget"
+                  placeholder="Enter your budget"
+                  type="text"
+                />
               </div>
               <div class="form-group">
                 <label for="message">Message</label>
