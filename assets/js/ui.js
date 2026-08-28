@@ -331,20 +331,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const phone = phoneEl ? phoneEl.value.trim() : '';
             const email = emailEl ? emailEl.value.trim() : '';
             
-            let interest = '';
-            if (interestEl && interestEl.options && interestEl.options.length > 0 && interestEl.selectedIndex >= 0) {
-                interest = interestEl.options[interestEl.selectedIndex].text;
-            }
+            // Helper function to safely extract select text
+            const getSelectText = (el) => {
+                if (!el) return '';
+                if (el.tagName && el.tagName.toLowerCase() === 'select') {
+                    if (el.selectedIndex >= 0 && el.options[el.selectedIndex]) {
+                        return el.options[el.selectedIndex].text.trim();
+                    }
+                }
+                return el.value ? el.value.trim() : '';
+            };
 
-            let intent = '';
-            if (intentEl && intentEl.options && intentEl.options.length > 0 && intentEl.selectedIndex >= 0) {
-                intent = intentEl.options[intentEl.selectedIndex].text;
-            }
-
-            let timeline = '';
-            if (timelineEl && timelineEl.options && timelineEl.options.length > 0 && timelineEl.selectedIndex >= 0) {
-                timeline = timelineEl.options[timelineEl.selectedIndex].text;
-            }
+            const interest = getSelectText(interestEl);
+            const intent = getSelectText(intentEl);
+            const timeline = getSelectText(timelineEl);
 
             const budget = budgetEl ? budgetEl.value.trim() : '';
             const message = messageEl ? messageEl.value.trim() : '';
@@ -515,7 +515,9 @@ document.addEventListener('click', (e) => {
         mobileToggle.classList.remove('active');
         navMenu.classList.remove('active');
     }
+});
 
+document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================
        IN-PAGE PROPERTY FILTERING LOGIC
        ========================================== */
@@ -537,9 +539,9 @@ document.addEventListener('click', (e) => {
                 const matchesListingType = (selectedListingType === 'all' || cardListingType === selectedListingType);
 
                 if (matchesSubtype && matchesListingType) {
-                    card.style.display = 'block';
+                    card.classList.remove('hide');
                 } else {
-                    card.style.display = 'none';
+                    card.classList.add('hide');
                 }
             });
         }
