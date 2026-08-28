@@ -29,47 +29,55 @@
 <body>
 
     <!-- Header Navigation -->
+    
     <header class="main-header" id="header">
-        <div class="header-container">
-            <div class="logo-wrapper">
-                <a href="index.html" class="logo" id="logo-link">
-                    <img src="assets/images/manka_logo_upgraded.png" alt="Manka Realty Logo" class="logo-image" style="height: 42px; width: auto;">
-                    <div class="logo-text">
-                        <span class="brand-name">Manka Realty</span>
-                        <span class="brand-tagline">Way To Your New Home</span>
-                    </div>
-                </a>
-            </div>
-            
-            <nav class="nav-menu" id="nav-menu">
-                <ul>
-                    <li><a href="index.html" class="nav-link active">HOME</a></li>
-                    <li><a href="about.html" class="nav-link">ABOUT US</a></li>
-                    <li class="dropdown">
-                        <a href="javascript:void(0)" class="nav-link dropdown-toggle">
-                            PROPERTIES <i class="fa-solid fa-chevron-down" style="font-size: 0.65rem; margin-left: 4px;"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="residential.html" class="dropdown-link">Residential</a></li>
-                            <li><a href="commercial.html" class="dropdown-link">Commercial</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="why-choose-us.html" class="nav-link">WHY CHOOSE US</a></li>
-                    <li><a href="services.html" class="nav-link">SERVICES</a></li>
-                    <li><a href="index.html#stats" class="nav-link">PARTNERS</a></li>
-                    <li><a href="contact.html" class="nav-link">CONTACT</a></li>
-                </ul>
-            </nav>
-
-            <div class="nav-right">
-                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-            </div>
+      <div style="background-color: #ffffff; height: 35px; border-bottom: 1px solid #eee; display: flex; align-items: center; justify-content: flex-end; padding: 0 5%; width: 100%;">
+          <a href="#" class="post-property-btn" style="height: 28px; padding: 0 12px; margin-right: 32px;">Post Property <span class="free-badge">Free</span></a>
+      </div>
+      <div class="header-container" style="position: relative;">
+        <div class="logo-wrapper" style="position: absolute; left: 32px; bottom: 0px; z-index: 100;">
+          <a class="logo" href="/" id="logo-link" style="display: block;">
+            <img
+              alt="Manka Realty Logo"
+              class="logo-image"
+              src="assets/images/logo_transparent.png"
+              style="height: 95px; width: auto; max-width: 100%; object-fit: contain; object-position: bottom left;"
+            />
+          </a>
         </div>
+        <nav class="nav-menu" id="nav-menu" style="margin-left: auto;">
+          <ul>
+            <li><a class="nav-link" href="/">HOME</a></li>
+            <li><a class="nav-link" href="/about">ABOUT</a></li>
+            <li class="dropdown">
+              <a class="nav-link dropdown-toggle" href="javascript:void(0)">
+                PROPERTIES
+                <i class="fa-solid fa-chevron-down" style="font-size: 0.65rem; margin-left: 4px"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-link" href="/residential">Residential</a></li>
+                <li><a class="dropdown-link" href="/commercial">Commercial</a></li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="/services">SERVICES</a></li>
+            <li><a class="nav-link" href="/add-properties">ADD PROPERTIES</a></li>
+            <li><a class="nav-link" href="/contact">CONTACT</a></li>
+          </ul>
+        </nav>
+        <div class="nav-right">
+          <button
+            aria-label="Toggle Menu"
+            class="mobile-toggle"
+            id="mobile-toggle"
+          >
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
+      </div>
     </header>
+
 
     <!-- Hero Section (High Quality Video Background on 1st Page) -->
     <section class="hero-section" id="hero">
