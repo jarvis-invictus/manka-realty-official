@@ -1,88 +1,147 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    
-    <title>Legal | Manka Realty Mumbai</title>
-    <meta name="description" content="Manka Realty is Mumbai's premier real estate consultancy, specializing in luxury residential and commercial properties from Juhu to South Bombay." />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+<title>Privacy Policy | Manka Realty Mumbai</title>
     <!-- Favicon -->
     
+    
     <!-- Open Graph Social Media Tags -->
-    <meta content="website" property="og:type" />
-    <meta
-      content="Manka Realty | Premium Real Estate Consultancy Mumbai"
-      property="og:title"
-    />
-    <meta
-      content="Manka Realty is a professional real estate consultancy firm in Mumbai built on trust and driven by service. Specializing in high-end residential and commercial properties."
-      property="og:description"
-    />
-    <meta
-      content="https://manka-realty-official.vercel.app/assets/images/og_image.png"
-      property="og:image"
-    />
-    <meta
-      content="https://manka-realty-official.vercel.app/index.html"
-      property="og:url"
-    />
+    <meta name="description" content="Learn about Manka Realty's dedicated team of real estate experts, our client-first philosophy, and our 12+ years of experience in the Mumbai property market." />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About Us | Manka Realty - Real Estate Consultancy">
+    <meta property="og:description" content="Manka Realty is a professional real estate consultancy firm in Mumbai built on trust and driven by service. Specializing in high-end residential and commercial properties.">
+    <meta property="og:image" content="https://manka-realty-official.vercel.app/assets/images/og_image.png">
+    <meta property="og:url" content="https://manka-realty-official.vercel.app/about.html">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Outfit:wght@300;400;500;600;700&amp;display=swap"
-      rel="stylesheet"
-    />
-    <!-- FontAwesome for Premium Icons -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <!-- Main Stylesheet -->
-    <link href="index.css?v=1.1.0" rel="stylesheet" />
-    <link href="assets/css/marquee.css" rel="stylesheet" />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "RealEstateAgent",
-        "name": "Manka Realty",
-        "image": "https://manka-realty-official.vercel.app/assets/images/main-logo.png",
-        "@id": "",
-        "url": "https://manka-realty-official.vercel.app/",
-        "telephone": "+918928770059",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Bandra West",
-          "addressLocality": "Mumbai",
-          "postalCode": "400050",
-          "addressCountry": "IN"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 19.0596,
-          "longitude": 72.8295
-        },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday"
-          ],
-          "opens": "10:00",
-          "closes": "19:00"
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="index.css?v=1.1.0">
+    <link rel="stylesheet" href="assets/css/marquee.css">
+    <style>
+        .about-page-hero {
+            padding: 140px 0 80px 0;
+            background: linear-gradient(135deg, #0b1329 0%, #1a2942 100%);
+            color: #ffffff;
+            text-align: center;
         }
-      }
-    </script>
-    <link href="assets/images/favicon.png" rel="icon" type="image/png" />
-    <link rel="apple-touch-icon" href="assets/images/favicon.png" />
+        .about-page-hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+        .about-page-hero p {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .about-two-images-wrapper {
+            position: relative;
+            padding-bottom: 40px;
+            padding-right: 40px;
+        }
+        .about-img-primary {
+            width: 85%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+        .about-img-secondary {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 55%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 6px solid #ffffff;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+        }
+        .team-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #edf2f7;
+            transition: all 0.3s ease;
+        }
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-color: #cbd5e0;
+        }
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: #d97706;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 16px auto;
+        }
+        .team-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 6px;
+        }
+        .team-role {
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+        .service-mini-card {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 24px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+        .service-mini-card:hover {
+            transform: translateY(-4px);
+            border-color: #cbd5e1;
+        }
+        .service-icon-box {
+            width: 48px;
+            height: 48px;
+            background: #fef3c7;
+            color: #d97706;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+        }
+        .highlight-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #f8fafc;
+            padding: 12px 18px;
+            border-radius: 8px;
+            border-left: 4px solid #d97706;
+            margin-bottom: 12px;
+            width: 100%;
+        }
+    </style>
+  <link href="assets/images/favicon.png" rel="icon" type="image/png" />
   </head>
-  <body>
-    <!-- Header Navigation -->
+<body>
     <header class="main-header" id="header">
       <div class="header-container">
         <div class="logo-wrapper">
@@ -127,253 +186,79 @@
         </div>
       </div>
     </header>
-<div style="padding-top: 150px; padding-bottom: 80px; max-width: 800px; margin: 0 auto; px: 24px; font-family: 'Outfit', sans-serif;">
-    <h1 style="font-size: 2.5rem; color: #0f172a; margin-bottom: 20px;">Privacy Policy</h1>
-    <p style="color: #475569; line-height: 1.6; margin-bottom: 20px;">
-        [Placeholder text. Please provide the actual privacy policy text from your legal team to insert here.]
-    </p>
-    <p style="color: #475569; line-height: 1.6; margin-bottom: 20px;">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-</div>
-<footer
-      class="site-footer"
-      style="
-        background: #000e25;
-        color: #ffffff;
-        padding: 80px 0 30px 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-      "
-    >
-      <div
-        class="section-container"
-        style="max-width: 1240px; margin: 0 auto; padding: 0 24px"
-      >
-        <div
-          style="
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-          "
-        >
-          <!-- Column 1: Brand Info -->
-          <div>
-            <div style="margin-bottom: 20px">
-              <img
-                alt="Manka Realty Logo"
-                src="assets/images/main-logo-light.png"
-                style="height: 130px; width: auto"
-              />
-            </div>
-            <p
-              style="
-                color: rgba(255, 255, 255, 0.7);
-                font-size: 0.95rem;
-                line-height: 1.6;
-                margin-bottom: 24px;
-              "
-            >
-              Manka Realty is a premier real-estate consultancy with 12+ years
-              of expertise. Built on trust, transparency, and honest service for
-              buying, selling, and leasing properties.
-            </p>
-            <h4 style="margin-bottom: 12px; font-size: 1.1rem; color: #fff; font-weight: 600;">Connect With Us</h4>
-            <div style="display: flex; gap: 14px">
-              <a
-                href="https://wa.me/918928770059"
-                rel="noopener noreferrer"
-                style="
-                  width: 44px;
-                  height: 44px;
-                  border-radius: 50%;
-                  background: rgba(255, 255, 255, 0.1);
-                  color: #25d366;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 1.3rem;
-                  text-decoration: none;
-                "
-                target="_blank"
-                ><i class="fa-brands fa-whatsapp"></i
-              ></a>
-              <a
-                href="https://www.instagram.com/manka_realty?igsi=MWJqb2tuMnZqYmlvOA=="
-                rel="noopener noreferrer"
-                style="
-                  width: 44px;
-                  height: 44px;
-                  border-radius: 50%;
-                  background: rgba(255, 255, 255, 0.1);
-                  color: #e1306c;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 1.3rem;
-                  text-decoration: none;
-                "
-                target="_blank"
-                ><i class="fa-brands fa-instagram"></i
-              ></a>
-              <a
-                href="https://www.facebook.com/share/1KpqvyiYUR/"
-                rel="noopener noreferrer"
-                style="
-                  width: 44px;
-                  height: 44px;
-                  border-radius: 50%;
-                  background: rgba(255, 255, 255, 0.1);
-                  color: #1877f2;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 1.3rem;
-                  text-decoration: none;
-                "
-                target="_blank"
-                ><i class="fa-brands fa-facebook-f"></i
-              ></a>
-              <a
-                href="https://www.linkedin.com/company/mankarealty/posts/?viewAsMember=true"
-                rel="noopener noreferrer"
-                style="
-                  width: 44px;
-                  height: 44px;
-                  border-radius: 50%;
-                  background: rgba(255, 255, 255, 0.1);
-                  color: #0a66c2;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 1.3rem;
-                  text-decoration: none;
-                "
-                target="_blank"
-                ><i class="fa-brands fa-linkedin-in"></i
-              ></a>
-              <a
-                href="https://www.youtube.com/@mankarealty"
-                rel="noopener noreferrer"
-                style="
-                  width: 44px;
-                  height: 44px;
-                  border-radius: 50%;
-                  background: rgba(255, 255, 255, 0.1);
-                  color: #ff0000;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 1.3rem;
-                  text-decoration: none;
-                "
-                target="_blank"
-                ><i class="fa-brands fa-youtube"></i
-              ></a>
-              <a
-                href="https://x.com/manka_realty"
-                rel="noopener noreferrer"
-                style="
-                  width: 44px;
-                  height: 44px;
-                  border-radius: 50%;
-                  background: rgba(255, 255, 255, 0.1);
-                  color: #ffffff;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 1.3rem;
-                  text-decoration: none;
-                "
-                target="_blank"
-                ><i class="fa-brands fa-x-twitter"></i
-              ></a>
-              <a
-                href="https://www.threads.com/@manka_realty"
-                rel="noopener noreferrer"
-                style="
-                  width: 44px;
-                  height: 44px;
-                  border-radius: 50%;
-                  background: rgba(255, 255, 255, 0.1);
-                  color: #ffffff;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 1.3rem;
-                  text-decoration: none;
-                "
-                target="_blank"
-                ><i class="fa-brands fa-threads"></i
-              ></a>
-              <a
-                href="https://in.pinterest.com/mankarealty"
-                rel="noopener noreferrer"
-                style="
-                  width: 44px;
-                  height: 44px;
-                  border-radius: 50%;
-                  background: rgba(255, 255, 255, 0.1);
-                  color: #e60023;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  font-size: 1.3rem;
-                  text-decoration: none;
-                "
-                target="_blank"
-                ><i class="fa-brands fa-pinterest-p"></i
-              ></a>
-            </div>
-          </div>
-          <!-- Column 2: Quick Links -->
-          <div>
-            <h4
-              style="
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 1.3rem;
-                font-weight: 600;
-                color: #ffffff;
-                margin-bottom: 20px;
-              "
-            >
-              Quick Links
-            </h4>
-            <ul style="list-style: none; padding: 0; margin: 0">
-              <li style="margin-bottom: 12px">
+
+    <!-- Page Hero Banner -->
+    <main style="padding: 120px 24px 60px 24px; max-width: 1000px; margin: 0 auto; color: #333; min-height: 60vh;">
+
+<h1 style="font-family: 'Outfit', sans-serif; font-size: 2.5rem; margin-bottom: 24px; color: #000e25;">Privacy Policy</h1>
+<p style="margin-bottom: 16px;"><strong>Last Updated: August 28, 2026</strong></p>
+<p style="margin-bottom: 16px; line-height: 1.6;">At Manka Realty, we are committed to protecting the privacy and security of our clients' personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our real estate services in Mumbai.</p>
+<h2 style="font-family: 'Outfit', sans-serif; font-size: 1.5rem; margin-top: 32px; margin-bottom: 16px; color: #000e25;">1. Information We Collect</h2>
+<p style="margin-bottom: 16px; line-height: 1.6;">We may collect personal information that you voluntarily provide to us when you express an interest in obtaining information about us or our properties, when you participate in activities on the website, or when you contact us. This may include your name, email address, phone number, and property preferences.</p>
+<h2 style="font-family: 'Outfit', sans-serif; font-size: 1.5rem; margin-top: 32px; margin-bottom: 16px; color: #000e25;">2. How We Use Your Information</h2>
+<p style="margin-bottom: 16px; line-height: 1.6;">We use the information we collect to communicate with you, process your requests, send you property alerts (if subscribed), improve our website and services, and comply with legal obligations.</p>
+<h2 style="font-family: 'Outfit', sans-serif; font-size: 1.5rem; margin-top: 32px; margin-bottom: 16px; color: #000e25;">3. Sharing Your Information</h2>
+<p style="margin-bottom: 16px; line-height: 1.6;">We do not sell, trade, or rent your personal information to third parties. We may share your information with trusted third-party service providers who assist us in operating our website, conducting our business, or servicing you, so long as those parties agree to keep this information confidential.</p>
+<h2 style="font-family: 'Outfit', sans-serif; font-size: 1.5rem; margin-top: 32px; margin-bottom: 16px; color: #000e25;">4. Data Security</h2>
+<p style="margin-bottom: 16px; line-height: 1.6;">We implement a variety of security measures to maintain the safety of your personal information. However, no electronic transmission over the internet or information storage technology can be guaranteed to be 100% secure.</p>
+<h2 style="font-family: 'Outfit', sans-serif; font-size: 1.5rem; margin-top: 32px; margin-bottom: 16px; color: #000e25;">5. Contact Us</h2>
+<p style="margin-bottom: 16px; line-height: 1.6;">If you have any questions about this Privacy Policy, please contact us at info@mankarealty.com or call us at +91 89287 70059.</p>
+
+</main><footer class="site-footer" style="background: #000e25; color: #ffffff; padding: 80px 0 30px 0; border-top: 1px solid rgba(255,255,255,0.08);">
+        <div class="section-container" style="max-width: 1240px; margin: 0 auto; padding: 0 24px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; margin-bottom: 60px;">
+                
+                <!-- Column 1: Brand Info -->
+                <div>
+                    <div style="margin-bottom: 20px;">
+                        <img src="assets/images/main-logo-light.png" alt="Manka Realty Logo" style="height: 130px; width: auto;">
+                    </div>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+                        Manka Realty is a premier real-estate consultancy with 12+ years of expertise. Built on trust, transparency, and honest service for buying, selling, and leasing properties.
+                    </p>
+                                        <h4 style="margin-bottom: 12px; font-size: 1.1rem; color: #fff; font-weight: 600;">Connect With Us</h4>
+                        <div style="display: flex; gap: 14px;">
+                        <a href="https://wa.me/918928770059" target="_blank" rel="noopener noreferrer" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); color: #25D366; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; text-decoration: none;"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/manka_realty?igsi=MWJqb2tuMnZqYmlvOA==" target="_blank" rel="noopener noreferrer" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); color: #E1306C; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; text-decoration: none;"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1KpqvyiYUR/" target="_blank" rel="noopener noreferrer" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); color: #1877F2; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; text-decoration: none;"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/company/mankarealty/posts/?viewAsMember=true" target="_blank" rel="noopener noreferrer" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); color: #0A66C2; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; text-decoration: none;"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/@mankarealty" target="_blank" rel="noopener noreferrer" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); color: #FF0000; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; text-decoration: none;"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://x.com/manka_realty" target="_blank" rel="noopener noreferrer" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; text-decoration: none;"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.threads.com/@manka_realty" target="_blank" rel="noopener noreferrer" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; text-decoration: none;"><i class="fa-brands fa-threads"></i></a>
+                        <a href="https://in.pinterest.com/mankarealty" target="_blank" rel="noopener noreferrer" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); color: #E60023; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; text-decoration: none;"><i class="fa-brands fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4 style="font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 600; color: #ffffff; margin-bottom: 20px;">Quick Links</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 12px;"><a href="/#hero" style="color: rgba(255,255,255,0.7); text-decoration: none;">Home</a></li>
+                        <li style="margin-bottom: 12px;"><a href="/about" class="nav-link" class="nav-link" style="color: rgba(255,255,255,0.7); text-decoration: none;">About Us</a></li>
+                        <li style="margin-bottom: 12px;"><a href="/#services" style="color: rgba(255,255,255,0.7); text-decoration: none;">Services</a></li>
+                        <li style="margin-bottom: 12px;"><a href="/#projects" style="color: rgba(255,255,255,0.7); text-decoration: none;">Featured Projects</a></li>
+                        
+                        <li style="margin-bottom: 12px;"><a href="/#contact" style="color: rgba(255,255,255,0.7); text-decoration: none;">Contact Us</a></li>
+                                  <li style="margin-bottom: 12px">
                 <a
-                  href="/"
-                  style="color: rgba(255, 255, 255, 0.7); text-decoration: none"
-                  >Home</a
+                  href="/privacy-policy"
+                  style="
+                    color: rgba(255, 255, 255, 0.7);
+                    text-decoration: none;
+                    transition: color 0.3s ease;
+                  "
+                  >Privacy Policy</a
                 >
               </li>
               <li style="margin-bottom: 12px">
                 <a
-                  href="/about"
-                  style="color: rgba(255, 255, 255, 0.7); text-decoration: none"
-                  >About Us</a
-                >
-              </li>
-              <li style="margin-bottom: 12px">
-                <a
-                  href="/services"
-                  style="color: rgba(255, 255, 255, 0.7); text-decoration: none"
-                  >Services</a
-                >
-              </li>
-              <li style="margin-bottom: 12px">
-                <a
-                  href="/#showcase"
-                  style="color: rgba(255, 255, 255, 0.7); text-decoration: none"
-                  >Featured Projects</a
-                >
-              </li>
-              
-              <li style="margin-bottom: 12px">
-                <a
-                  href="/contact"
-                  style="color: rgba(255, 255, 255, 0.7); text-decoration: none"
-                  >Contact Us</a
+                  href="/terms-of-service"
+                  style="
+                    color: rgba(255, 255, 255, 0.7);
+                    text-decoration: none;
+                    transition: color 0.3s ease;
+                  "
+                  >Terms of Service</a
                 >
               </li>
                           <li style="margin-bottom: 12px">
@@ -385,210 +270,56 @@
             </ul>
           </div>
           <!-- Column 3: Services -->
-          <div>
-            <h4
-              style="
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 1.3rem;
-                font-weight: 600;
-                color: #ffffff;
-                margin-bottom: 20px;
-              "
-            >
-              Our Services
-            </h4>
-            <ul style="list-style: none; padding: 0; margin: 0">
-              <li style="margin-bottom: 12px; color: rgba(255, 255, 255, 0.7)">
-                Residential Sales
-              </li>
-              <li style="margin-bottom: 12px; color: rgba(255, 255, 255, 0.7)">
-                Commercial Outright
-              </li>
-              <li style="margin-bottom: 12px; color: rgba(255, 255, 255, 0.7)">
-                Property Leasing
-              </li>
-              <li style="margin-bottom: 12px; color: rgba(255, 255, 255, 0.7)">
-                Property Management
-              </li>
-              <li style="margin-bottom: 12px; color: rgba(255, 255, 255, 0.7)">
-                Investment Advisory
-              </li>
-              <li style="margin-bottom: 12px; color: rgba(255, 255, 255, 0.7)">
-                NRI Real Estate Services
-              </li>
-            </ul>
-          </div>
-          <!-- Column 4: Contact Info -->
-          <div>
-            <h4
-              style="
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 1.3rem;
-                font-weight: 600;
-                color: #ffffff;
-                margin-bottom: 20px;
-              "
-            >
-              Get In Touch
-            </h4>
-            <div
-              style="
-                display: flex;
-                gap: 12px;
-                margin-bottom: 16px;
-                color: rgba(255, 255, 255, 0.7);
-                font-size: 0.95rem;
-              "
-            >
-              <i
-                class="fas fa-map-marker-alt"
-                style="color: #fbbf24; margin-top: 4px"
-              ></i>
-              <span>Mumbai, Maharashtra, India</span>
+                <div>
+                    <h4 style="font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 600; color: #ffffff; margin-bottom: 20px;">Our Services</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 12px; color: rgba(255,255,255,0.7);">Residential Sales</li>
+                        <li style="margin-bottom: 12px; color: rgba(255,255,255,0.7);">Commercial Outright</li>
+                        <li style="margin-bottom: 12px; color: rgba(255,255,255,0.7);">Property Leasing</li>
+                        <li style="margin-bottom: 12px; color: rgba(255,255,255,0.7);">Property Management</li>
+                        <li style="margin-bottom: 12px; color: rgba(255,255,255,0.7);">Investment Advisory</li>
+                        <li style="margin-bottom: 12px; color: rgba(255,255,255,0.7);">NRI Real Estate Services</li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact Info -->
+                <div>
+                    <h4 style="font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 600; color: #ffffff; margin-bottom: 20px;">Get In Touch</h4>
+                    <div style="display: flex; gap: 12px; margin-bottom: 16px; color: rgba(255,255,255,0.7); font-size: 0.95rem;">
+                        <i class="fas fa-map-marker-alt" style="color: #fbbf24; margin-top: 4px;"></i>
+                        <span>Mumbai, Maharashtra, India</span>
+                    </div>
+                    <div style="display: flex; gap: 12px; margin-bottom: 16px; color: rgba(255,255,255,0.7); font-size: 0.95rem;">
+                        <i class="fas fa-phone-alt" style="color: #fbbf24; margin-top: 4px;"></i>
+                        <a href="tel:+918928770059" style="color: rgba(255,255,255,0.7); text-decoration: none;">+91 89287 70059</a>
+                    </div>
+                    <div style="display: flex; gap: 12px; margin-bottom: 16px; color: rgba(255,255,255,0.7); font-size: 0.95rem;">
+                        <i class="fas fa-envelope" style="color: #fbbf24; margin-top: 4px;"></i>
+                        <a href="mailto:info@mankarealty.com" style="color: rgba(255,255,255,0.7); text-decoration: none;">info@mankarealty.com</a>
+                    </div>
+                    <div style="display: flex; gap: 12px; color: rgba(255,255,255,0.7); font-size: 0.95rem;">
+                        <i class="fas fa-clock" style="color: #fbbf24; margin-top: 4px;"></i>
+                        <span>Mon - Sat: 9:30 AM - 7:30 PM</span>
+                    </div>
+                </div>
+
             </div>
-            <div
-              style="
-                display: flex;
-                gap: 12px;
-                margin-bottom: 16px;
-                color: rgba(255, 255, 255, 0.7);
-                font-size: 0.95rem;
-              "
-            >
-              <i
-                class="fas fa-phone-alt"
-                style="color: #fbbf24; margin-top: 4px"
-              ></i>
-              <a
-                href="tel:+918928770059"
-                style="color: rgba(255, 255, 255, 0.7); text-decoration: none"
-                >+91 89287 70059</a
-              >
+
+            <!-- Bottom Copyright Bar -->
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.85rem; color: rgba(255,255,255,0.5);">
+                <div>
+                    © 2026 Manka Realty. All Rights Reserved. Built on Trust. Driven by Service.
+                </div>
+                <div style="display: flex; gap: 20px;">
+                    <a href="/about" class="nav-link" class="nav-link" style="color: rgba(255,255,255,0.5); text-decoration: none;">About Us</a>
+                    <a href="/#services" style="color: rgba(255,255,255,0.5); text-decoration: none;">Services</a>
+                    <a href="/#contact" style="color: rgba(255,255,255,0.5); text-decoration: none;">Contact</a>
+                </div>
             </div>
-            <div
-              style="
-                display: flex;
-                gap: 12px;
-                margin-bottom: 16px;
-                color: rgba(255, 255, 255, 0.7);
-                font-size: 0.95rem;
-              "
-            >
-              <i
-                class="fas fa-envelope"
-                style="color: #fbbf24; margin-top: 4px"
-              ></i>
-              <a
-                href="mailto:info@mankarealty.com"
-                style="color: rgba(255, 255, 255, 0.7); text-decoration: none"
-                >info@mankarealty.com</a
-              >
-            </div>
-            <div
-              style="
-                display: flex;
-                gap: 12px;
-                color: rgba(255, 255, 255, 0.7);
-                font-size: 0.95rem;
-              "
-            >
-              <i
-                class="fas fa-clock"
-                style="color: #fbbf24; margin-top: 4px"
-              ></i>
-              <span>Mon - Sat: 9:30 AM - 7:30 PM</span>
-            </div>
-          </div>
         </div>
-        <!-- Bottom Copyright Bar -->
-        <div
-          style="
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 24px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.5);
-          "
-        >
-          <div>
-            © 2026 Manka Realty. All Rights Reserved. Built on Trust. Driven by
-            Service.
-          </div>
-          <div style="display: flex; gap: 20px">
-            <a
-              href="/about"
-              style="color: rgba(255, 255, 255, 0.5); text-decoration: none"
-              >About Us</a
-            >
-            <a
-              href="/services"
-              style="color: rgba(255, 255, 255, 0.5); text-decoration: none"
-              >Services</a
-            >
-            <a
-              href="/contact"
-              style="color: rgba(255, 255, 255, 0.5); text-decoration: none"
-              >Contact</a
-            >
-          </div>
-        </div>
-      </div>
     </footer>
-    <!-- Sticky WhatsApp Button -->
-    <a
-      aria-label="Chat on WhatsApp"
-      class="sticky-whatsapp"
-      href="https://wa.me/918928770059"
-      target="_blank"
-    >
-      <i class="fa-brands fa-whatsapp"></i>
-    </a>
-    <!-- Main JavaScript & Database -->
     <script src="assets/js/data.js?v=1.1.0"></script>
     <script src="assets/js/ui.js?v=1.1.0"></script>
     <script src="assets/js/portal.js?v=1.1.0"></script>
-    <!-- Fullscreen SPA View Overlay -->
-    <div class="portal-overlay" id="portal-overlay">
-      <div class="overlay-header">
-        <div class="logo-wrapper">
-          <div class="logo">
-            <img
-              alt="Manka Realty Logo"
-              class="logo-image"
-              src="assets/images/menu-bar-logo-light.png"
-              style="height: 65px; width: auto; max-width: 100%;"
-            />
-          </div>
-        </div>
-        <button
-          aria-label="Close Overlay"
-          class="overlay-close-btn"
-          onclick="closePortal()"
-        >
-          <i class="fa-solid fa-xmark"></i> CLOSE  ←
-        </button>
-      </div>
-      <div class="overlay-scroll-container">
-        <div class="overlay-content-body" id="overlay-content-body">
-          <!-- Dynamic content injected here -->
-        </div>
-        <!-- Overlay Footer -->
-        <footer class="overlay-footer">
-          <img
-            alt="Manka Realty Logo"
-            src="assets/images/main-logo-light.png"
-            style="height: 90px; margin-bottom: 12px; width: auto"
-          />
-          <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem">
-            © 2026 Manka Realty. All rights reserved. | Built on Trust, Driven
-            by Service.
-          </p>
-        </footer>
-      </div>
-    </div>
-  </body>
+</body>
 </html>
