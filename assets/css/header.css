@@ -206,13 +206,15 @@
 
 /* Custom Responsive Split Logo */
 @media (max-width: 992px) {
+    /* Scale logo proportionally on mobile to keep the split-logo overlap effect */
     .logo-icon {
-        margin-top: 0 !important;
-        height: 50px !important;
+        height: 57px !important;
+        margin-top: -31px !important;
     }
     .logo-text {
-        height: 32px !important;
-        margin-left: -6px !important;
+        height: 38px !important;
+        margin-left: -18px !important;
+        margin-top: -4px !important;
     }
 }
 

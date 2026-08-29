@@ -1,0 +1,361 @@
+    <!-- Contact & Footer Section -->
+    <!-- Premium Partners & Brands CTA Banner Section -->
+        <section class="partners-banner-section" style="overflow: hidden">
+          <div class="section-container" style="max-width: 100%; padding: 0">
+            <div style="text-align: center; margin-bottom: 20px">
+              <span class="section-tag reveal">OUR ALLIANCES</span>
+              <h2 class="partners-banner-title" style="margin-bottom: 10px">
+                Authorized Partners &amp; Brands
+              </h2>
+              <p class="partners-banner-subtitle">
+                Manka Realty is proud to work alongside Mumbai's premium luxury
+                developers and leading national corporate brands.
+              </p>
+            </div>
+            <!-- Developers Marquee -->
+            <h3
+              class="text-center"
+              style="
+                margin-top: 40px;
+                margin-bottom: 20px;
+                font-family: &quot;Outfit&quot;, sans-serif;
+                font-size: 1.5rem;
+                color: #1f2937;
+              "
+            >
+              40+ Developer Partners
+            </h3>
+            <div class="marquee-container">
+              <div class="marquee-track">
+<!-- Group 1 -->
+                <div class="marquee-card">
+                  <div class="marquee-card-gradient" style="--from: #fca5a5; --via: #f87171; --to: #ef4444"></div>
+                  <img
+                    alt="Rustomjee"
+                    class="marquee-logo"
+                    loading="lazy"
+                    onerror="this.src = 'assets/images/logos_hq/prestige.png'"
+                    src="assets/images/logos_hq/rustomjee.png"
+                  />
+                  <span class="marquee-name">Rustomjee</span>
+                </div>
+                <div class="marquee-card">
+                  <div class="marquee-card-gradient" style="--from: #fca5a5; --via: #f87171; --to: #ef4444"></div>
+                  <img
+                    alt="Godrej Properties"
+                    class="marquee-logo"
+                    loading="lazy"
+                    onerror="this.src = 'assets/images/logos_hq/prestige.png'"
+                    src="assets/images/logos/logo_1.png"
+                  />
+                  <span class="marquee-name">Godrej Properties</span>
+                </div>
+                <div class="marquee-card">
+                  <div class="marquee-card-gradient" style="--from: #fca5a5; --via: #f87171; --to: #ef4444"></div>
+                  <img
+                    alt="Runwal Group"
+                    class="marquee-logo"
+                    loading="lazy"
+                    onerror="this.src = 'assets/images/logos_hq/prestige.png'"
+                    src="assets/images/logos/logo_2.png"
+                  />
+                  <span class="marquee-name">Runwal Group</span>
+                </div>
+                <div class="marquee-card">
+                  <div class="marquee-card-gradient" style="--from: #fca5a5; --via: #f87171; --to: #ef4444"></div>
+                  <img
+                    alt="Ap Properties"
+                    class="marquee-logo"
+                    loading="lazy"
+                    onerror="this.src = 'assets/images/logos_hq/prestige.png'"
+                    src="assets/images/logos/logo_3.png"
+                  />
+                  <span class="marquee-name">Ap Properties</span>
+                </div>
+                <div class="marquee-card">
+                  <div class="marquee-card-gradient" style="--from: #fca5a5; --via: #f87171; --to: #ef4444"></div>
+                  <img
+                    alt="S. Raheja Realty"
+                    class="marquee-logo"
+                    loading="lazy"
+                    onerror="this.src = 'assets/images/logos_hq/prestige.png'"
+                    src="assets/images/logos/logo_4.png"
+                  />
+                  <span class="marquee-name">S. Raheja Realty</span>
+                </div>
+                <div class="marquee-card">
+                  <div class="marquee-card-gradient" style="--from: #fca5a5; --via: #f87171; --to: #ef4444"></div>
+                  <img
+                    alt="K. Raheja Corp"
+                    class="marquee-logo"
+                    loading="lazy"
+                    onerror="this.src = 'assets/images/logos_hq/prestige.png'"
+                    src="assets/images/logos/logo_5.png"
+                  />
+                  <span class="marquee-name">K. Raheja Corp</span>
+                </div>
+                <div class="marquee-card">
+                  <div class="marquee-card-gradient" style="--from: #fca5a5; --via: #f87171; --to: #ef4444"></div>
+                  <img
+                    alt="R. Raheja Properties"
+                    class="marquee-logo"
+                    loading="lazy"
+                    onerror="this.src = 'assets/images/logos_hq/prestige.png'"
+                    src="assets/images/logos/logo_6.png"
+                  />
+                  <span class="marquee-name">R. Raheja Properties</span>
+                </div>
+                <div class="marquee-card">
+                  <div class="marquee-card-gradient" style="--from: #fca5a5; --via: #f87171; --to: #ef4444"></div>
+                  <img
+                    alt="Adani Realty"
+                    class="marquee-logo"
+                    loading="lazy"
+                    onerror="this.src = 'assets/images/logos_hq/prestige.png'"
+                    src="assets/images/logos/logo_7.png"
+                  />
+                  <span class="marquee-name">Adani Realty</span>
+                </div>
+                <div class="marquee-card">
+                  <div class="marquee-card-gradient" style="--from: #fca5a5; --via: #f87171; --to: #ef4444"></div>
+                  <img
+                    alt="Raymond Realty"
+                    class="marquee-logo"
+                    loading="lazy"
+                    onerror="this.src = 'assets/images/logos_hq/prestige.png'"
+                    src="assets/images/logos/logo_8.png"
+                  />
+                  <span class="marquee-name">Raymond Realty</span>
+                </div>
+                <div class="marquee-card">
+                  <div class="marquee-card-gradient" style="--from: #fca5a5; --via: #f87171; --to: #ef4444"></div>
+                  <img
+                    alt="Kalpataru"
+                    class="marquee-logo"
+                    loading="lazy"
+                    onerror="this.src = 'assets/images/logos_hq/prestige.png'"
+                    src="assets/images/logos/logo_9.png"
+                  />
+                  <span class="marquee-name">Kalpataru</span>
+                </div>
+                <div class="marquee-card">
+                  <div class="marquee-card-gradient" style="--from: #fca5a5; --via: #f87171; --to: #ef4444"></div>
+                  <img
+                    alt="Oberoi Realty"
+                    class="marquee-logo"
+                    loading="lazy"
+                    onerror="this.src = 'assets/images/logos_hq/prestige.png'"
+                    src="assets/images/logos/logo_10.png"
+                  />
+                  <span class="marquee-name">Oberoi Realty</span>
+                </div>
+--
+    <!-- Main Professional Footer -->
+    <footer
+      class="site-footer"
+      style="
+        background: #000e25;
+        color: #ffffff;
+        padding: 80px 0 30px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      "
+    >
+      <div
+        class="section-container"
+        style="max-width: 1240px; margin: 0 auto; padding: 0 24px"
+      >
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+          "
+        >
+          <!-- Column 1: Brand Info -->
+          <div>
+            <div style="margin-bottom: 20px">
+              <img
+                alt="Manka Realty Logo"
+                src="assets/images/logo_transparent.png"
+                style="height: 130px; width: auto"
+              />
+            </div>
+            <p
+              style="
+                color: rgba(255, 255, 255, 0.7);
+                font-size: 0.95rem;
+                line-height: 1.6;
+                margin-bottom: 24px;
+              "
+            >
+              Manka Realty is a premier real-estate consultancy with 12+ years
+              of expertise. Built on trust, transparency, and honest service for
+              buying, selling, and leasing properties.
+            </p>
+            <h4 style="margin-bottom: 12px; font-size: 1.1rem; color: #fff; font-weight: 600;">Connect With Us</h4>
+            <div style="display: flex; gap: 14px">
+              <a
+                href="https://wa.me/918928770059"
+                rel="noopener noreferrer"
+                style="
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 50%;
+                  background: rgba(255, 255, 255, 0.1);
+                  color: #25d366;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 1.3rem;
+                  text-decoration: none;
+                "
+                target="_blank"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/manka_realty?igsi=MWJqb2tuMnZqYmlvOA=="
+                rel="noopener noreferrer"
+                style="
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 50%;
+                  background: rgba(255, 255, 255, 0.1);
+                  color: #e1306c;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 1.3rem;
+                  text-decoration: none;
+                "
+                target="_blank"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.facebook.com/share/1KpqvyiYUR/"
+                rel="noopener noreferrer"
+                style="
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 50%;
+                  background: rgba(255, 255, 255, 0.1);
+                  color: #1877f2;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 1.3rem;
+                  text-decoration: none;
+                "
+                target="_blank"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/company/mankarealty/posts/?viewAsMember=true"
+                rel="noopener noreferrer"
+                style="
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 50%;
+                  background: rgba(255, 255, 255, 0.1);
+                  color: #0a66c2;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 1.3rem;
+                  text-decoration: none;
+                "
+                target="_blank"
+                ><i class="fa-brands fa-linkedin-in"></i
+              ></a>
+              <a
+                href="https://www.youtube.com/@mankarealty"
+                rel="noopener noreferrer"
+                style="
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 50%;
+                  background: rgba(255, 255, 255, 0.1);
+                  color: #ff0000;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 1.3rem;
+                  text-decoration: none;
+                "
+                target="_blank"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+              <a
+                href="https://x.com/manka_realty"
+                rel="noopener noreferrer"
+                style="
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 50%;
+                  background: rgba(255, 255, 255, 0.1);
+                  color: #ffffff;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 1.3rem;
+                  text-decoration: none;
+                "
+                target="_blank"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+--
+    </footer>
+    <!-- Sticky WhatsApp Button -->
+    <a
+      aria-label="Chat on WhatsApp"
+      class="sticky-whatsapp"
+      href="https://wa.me/918928770059"
+      target="_blank"
+    >
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <!-- Main JavaScript & Database -->
+    <script src="assets/js/data.js?v=1.1.0"></script>
+    <script src="assets/js/ui.js?v=1.1.0"></script>
+    <script src="assets/js/portal.js?v=1.1.0"></script>
+    <!-- Fullscreen SPA View Overlay -->
+    <div class="portal-overlay" id="portal-overlay">
+      <div class="overlay-header">
+        <div class="logo-wrapper">
+          <div class="logo">
+            <img
+              alt="Manka Realty Logo"
+              class="logo-image"
+              src="assets/images/logo_transparent.png"
+              style="height: 65px; width: auto; max-width: 100%;"
+            />
+          </div>
+        </div>
+        <button
+          aria-label="Close Overlay"
+          class="overlay-close-btn"
+          onclick="closePortal()"
+        >
+          <i class="fa-solid fa-xmark"></i> CLOSE  ←
+        </button>
+      </div>
+      <div class="overlay-scroll-container">
+        <div class="overlay-content-body" id="overlay-content-body">
+          <!-- Dynamic content injected here -->
+        </div>
+        <!-- Overlay Footer -->
+        <footer class="overlay-footer">
+          <img
+            alt="Manka Realty Logo"
+            src="assets/images/logo_transparent.png"
+            style="height: 90px; margin-bottom: 12px; width: auto"
+          />
+          <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem">
+            © 2026 Manka Realty. All rights reserved. | Built on Trust, Driven
+            by Service.
+          </p>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
