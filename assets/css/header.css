@@ -8,7 +8,7 @@
     background-color: #000e25; /* Dark Navy Background */
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    height: 65px;
+    /* height: 65px; handled dynamically now */
     transition: var(--transition-premium);
 }
 
@@ -185,4 +185,21 @@
 .dropdown-link.active {
     background-color: var(--brand-red) !important;
     color: #ffffff !important;
+}
+
+/* Top Bar */
+.top-bar-maharera {
+    background: linear-gradient(to right, #ffffff 0%, #f4f4f4 40%, #000e25 100%);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 6px 32px;
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+@media (max-width: 768px) {
+    .top-bar-maharera {
+        padding: 6px 16px;
+        justify-content: center;
+    }
 }
