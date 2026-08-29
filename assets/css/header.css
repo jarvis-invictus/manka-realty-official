@@ -200,21 +200,29 @@
 @media (max-width: 768px) {
     .top-bar-maharera {
         padding: 6px 16px;
-        justify-content: center;
+        justify-content: flex-end;
+        background: linear-gradient(to right, #ffffff 0%, #000e25 15%, #000e25 100%) !important;
+        font-size: 0.75rem;
     }
 }
 
 /* Custom Responsive Split Logo */
 @media (max-width: 992px) {
-    /* Scale logo proportionally on mobile to keep the split-logo overlap effect */
+    .main-header {
+        background: #000e25 !important;
+    }
+    .main-header .logo-wrapper {
+        margin-left: 0 !important;
+    }
+    /* Flatten and center the logo for mobile stability */
     .logo-icon {
-        height: 57px !important;
-        margin-top: -31px !important;
+        height: 56px !important;
+        margin-top: 0 !important;
     }
     .logo-text {
-        height: 38px !important;
+        height: 40px !important;
         margin-left: -18px !important;
-        margin-top: -4px !important;
+        margin-top: 0 !important;
     }
 }
 
