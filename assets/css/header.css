@@ -12,7 +12,7 @@
     transition: var(--transition-premium);
 }
 
-.header-container { width: 100%; max-width: 1115px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 100%; box-sizing: border-box; }
+.header-container { width: 100%; max-width: 100%; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 100%; box-sizing: border-box; }
 
 @media (min-width: 993px) {
     .nav-right {
@@ -26,7 +26,7 @@
     display: flex;
     align-items: center;
     padding: 0;
-    margin-left: 0;
+    margin-left: 5%;
     position: relative;
     z-index: 10;
 }
@@ -204,22 +204,26 @@
     }
 }
 
-/* Custom Desktop Header Background for Split Logo */
-@media (min-width: 993px) {
-    .main-header {
-        background: linear-gradient(110deg, #ffffff 0%, #ffffff 115px, #000e25 116px, #000e25 100%) !important;
-    }
-}
+/* Custom Responsive Split Logo */
 @media (max-width: 992px) {
-    .main-header {
-        background: #000e25 !important;
-    }
     .logo-icon {
         margin-top: 0 !important;
         height: 50px !important;
     }
     .logo-text {
-        height: 25px !important;
-        margin-left: 8px !important;
+        height: 32px !important;
+        margin-left: -6px !important;
+    }
+}
+
+@media (min-width: 993px) {
+    .main-header .logo-wrapper {
+        margin-left: 5%;
+    }
+}
+
+@media (min-width: 993px) {
+    .nav-menu {
+        margin-right: 12% !important;
     }
 }
