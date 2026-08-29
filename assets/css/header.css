@@ -201,8 +201,8 @@
     .top-bar-maharera {
         padding: 6px 16px;
         justify-content: flex-end;
-        background: linear-gradient(to right, #ffffff 0%, #000e25 15%, #000e25 100%) !important;
-        font-size: 0.75rem;
+        background: linear-gradient(to right, #ffffff 0%, #ffffff 25%, #000e25 50%, #000e25 100%) !important;
+        font-size: 0.70rem;
     }
 }
 
@@ -216,13 +216,13 @@
     }
     /* Flatten and center the logo for mobile stability */
     .logo-icon {
-        height: 56px !important;
-        margin-top: 0 !important;
+        height: 52px !important;
+        margin-top: -35px !important;
     }
     .logo-text {
-        height: 40px !important;
-        margin-left: -18px !important;
-        margin-top: 0 !important;
+        height: 34px !important;
+        margin-left: -14px !important;
+        margin-top: -14px !important;
     }
 }
 
