@@ -506,17 +506,7 @@
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
 }
 
-.commitment-enhanced::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, rgba(227, 6, 19, 0.15) 0%, rgba(227, 6, 19, 0) 70%);
-    border-radius: 50%;
-    z-index: 0;
-}
+
 
 .commitment-icon-wrap {
     position: absolute;
@@ -545,15 +535,7 @@
     display: inline-block;
 }
 
-.commitment-enhanced h4::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: #e30613;
-    margin-top: 12px;
-    border-radius: 2px;
-}
+
 
 .commitment-enhanced p {
     color: rgba(255, 255, 255, 0.85) !important;
